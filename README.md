@@ -1,135 +1,226 @@
-# Turborepo starter
+# PulseRank Turborepo
 
-This Turborepo starter is maintained by the Turborepo core team.
+**Advanced SEO Analytics & Competitive Intelligence Platform**
 
-## Using this example
+PulseRank is a comprehensive SEO analytics platform built with modern web technologies, providing deep insights into search engine rankings, backlink analysis, competitor research, and keyword tracking. This monorepo contains both the main application and admin dashboard.
 
-Run the following command:
+![PulseRank](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
+![Next.js](https://img.shields.io/badge/Next.js-15.1.6-black)
+![React](https://img.shields.io/badge/React-19.0.0-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-blue)
+![Prisma](https://img.shields.io/badge/Prisma-6.15.0-purple)
 
-```sh
-npx create-turbo@latest
+## 🏗️ Architecture
+
+This Turborepo monorepo includes:
+
+### Applications
+
+- **`pulserank-main`** - Main SEO analytics platform (Port 3000)
+- **`pulserank-admin`** - Admin dashboard with analytics and management tools (Port 4000)
+
+### Shared Packages
+
+- **`@repo/db`** - Shared database package with Prisma ORM
+- **`@repo/ui`** - Shared React component library
+- **`@repo/eslint-config`** - Shared ESLint configurations
+- **`@repo/typescript-config`** - Shared TypeScript configurations
+
+## ✨ Key Features
+
+### 🎯 SEO Analytics
+
+- **Campaign Management** - Multi-campaign tracking with customizable keywords
+- **SERP Analysis** - Historical ranking monitoring and comparison
+- **Domain Intelligence** - Comprehensive domain profiling and metrics
+- **Backlink Research** - Advanced backlink analysis and timeline tracking
+- **Keyword Research** - Niche discovery and competition analysis
+- **Competitive Intelligence** - Market share tracking and benchmarking
+
+### 🛠️ Admin Dashboard
+
+- **User Management** - Organization and role-based access control
+- **Billing & Subscriptions** - PayPal integration with subscription management
+- **Analytics & Reporting** - Advanced charts and data visualization
+- **System Monitoring** - API cache management and performance metrics
+
+## 🚀 Tech Stack
+
+### Frontend
+
+- **Next.js 15** - React framework with App Router
+- **React 19** - Latest React with concurrent features
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Utility-first CSS framework
+- **Radix UI** - Accessible component primitives
+- **Framer Motion** - Smooth animations
+
+### Backend & Data
+
+- **Prisma** - Type-safe database ORM
+- **PostgreSQL** - Primary database
+- **NextAuth.js** - Authentication system
+- **TanStack Query** - Server state management
+- **PayPal API** - Subscription billing
+
+### Development Tools
+
+- **Turborepo** - Monorepo build system
+- **ESLint** - Code linting
+- **Prettier** - Code formatting
+- **pnpm** - Fast package manager
+
+## 🛠️ Quick Start
+
+### Prerequisites
+
+- Node.js 18+
+- PostgreSQL database
+- PayPal API credentials (for billing)
+
+### Installation
+
+1. **Clone and install dependencies**
+
+   ```bash
+   git clone <repository-url>
+   cd pulserank-turborepo
+   pnpm install
+   ```
+
+2. **Set up environment variables**
+
+   ```bash
+   # Copy example files and configure
+   cp apps/pulserank-main/.env.example apps/pulserank-main/.env.local
+   cp apps/pulserank-admin/.env.example apps/pulserank-admin/.env.local
+   ```
+
+3. **Set up the database**
+
+   ```bash
+   pnpm db:generate
+   pnpm db:push
+   pnpm db:seed
+   ```
+
+4. **Start development servers**
+
+   ```bash
+   # Start all applications
+   pnpm dev
+
+   # Or start specific applications
+   pnpm dev --filter=pulserank-main
+   pnpm dev --filter=pulserank-admin
+   ```
+
+5. **Access applications**
+   - Main App: [http://localhost:3000](http://localhost:3000)
+   - Admin Dashboard: [http://localhost:4000](http://localhost:4000)
+
+## 📁 Project Structure
+
+```
+pulserank-turborepo/
+├── apps/
+│   ├── pulserank-main/          # Main SEO platform
+│   │   ├── src/app/            # Next.js App Router
+│   │   ├── src/components/     # React components
+│   │   ├── src/hooks/          # Custom hooks
+│   │   └── src/lib/            # Utilities
+│   └── pulserank-admin/        # Admin dashboard
+│       ├── src/app/            # Admin pages
+│       ├── src/components/     # Admin components
+│       └── src/server/         # Server-side logic
+├── packages/
+│   ├── database/               # Shared database package
+│   │   ├── prisma/            # Database schema
+│   │   └── src/               # Database utilities
+│   ├── ui/                     # Shared UI components
+│   ├── eslint-config/         # Shared ESLint configs
+│   └── typescript-config/      # Shared TypeScript configs
+└── turbo.json                  # Turborepo configuration
 ```
 
-## What's inside?
+## 🔧 Available Scripts
 
-This Turborepo includes the following packages/apps:
+```bash
+# Development
+pnpm dev                    # Start all development servers
+pnpm build                  # Build all applications
+pnpm lint                   # Lint all packages
+pnpm format                 # Format code with Prettier
 
-### Apps and Packages
+# Database
+pnpm db:generate           # Generate Prisma client
+pnpm db:migrate            # Run database migrations
+pnpm db:push               # Push schema changes
+pnpm db:studio             # Open Prisma Studio
+pnpm db:seed               # Seed database with sample data
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
+# Specific applications
+pnpm dev --filter=pulserank-main     # Start main app only
+pnpm dev --filter=pulserank-admin    # Start admin app only
+pnpm build --filter=pulserank-main   # Build main app only
 ```
 
-You can build a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+## 🌍 Internationalization
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
+Both applications support multiple languages:
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
+- **English** (en)
+- **French** (fr)
 
-### Develop
+Language files are located in `src/messages/` and automatically adapt based on user preferences.
 
-To develop all apps and packages, run the following command:
+## 🔐 Authentication & Authorization
 
-```
-cd my-turborepo
+- **NextAuth.js** integration with multiple providers
+- **Role-based access control** (Admin, User, Organization roles)
+- **Organization management** with team collaboration
+- **Secure session management** with JWT tokens
 
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
+## 💳 Billing & Subscriptions
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
+- **PayPal integration** for subscription management
+- **Multiple plan tiers** (Freelance, Studio, Agency)
+- **Usage tracking** and billing history
+- **Automated subscription management**
 
-You can develop a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+## 📊 Database Schema
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
+The application uses a comprehensive PostgreSQL schema with models for:
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
+- **Users & Organizations** - Multi-tenant architecture
+- **Campaigns & Keywords** - SEO tracking data
+- **SERP Data** - Search engine results
+- **Backlinks** - Link analysis and history
+- **Billing** - Subscription and payment tracking
+- **Caching** - API response caching system
 
-### Remote Caching
+## 🚀 Deployment
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+The applications are designed for deployment on:
 
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+- **Vercel** (recommended for Next.js)
+- **Railway** or **Supabase** (for PostgreSQL)
+- **Docker** containers
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+## 🤝 Contributing
 
-```
-cd my-turborepo
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
+## 📄 License
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
-```
+This project is licensed under the MIT License.
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+---
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+**Built with ❤️ for the SEO community**
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+_PulseRank - Your comprehensive SEO intelligence platform_
