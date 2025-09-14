@@ -1,0 +1,9 @@
+# Ensure consistent React types across the monorepo
+hoist-pattern[]=*@types/react*
+hoist-pattern[]=*@types/react-dom*
+
+# Prevent duplicate React installations
+dedupe-peer-dependents=true
+
+# Use strict peer dependencies
+strict-peer-dependencies=false

@@ -77,8 +77,24 @@ export async function PATCH(req: NextRequest) {
 export async function POST(req: NextRequest) {
   try {
     const session = await getUser();
+    console.log("🔍 Session:", session);
+    console.log("🔍 User ID:", session?.user?.id);
+
     if (!session?.user?.id) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    // Verify user exists in database
+    const userExists = await prisma.user.findUnique({
+      where: { id: session.user.id },
+    });
+    console.log("🔍 User exists:", userExists);
+
+    if (!userExists) {
+      return NextResponse.json(
+        { error: "User not found in database" },
+        { status: 404 }
+      );
     }
 
     const body = await req.json();

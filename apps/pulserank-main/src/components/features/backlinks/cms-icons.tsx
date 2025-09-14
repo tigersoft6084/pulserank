@@ -109,7 +109,7 @@ export function CmsIcon({ cms, className = "" }: CmsIconProps) {
   // If no exact match, try partial matching
   if (!cmsConfig) {
     const partialMatch = Object.keys(cmsIconMap).find(
-      (key) => normalizedCms.includes(key) || key.includes(normalizedCms),
+      (key) => normalizedCms.includes(key) || key.includes(normalizedCms)
     );
     if (partialMatch) {
       cmsConfig = cmsIconMap[partialMatch];

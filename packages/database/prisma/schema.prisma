@@ -351,7 +351,7 @@ model Plan {
 }
 
 model UserOrder {
-   id                    String   @id @default(cuid())
+  id                    String   @id @default(cuid())
   userId                String
   planId                String
   paypalSubscriptionId  String   @unique
