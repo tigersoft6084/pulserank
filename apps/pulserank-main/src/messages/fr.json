@@ -1,0 +1,2129 @@
+{
+  "languages": {
+    "en": "Anglais",
+    "fr": "Français"
+  },
+  "header": {
+    "logo": "SEObserver",
+    "rankings": "Classements",
+    "backlinks": "Backlinks",
+    "labs": "Labs",
+    "api": "API",
+    "search": "Rechercher un mot-clé...",
+    "usage": "Utilisation",
+    "language": "Langue",
+    "credit": "Vos crédits utilisés",
+    "trackingSites": "Sites de suivi",
+    "keywords": "Mots-clés",
+    "unlockedDomains": "Domaines débloqués",
+    "navigation": {
+      "rankings": {
+        "campaigns": {
+          "title": "Campagnes",
+          "description": "Mots-clés suivis"
+        },
+        "keywords": {
+          "title": "Mots-clés",
+          "description": "Ajouter des mots-clés"
+        }
+      },
+      "backlinks": {
+        "watchList": {
+          "title": "Liste de surveillance",
+          "description": "Surveiller les nouveaux backlinks des sites que vous suivez"
+        },
+        "commonBacklinks": {
+          "title": "Backlinks en commun",
+          "description": "Trouver les backlinks en commun (jusqu'à 10 sites)"
+        },
+        "expressExtraction": {
+          "title": "Extracteur de backlinks express",
+          "description": "Entrez une liste d'URLs et obtenez les 100 meilleurs backlinks pour chacune"
+        },
+        "timeline": {
+          "title": "Chronologie des backlinks",
+          "description": "Obtenir les derniers backlinks pour le mot-clé"
+        },
+        "sameIp": {
+          "title": "Vérificateur d'IP identiques",
+          "description": "Rechercher les backlinks avec la même IP"
+        },
+        "urlInfo": {
+          "title": "Info URL",
+          "description": "Afficher les informations d'une URL"
+        },
+        "all": {
+          "title": "Tous les backlinks",
+          "description": "Voir toutes les données de backlinks pour vos domaines suivis"
+        }
+      },
+      "keywords": {
+        "nicheFinder": {
+          "title": "Chercheur de niche",
+          "description": "Parcourir des millions de mots-clés pour choisir les meilleurs"
+        },
+        "competition": {
+          "title": "Vérificateur de concurrence des mots-clés",
+          "description": "Analyser la difficulté d'une SERP"
+        }
+      },
+      "labs": {
+        "compareSites": {
+          "title": "Comparaison de sites",
+          "description": "Comparer les domaines : TrustFlow, Domaines, Alexa, ..."
+        },
+        "domainProfiler": {
+          "title": "Profilage de domaine",
+          "description": "Analyser jusqu'à 1000 domaines à la fois"
+        },
+        "domainExtractor": {
+          "title": "Extracteur de domaine",
+          "description": "Extraire les meilleures opportunités"
+        },
+        "trafficMachine": {
+          "title": "Machine de trafic",
+          "description": "Qui a le plus de trafic sur ces mots-clés ?"
+        },
+        "volatilityExplorer": {
+          "title": "Explorateur de volatilité",
+          "description": "Que se passe-t-il sur les SERPs ?"
+        },
+        "websiteInterlink": {
+          "title": "Liens internes de site web",
+          "description": "Rechercher les liens entre les sites web"
+        },
+        "visibilityComparator": {
+          "title": "Comparateur de visibilité",
+          "description": "Comparer et parcourir l'historique de visibilité"
+        }
+      }
+    },
+    "navigationMenu": "Menu de navigation"
+  },
+  "footer": {
+    "contact": "Besoin d'aide ? Contactez-nous ici.",
+    "scrollToTop": "Retour en haut"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "backlinks": "Backlinks",
+    "campaigns": "Campagnes",
+    "domainextractor": "Extracteur de domaine",
+    "nichefinder": "Chercheur de niche",
+    "organic_keywords": "Mots-clés organiques",
+    "visibility_history": "Historique de visibilité",
+    "positions": "Positions",
+    "competition": "Concurrence",
+    "serp_backlinks": "Backlinks SERP",
+    "serpmachine": "Machine SERP",
+    "serps": "SERPs",
+    "trafficmachine": "Machine de trafic",
+    "volatilityexplorer": "Explorateur de volatilité",
+    "sites": "Sites",
+    "anchors": "Ancres",
+    "refdomains": "Domaines référents",
+    "top": "Meilleurs backlinks",
+    "top_pages": "Meilleures pages",
+    "topics": "Flux de confiance thématique",
+    "url_entities": "Entités d'URL",
+    "view": "Carte d'identité",
+    "backlinksincommon": "Backlinks en commun",
+    "compare": "Comparer",
+    "list_top_backlinks": "Lister les meilleurs backlinks",
+    "same_ip_checker": "Vérificateur d'IP identiques",
+    "websiteinterlink": "Liens internes de site web",
+    "websiteprofiler": "Profilage de site web",
+    "urls": "URLs",
+    "info": "Info",
+    "keywords": "Mots-clés",
+    "referring-domains": "Domaines référents",
+    "user_exports": "Exportations utilisateur",
+    "user_histories": "Historiques utilisateur",
+    "user_orders": "Commandes utilisateur",
+    "billing": "Facturation",
+    "watchlist": "Liste de surveillance"
+  },
+  "heading": {
+    "backlinks": {
+      "title": "Liste de surveillance des backlinks",
+      "description": "Derniers backlinks créés"
+    },
+    "campaigns": {
+      "title": "Campagnes",
+      "description": "Gérez vos campagnes SEO et suivez leurs performances",
+      "rankings": {
+        "title": "Classements",
+        "description": "Classements"
+      },
+      "keywords": {
+        "title": "Mots-clés",
+        "description": "Ajouter des mots-clés"
+      }
+    },
+    "domainextractor": {
+      "title": "Extracteur de domaine",
+      "description": "Extracteur de domaine"
+    },
+    "nichefinder": {
+      "title": "Chercheur de niche",
+      "description": "Chercheur de niche"
+    },
+    "organic_keywords": {
+      "title": "Mots-clés organiques",
+      "description": "Mots-clés organiques",
+      "visibility_history": {
+        "title": "Historique de visibilité",
+        "description": "Historique de visibilité"
+      }
+    },
+    "positions": {
+      "title": "Positions",
+      "description": "Positions",
+      "competition": {
+        "title": "Concurrence",
+        "description": "Concurrence"
+      },
+      "serp_backlinks": {
+        "title": "Chronologie des backlinks",
+        "description": "La liste des derniers backlinks créés sur une requête"
+      }
+    },
+    "serpmachine": {
+      "title": "Machine SERP",
+      "description": "Machine SERP"
+    },
+    "serps": {
+      "title": "SERPs",
+      "description": "SERPs",
+      "trafficmachine": {
+        "title": "Machine de trafic",
+        "description": "Machine de trafic"
+      },
+      "volatilityexplorer": {
+        "title": "Explorateur de volatilité",
+        "description": "Explorateur de volatilité"
+      }
+    },
+    "sites": {
+      "title": "Sites",
+      "description": "Sites",
+      "backlinksincommon": {
+        "title": "Lister les backlinks en commun",
+        "description": "Trouvez facilement les backlinks en commun pour une liste de sites web"
+      },
+      "compare": {
+        "title": "Comparer",
+        "description": "Comparer"
+      },
+      "list_top_backlinks": {
+        "title": "Lister les meilleurs backlinks",
+        "description": "Identifier les meilleurs backlinks pour une liste de sites"
+      },
+      "same_ip_checker": {
+        "title": "Vérificateur d'IP identiques",
+        "description": "Vérifier les IP identiques"
+      },
+      "websiteinterlink": {
+        "title": "Liens internes de site web",
+        "description": "Liens internes de site web"
+      },
+      "websiteprofiler": {
+        "title": "Profilage de site web",
+        "description": "Profilage de site web"
+      }
+    },
+    "urls": {
+      "title": "URLs",
+      "description": "URLs",
+      "anchors": {
+        "title": "Ancres",
+        "description": "Ancres"
+      },
+      "backlinks": {
+        "title": "Backlinks",
+        "description": "Backlinks"
+      },
+      "info": {
+        "title": "Info",
+        "description": "Afficher les informations d'une URL"
+      },
+      "keywords": {
+        "title": "Mots-clés",
+        "description": "Mots-clés"
+      },
+      "referring-domains": {
+        "title": "Domaines référents",
+        "description": "Domaines référents"
+      }
+    },
+    "user_exports": {
+      "title": "Exportations utilisateur",
+      "description": "Exportations utilisateur"
+    },
+    "user_histories": {
+      "title": "Historiques utilisateur",
+      "description": "Historiques utilisateur"
+    },
+    "user_orders": {
+      "title": "Commandes utilisateur",
+      "description": "Commandes utilisateur",
+      "billing": {
+        "title": "Facturation",
+        "description": "Gérer votre abonnement et voir l'historique de facturation"
+      }
+    },
+    "watchlist": {
+      "title": "Liste de surveillance",
+      "description": "Surveiller les nouveaux backlinks des sites que vous suivez"
+    }
+  },
+  "dashboard": {
+    "startTour": "Commencer la visite guidée",
+    "tour": {
+      "welcome": {
+        "title": "Bienvenue sur SEObserver",
+        "content": "Les 2 piliers de SEObserver sont l'analyse des SERPs, grâce à la SERPmachine, et l'analyse des backlinks."
+      },
+      "serpmachine": {
+        "title": "SERPmachine",
+        "content": "La SERPmachine vous permet d'identifier rapidement les changements dans la SERP pour un mot-clé donné."
+      },
+      "keywordHistory": {
+        "title": "Historique des mots-clés",
+        "content": "Entrez un mot-clé dans ce champ pour afficher l'historique des positions entre deux dates dans la SERPmachine."
+      },
+      "research": {
+        "title": "Recherche",
+        "content": "Vous pouvez accéder à la SERPmachine directement depuis ici, peu importe la page sur laquelle vous vous trouvez sur SEObserver."
+      },
+      "analyzeWebsite": {
+        "title": "Analyser un site web",
+        "content": "Vous avez la possibilité d'entrer une adresse URL pour analyser un site web instantanément, vous aurez accès à sa carte d'identité."
+      }
+    },
+    "search": {
+      "keyword": {
+        "title": "Tapez un mot-clé",
+        "placeholder": "ex : assurance auto"
+      },
+      "website": {
+        "title": "Entrez un site web",
+        "placeholder": "ex : http://www.seobserver.com"
+      },
+      "or": "ou",
+      "button": "Rechercher"
+    },
+    "history": {
+      "lastLinks": {
+        "title": "Derniers liens créés",
+        "columns": {
+          "url": "URL",
+          "anchor": "Ancre",
+          "target": "Cible",
+          "date": "Date"
+        },
+        "seeAll": "Voir tout",
+        "noLinks": "Aucun lien disponible",
+        "noLinksDescription": "Ajoutez des sites à votre liste de surveillance pour commencer à suivre l'historique des backlinks."
+      },
+      "latestSearches": {
+        "title": "Dernières recherches",
+        "columns": {
+          "idItem": "Id Item",
+          "date": "Date",
+          "activity": "Activité"
+        },
+        "pinned": "épinglé",
+        "seeAll": "Voir tout",
+        "noSearches": "Aucune recherche"
+      },
+      "seeAll": "Voir tout",
+      "noLinks": "Aucun lien disponible",
+      "noSearches": "Aucune recherche disponible"
+    }
+  },
+  "campaigns": {
+    "detailed": "Vue détaillée",
+    "compact": "Vue compacte",
+    "search": "Rechercher des campagnes...",
+    "name": "Nom",
+    "visibility": "Visibilité",
+    "sites": "Sites",
+    "created": "Créé",
+    "settings": "Paramètres",
+    "create": "Créer une nouvelle campagne",
+    "keywords": {
+      "base": "Base",
+      "keywords": "Mots-clés",
+      "keywordsPlaceholder": "Ajoutez vos mots-clés, séparés par une virgule ou un retour à la ligne.",
+      "tags": "Tags",
+      "tagsPlaceholder": "(Optionnel) Si vous voulez taguer ces mots-clés, ajoutez les tags ici, séparés par une virgule.",
+      "campaign": "Campagne",
+      "chooseCampaign": "Choisir une campagne",
+      "frequency": "Fréquence",
+      "followUpDaily": "Suivi quotidien ({remaining}/{total} mots-clés restants)",
+      "followUpXDays": "Suivi tous les {days} jours ({remaining}/{total} mots-clés restants)",
+      "importance": "Importance",
+      "importNow": "Importer les archives maintenant",
+      "importLater": "Importer les archives plus tard",
+      "followKeywords": "Suivre les mots-clés",
+      "addCampaign": "Ajouter une campagne",
+      "title": "Mots-clés",
+      "loadingCampaigns": "Chargement des campagnes...",
+      "noCampaignsFound": "Aucune campagne trouvée"
+    },
+    "namePlaceholder": "Titre de la campagne",
+    "updated": "Mis à jour",
+    "actions": "Actions",
+    "Campaign updated successfully": "Campagne mise à jour avec succès",
+    "Campaign deleted successfully": "Campagne supprimée avec succès",
+    "view": {
+      "loading": "Chargement...",
+      "notFound": "Campagne non trouvée.",
+      "tabs": {
+        "beforeAfterSite": "Avant/Après (par site)",
+        "beforeAfterKeyword": "Avant/Après (par mot-clé)",
+        "beforeAfterUrl": "Avant/Après (par url)",
+        "detailSite": "Détail (par site)",
+        "detailKeyword": "Détail (par mot-clé)",
+        "settings": "Paramètres"
+      }
+    },
+    "detailKeywordsTab": {
+      "columns": {
+        "keyword": "Mot-clé",
+        "site": "Site",
+        "cpc": "CPC",
+        "searchVolume": "Volume de recherche",
+        "properties": "Propriétés",
+        "competition": "Concurrence",
+        "interest": "Intérêt",
+        "url": "URL",
+        "best": "Meilleur"
+      }
+    },
+    "detailSitesTab": {
+      "columns": {
+        "site": "Site",
+        "keyword": "Mot-clé",
+        "cpc": "CPC",
+        "searchVolume": "Volume de recherche",
+        "properties": "Propriétés",
+        "competition": "Concurrence",
+        "interest": "Intérêt",
+        "url": "URL",
+        "best": "Meilleur"
+      }
+    },
+    "tableCards": {
+      "columns": {
+        "site": "Site",
+        "keyword": "Mot-clé",
+        "cpc": "CPC",
+        "searchVolume": "Volume de recherche",
+        "properties": "Propriétés",
+        "competition": "Concurrence",
+        "interest": "Intérêt",
+        "url": "URL",
+        "best": "Meilleur",
+        "from": "De",
+        "diff": "Diff",
+        "to": "À"
+      }
+    },
+    "summary": {
+      "filters": "Filtres",
+      "keyword tags": "Tags de mots-clés",
+      "site tags": "Tags de sites",
+      "select keyword tag": "Sélectionner un tag de mot-clé",
+      "select site tag": "Sélectionner un tag de site",
+      "all keyword tags": "Tous les tags de mots-clés",
+      "all site tags": "Tous les tags de sites",
+      "campaign summary": "Résumé de la campagne",
+      "campaign": "Campagne",
+      "keyword": "Mot-clé",
+      "domain/site/url": "Domaine/Site/URL",
+      "before": "Avant",
+      "diff": "Diff",
+      "after": "Après",
+      "no campaigns available": "Aucune campagne disponible",
+      "no data matches the selected filters": "Aucune donnée ne correspond aux filtres sélectionnés",
+      "base": "Base",
+      "searchVolume": "Volume de recherche",
+      "cpc": "CPC",
+      "competition": "Concurrence",
+      "interest": "Intérêt"
+    },
+    "detailCard": {
+      "loading": "Chargement...",
+      "settings": "Paramètres",
+      "campaignDeleted": "Campagne supprimée avec succès",
+      "error": "Erreur",
+      "mostRecent": "Plus récent",
+      "sevenDaysAgo": "Il y a 7 jours",
+      "rankRanges": {
+        "top3": "Top 3",
+        "top10": "Top 10",
+        "top20": "Top 20",
+        "top50": "Top 50",
+        "top100": "Top 100"
+      }
+    },
+    "modals": {
+      "addAlert": {
+        "title": "Ajouter une alerte email",
+        "email": "Adresse email",
+        "emailPlaceholder": "Entrez l'adresse email",
+        "frequency": "Fréquence",
+        "frequencyPlaceholder": "Sélectionnez la fréquence",
+        "frequencies": {
+          "daily": "Quotidien",
+          "weekly": "Hebdomadaire",
+          "monthly": "Mensuel"
+        },
+        "cancel": "Annuler",
+        "add": "Ajouter l'alerte",
+        "adding": "Ajout en cours...",
+        "validation": {
+          "required": "L'email est requis",
+          "invalid": "Veuillez entrer une adresse email valide"
+        },
+        "success": "Alerte email ajoutée avec succès"
+      },
+      "addKeyword": {
+        "title": "Ajouter des mots-clés",
+        "keywords": "Mots-clés",
+        "keywordsPlaceholder": "Entrez les mots-clés, séparés par une virgule ou un retour à la ligne",
+        "base": "Base",
+        "tags": "Tags (optionnel)",
+        "tagsPlaceholder": "Entrez les tags, séparés par une virgule",
+        "frequency": "Fréquence (jours)",
+        "frequencies": {
+          "daily": "Quotidien",
+          "every2Days": "Tous les 2 jours",
+          "weekly": "Hebdomadaire",
+          "every2Weeks": "Toutes les 2 semaines",
+          "monthly": "Mensuel"
+        },
+        "cancel": "Annuler",
+        "add": "Ajouter les mots-clés",
+        "adding": "Ajout en cours...",
+        "validation": {
+          "required": "Les mots-clés sont requis"
+        },
+        "success": "Mot(s)-clé(s) ajouté(s) avec succès"
+      },
+      "addSite": {
+        "title": "Ajouter des sites",
+        "sites": "Sites",
+        "sitesPlaceholder": "Entrez les URLs des sites, séparées par une virgule ou un retour à la ligne",
+        "tags": "Tags (optionnel)",
+        "tagsPlaceholder": "Entrez les tags, séparés par une virgule",
+        "cancel": "Annuler",
+        "add": "Ajouter les sites",
+        "adding": "Ajout en cours...",
+        "validation": {
+          "required": "Les sites sont requis"
+        },
+        "success": "Sites ajoutés avec succès",
+        "explanation": {
+          "title": "Vous pouvez suivre 3 types de ressources différentes :",
+          "domain": "domain.com - suivre n'importe quelle page d'un domaine",
+          "subdomain": "subdomain.domain.com - suivre n'importe quelle page d'un sous-domaine spécifique",
+          "page": "http://domain.com/page - suivre une page spécifique"
+        }
+      },
+      "campaignKeywordsDetail": {
+        "title": "Détail des mots-clés - {campaignName}",
+        "columns": {
+          "keyword": "Mot-clé",
+          "site": "Site",
+          "before": "Avant",
+          "diff": "Diff",
+          "after": "Après",
+          "trafficBefore": "Trafic avant",
+          "trafficAfter": "Trafic après",
+          "searchVolume": "Volume de recherche",
+          "cpc": "CPC",
+          "competition": "Concurrence"
+        },
+        "noData": "Aucune donnée de classement disponible",
+        "serpMachine": "Machine SERP"
+      },
+      "deleteCampaign": {
+        "title": "Êtes-vous absolument sûr ?",
+        "description": "Cette action ne peut pas être annulée. Cela supprimera définitivement votre campagne et supprimera vos données de nos serveurs.",
+        "cancel": "Annuler",
+        "delete": "Supprimer",
+        "deleting": "Suppression en cours..."
+      },
+      "rankingHistory": {
+        "title": "Historique des classements : {keyword} - {site}",
+        "columns": {
+          "country": "Pays",
+          "searchVolume": "Volume de recherche",
+          "cpc": "CPC",
+          "competition": "Concurrence"
+        },
+        "chart": {
+          "rank": "Classement",
+          "noData": "Aucune donnée de classement disponible pour cette période"
+        },
+        "summary": {
+          "title": "Résumé des classements :",
+          "bestRank": "Meilleur classement :",
+          "worstRank": "Pire classement :",
+          "averageRank": "Classement moyen :",
+          "dataPoints": "Points de données :"
+        }
+      }
+    },
+    "tagFilters": {
+      "keywordTagsPlaceholder": "Tags de mots-clés",
+      "allKeywordTags": "Tous les tags de mots-clés",
+      "siteTagsPlaceholder": "Tags de sites",
+      "allSiteTags": "Tous les tags de sites"
+    },
+    "alertsSection": {
+      "title": "Alertes",
+      "addEmailAlert": "Ajouter une alerte email",
+      "columns": {
+        "email": "Email",
+        "frequency": "Fréquence",
+        "created": "Créé",
+        "actions": "Actions"
+      },
+      "noAlerts": "Aucune alerte",
+      "success": "Alerte supprimée avec succès"
+    },
+    "followedKeywordsSection": {
+      "title": "Mots-clés suivis",
+      "addKeyword": "Ajouter un mot-clé",
+      "columns": {
+        "keyword": "Mot-clé",
+        "volume": "Volume",
+        "cpc": "CPC",
+        "competition": "Concurrence",
+        "base": "Base",
+        "tags": "Tags",
+        "freq": "Fréq",
+        "created": "Créé",
+        "actions": "Actions"
+      },
+      "noKeywords": "Aucun mot-clé",
+      "success": "Mot-clé supprimé avec succès"
+    },
+    "trackedSitesSection": {
+      "title": "Sites suivis",
+      "addSite": "Ajouter un site",
+      "columns": {
+        "url": "Url",
+        "type": "Type",
+        "tags": "Tags",
+        "created": "Créé",
+        "actions": "Actions"
+      },
+      "noSites": "Aucun site",
+      "success": "Site supprimé avec succès"
+    },
+    "error loading campaigns": "Erreur lors du chargement des campagnes",
+    "retry": "Réessayer",
+    "no campaigns found matching your search": "Aucune campagne trouvée correspondant à votre recherche",
+    "no campaigns yet": "Pas encore de campagnes",
+    "noData": "Aucune donnée disponible",
+    "showDetailColumns": "Afficher les colonnes détaillées"
+  },
+  "backlinksTimeline": {
+    "title": "Chronologie des backlinks",
+    "description": "Obtenir les derniers backlinks pour le mot-clé",
+    "form": {
+      "urlPlaceholder": "Entrez l'URL à analyser"
+    },
+    "tabs": {
+      "overview": "Vue d'ensemble",
+      "newLost": "Nouveaux/Perdus backlinks",
+      "trustFlow": "Trust Flow"
+    },
+    "overview": {
+      "title": "Historique des backlinks",
+      "chart": {
+        "totalBacklinks": "Total des backlinks",
+        "uniqueDomains": "Domaines uniques"
+      }
+    },
+    "newLost": {
+      "newBacklinks": "Nouveaux backlinks",
+      "lostBacklinks": "Backlinks perdus",
+      "trustFlow": "Trust Flow"
+    },
+    "trustFlow": {
+      "trustMetrics": "Métriques de confiance",
+      "topicalTrustFlow": "Trust Flow thématique",
+      "trustFlow": "TrustFlow",
+      "citationFlow": "CitationFlow",
+      "trustRatio": "Ratio de confiance"
+    },
+    "errors": {
+      "loading": "Erreur lors du chargement des données de backlinks. Veuillez réessayer."
+    }
+  },
+  "watchlist": {
+    "title": "Liste de surveillance",
+    "description": "Surveiller les nouveaux backlinks des sites que vous suivez",
+    "header": {
+      "following": "Vous suivez actuellement {current} site sur un total de {max}",
+      "followingPlural": "Vous suivez actuellement {current} sites sur un total de {max}"
+    },
+    "explanation": {
+      "title": "Explication",
+      "description": "Ci-dessous sont listées les urls que vous suivez : tous les nouveaux backlinks de chaque url sont <automaticretrieval>récupérés automatiquement</automaticretrieval> quotidiennement et peuvent être affichés dans la vue globale des <backlinksview>backlinks</backlinksview>.",
+      "backlinksLink": "backlinks",
+      "deleteWarning": "Si vous supprimez une url ci-dessous, <nomoreavailable>vous ne pourrez plus voir automatiquement ses nouveaux backlinks</nomoreavailable>, et un emplacement sera libéré. Vous pourrez donc remplacer ce site par un autre.",
+      "addInstruction": "Pour ajouter un site web ou un domaine, allez sur sa carte d'identité, déverrouillez-la puis cliquez sur l'onglet \"Ajouter à la liste de surveillance\"."
+    },
+    "table": {
+      "title": "URLs que vous suivez",
+      "columns": {
+        "url": "URL",
+        "type": "Type",
+        "created": "Créé",
+        "emailAlerts": "Alertes email",
+        "actions": "Actions"
+      },
+      "noData": "Aucune URL dans la liste de surveillance",
+      "emailAlertsYes": "Oui",
+      "emailAlertsNo": "Non",
+      "delete": "Supprimer",
+      "stopFollowing": "Arrêter de suivre",
+      "stopFollowingMultiple": "Arrêter de suivre plusieurs sites",
+      "confirmDelete": "Êtes-vous sûr de vouloir arrêter de suivre \"{url}\" ? Vous ne pourrez plus voir automatiquement ses nouveaux backlinks.",
+      "confirmBulkDelete": "Êtes-vous sûr de vouloir arrêter de suivre {count} site(s) ? Vous ne pourrez plus voir automatiquement leurs nouveaux backlinks.",
+      "cancel": "Annuler",
+      "stopFollowingAll": "Arrêter de tout suivre"
+    },
+    "pagination": {
+      "page": "Page {current} sur {total}, {count} lignes sur un total de {totalCount}, de {start} à {end}"
+    },
+    "backlinksView": "vue des backlinks"
+  },
+  "backlinksInCommon": {
+    "title": "Backlinks en commun",
+    "description": "Rechercher les backlinks communs pour une liste de sites",
+    "form": {
+      "label": "Liste",
+      "placeholder": "Collez une liste d'URLs, séparées par un retour à la ligne (format : www.example.com uniquement)",
+      "submit": "Rechercher les backlinks",
+      "maxSites": "(max : {max} sites)"
+    },
+    "validation": {
+      "empty": "Veuillez saisir au moins une URL",
+      "tooMany": "Maximum {max} sites autorisés. Vous avez saisi {count}",
+      "invalidFormat": "Ligne {line}: \"{url}\" - Format invalide. Utilisez le format: www.example.com",
+      "success": "Validation réussie ! {count} URLs valides trouvées"
+    },
+    "backlinksInCommonResults": {
+      "title": "Résultats des backlinks en commun",
+      "table": {
+        "domain": "Domaine",
+        "refDomains": "Domaines de référence",
+        "trustFlow": "TrustFlow",
+        "citationFlow": "CitationFlow",
+        "alexaRank": "Classement Alexa",
+        "matches": "Correspondances"
+      },
+      "loading": "Validation en cours...",
+      "error": "Erreur lors du chargement des données de backlinks. Veuillez réessayer.",
+      "noData": "Aucun backlink en commun trouvé pour les domaines fournis."
+    },
+    "detailModal": {
+      "title": "Détails des backlinks - {refdomain} → {item}",
+      "columns": {
+        "url": "URL",
+        "anchor": "Ancre",
+        "type": "Type",
+        "tf": "TF",
+        "cf": "CF",
+        "lastSeen": "Dernière vue",
+        "theme": "Thème"
+      },
+      "noData": "Aucun backlink trouvé pour les paramètres spécifiés.",
+      "error": "Erreur lors du chargement des données de backlinks. Veuillez réessayer."
+    }
+  },
+  "listTopBacklinks": {
+    "title": "Liste des meilleurs backlinks",
+    "description": "Obtenez les meilleurs backlinks pour une liste de sites",
+    "form": {
+      "label": "Liste",
+      "placeholder": "Collez une liste d'URLs, séparées par un retour à la ligne (format : www.example.com uniquement)",
+      "submit": "Rechercher les backlinks",
+      "maxSites": "(max : {max} sites)"
+    },
+    "validation": {
+      "empty": "Veuillez saisir au moins une URL",
+      "tooMany": "Maximum {max} sites autorisés. Vous avez saisi {count}",
+      "invalidFormat": "Ligne {line}: \"{url}\" - Format invalide. Utilisez le format: www.example.com",
+      "success": "Validation réussie ! {count} URLs valides trouvées"
+    },
+    "listTopBacklinksResults": {
+      "title": "Résultats des meilleurs backlinks",
+      "table": {
+        "sourceUrl": "URL source",
+        "anchor": "Ancre",
+        "flag": "Drapeau",
+        "domain": "Domaine",
+        "lastSeen": "Dernière vue",
+        "tf": "TF"
+      },
+      "loading": "Validation en cours...",
+      "error": "Erreur lors du chargement des données de backlinks. Veuillez réessayer.",
+      "noData": "Aucun meilleur backlink trouvé pour les domaines fournis."
+    }
+  },
+  "websiteInterlink": {
+    "title": "Liens entre sites web",
+    "description": "Rechercher les liens entre sites web",
+    "form": {
+      "urls": "URLs",
+      "placeholder": "Placez une liste d'URLs, séparées par un retour à la ligne (format : www.example.com uniquement)",
+      "datasource": "Source de données",
+      "options": "Options",
+      "submit": "Analyser jusqu'à 10 domaines",
+      "reset": "Réinitialiser",
+      "fresh": "Récent",
+      "historic": "Historique",
+      "dontIncludeClosetIps": "Ne pas inclure les IPs proches",
+      "includeClosetIps": "Inclure les IPs proches",
+      "checkOnlyFirstWebsite": "Vérifier uniquement le premier site web"
+    },
+    "validation": {
+      "empty": "Veuillez saisir au moins une URL",
+      "tooMany": "Maximum {max} sites autorisés. Vous avez saisi {count}",
+      "invalidFormat": "Ligne {line}: \"{url}\" - Format invalide. Utilisez le format: www.example.com"
+    },
+    "table": {
+      "columns": {
+        "url": "URL",
+        "linksFromOther": "Liens depuis autres",
+        "ip": "IP",
+        "refDomains": "Domaines de réf",
+        "backLinks": "Backlinks",
+        "refIPs": "IPs de réf",
+        "tf": "TF",
+        "cf": "CF",
+        "percentage": "Pourcentage",
+        "theme": "Thème",
+        "actions": "Actions"
+      },
+      "noData": "Aucune donnée de liens trouvée pour les domaines fournis.",
+      "title": "Résultats des liens entre sites web",
+      "errorLoading": "Erreur lors du chargement des données de liens. Veuillez réessayer."
+    },
+    "detailModal": {
+      "title": "Détails des liens - {url}",
+      "columns": {
+        "source": "Source",
+        "target": "Cible",
+        "anchor": "Ancre",
+        "type": "Type",
+        "tf": "TF",
+        "cf": "CF",
+        "lastCrawl": "Dernier crawl",
+        "theme": "Thème"
+      },
+      "noData": "Aucun détail de lien trouvé pour l'URL spécifiée.",
+      "error": "Erreur lors du chargement des détails des liens. Veuillez réessayer."
+    }
+  },
+  "sitesCompare": {
+    "title": "Comparer les sites",
+    "description": "Comparer les métriques de plusieurs sites",
+    "form": {
+      "placeholder": "Collez une liste d'URLs, séparées par un retour à la ligne (format : www.example.com uniquement)",
+      "submit": "Comparer les sites",
+      "maxSites": "(max : {max} sites)"
+    },
+    "validation": {
+      "empty": "Veuillez saisir au moins une URL",
+      "tooMany": "Maximum {max} sites autorisés. Vous avez saisi {count}",
+      "invalidFormat": "Ligne {line}: \"{url}\" - Format invalide. Utilisez le format: www.example.com",
+      "success": "Validation réussie ! {count} URLs valides trouvées"
+    },
+    "cardTitle": "Résultats de comparaison des sites",
+    "errorLoading": "Erreur lors du chargement des données de comparaison. Veuillez réessayer.",
+    "noData": "Aucune donnée de comparaison trouvée pour les sites fournis.",
+    "table": {
+      "noData": "Aucune donnée de comparaison disponible.",
+      "columns": {
+        "metric": "Métrique",
+        "pr": "PR",
+        "alexaRank": "Classement Alexa",
+        "refDomains": "Domaines de réf",
+        "extBackLinks": "Backlinks ext",
+        "refIPs": "IPs de réf",
+        "refSubNets": "Sous-réseaux de réf",
+        "citationFlow": "CitationFlow",
+        "trustFlow": "TrustFlow",
+        "topicalTrustFlow": "TrustFlow thématique"
+      }
+    }
+  },
+  "sameIpChecker": {
+    "title": "Vérificateur d'IP identiques",
+    "description": "Rechercher les backlinks avec la même IP",
+    "form": {
+      "domain": "Domaine",
+      "domainPlaceholder": "Entrez un domaine ou sous-domaine (format : www.example.com UNIQUEMENT)",
+      "dataSource": "Source de données",
+      "fresh": "Récent",
+      "historic": "Historique",
+      "reset": "Réinitialiser",
+      "analyze": "Analyser",
+      "analyzing": "Analyse en cours..."
+    },
+    "alert": {
+      "recommendation": "Nous recommandons de vérifier cette IP : {ip} (car certains domaines ont plusieurs IPs ou celui-ci l'a changée récemment)."
+    },
+    "results": {
+      "title": "Résultats du vérificateur d'IP identiques",
+      "summary": "Trouvé {count} domaines avec {searchType} utilisant les données {dataSource} ({sameIP} même IP, {sameSubnet} même sous-réseau)",
+      "filtered": "(filtré : {filterType})",
+      "filterByType": "Filtrer par type :",
+      "all": "Tous ({count})",
+      "sameIp": "Même IP ({count})",
+      "sameSubnet": "Même sous-réseau ({count})"
+    },
+    "originalDomain": {
+      "domain": "Domaine :",
+      "ip": "IP :",
+      "trustFlow": "Trust Flow :",
+      "citationFlow": "Citation Flow :"
+    },
+    "table": {
+      "columns": {
+        "domain": "Domaine",
+        "type": "Type",
+        "ip": "IP",
+        "refDomains": "Domaines de réf",
+        "backlinks": "Backlinks",
+        "tf": "TF",
+        "cf": "CF",
+        "percentage": "%",
+        "theme": "Thème"
+      },
+      "sameIp": "Même IP",
+      "sameSubnet": "Même sous-réseau",
+      "unknown": "Inconnu",
+      "viewSiteDetails": "Voir les détails du site"
+    },
+    "errors": {
+      "loading": "Erreur lors du chargement des données d'IP. Veuillez réessayer.",
+      "noDomains": "Aucun domaine trouvé avec la même adresse IP.",
+      "noFilteredResults": "Aucun domaine trouvé correspondant aux critères de filtrage sélectionnés."
+    }
+  },
+  "websiteProfiler": {
+    "title": "Profileur de site web",
+    "description": "Analyser les sites web avec des métriques complètes",
+    "form": {
+      "urls": "Sites",
+      "placeholder": "Placez une liste d'URLs, de sites ou de domaines, séparés par un retour à la ligne (format : https://example.com, www.example.com, ou example.com)",
+      "category": "Catégorie",
+      "datasource": "Source de données",
+      "view": "Voir",
+      "submit": "Analyser jusqu'à 100 sites",
+      "reset": "Réinitialiser"
+    },
+    "validation": {
+      "empty": "Veuillez saisir au moins une URL",
+      "tooMany": "Maximum {max} sites autorisés. Vous avez saisi {count}",
+      "invalidFormat": "Ligne {line}: \"{url}\" - Format invalide. Utilisez une URL (https://example.com), un site (www.example.com), ou un domaine (example.com)"
+    },
+    "views": {
+      "compact": "compact",
+      "detailed": "détaillé",
+      "competition": "concurrence",
+      "crawl": "crawl"
+    },
+    "categories": {
+      "auto": "auto",
+      "domain": "domaine",
+      "site": "site",
+      "url": "url"
+    },
+    "datasources": {
+      "fresh": "récent",
+      "historic": "historique"
+    },
+    "compactView": {
+      "title": "Vue compacte"
+    },
+    "competitionView": {
+      "title": "Vue concurrence",
+      "summary": {
+        "refDomainMini": "RefDomain mini",
+        "trustFlowMini": "TrustFlow mini"
+      },
+      "columns": {
+        "url": "Url",
+        "rootDomain": "Domaine racine",
+        "semrushDomain": "Domaine SEMrush"
+      },
+      "compare": {
+        "placeholder": "Entrez l'URL à comparer (ex : example.com)",
+        "button": "Comparer l'URL",
+        "comparing": "Comparaison en cours...",
+        "clear": "Effacer",
+        "success": "✓ Résultats de comparaison ajoutés au tableau ci-dessus",
+        "error": "Erreur",
+        "invalidUrl": "Veuillez entrer une URL valide",
+        "noData": "Aucune donnée trouvée pour cette URL",
+        "failed": "Échec de l'analyse de l'URL. Veuillez réessayer."
+      }
+    },
+    "crawlView": {
+      "title": "Vue crawl"
+    },
+    "table": {
+      "noData": "Aucune donnée disponible",
+      "columns": {
+        "url": "URL",
+        "refDomains": "Domaines de réf",
+        "backLinks": "BackLinks",
+        "refIPs": "IPs de réf",
+        "refSubnets": "Sous-réseaux de réf",
+        "trustFlow": "Trust Flow",
+        "citationFlow": "Citation Flow",
+        "percentage": "Pourcentage",
+        "theme": "Thème",
+        "status": "Statut",
+        "lastCrawlResult": "Dernier résultat de crawl",
+        "lastCrawlDate": "Dernière date de crawl",
+        "lastSeen": "Dernière vue",
+        "tf": "TF",
+        "cf": "CF",
+        "percent": "%"
+      },
+      "viewSiteDetails": "Voir les détails du site"
+    },
+    "detailedView": {
+      "tooltips": {
+        "viewSiteDetails": "Voir les détails du site"
+      },
+      "sections": {
+        "metrics": "Métriques",
+        "keywords": "Mots-clés (domain.com)",
+        "anchors": "Ancres",
+        "topBacklinks": "Meilleurs backlinks"
+      },
+      "metrics": {
+        "theme": "Thème :",
+        "tfCf": "TF/CF (%) :",
+        "refDomains": "Domaines de réf :",
+        "refIPs": "IPs de réf (Sous-réseaux de réf) :",
+        "backlinks": "Backlinks :"
+      },
+      "noData": {
+        "keywords": "Aucune donnée de mots-clés",
+        "anchors": "Aucune donnée d'ancre",
+        "backlinks": "Aucune donnée de backlink"
+      }
+    }
+  },
+  "domainLayout": {
+    "tabs": {
+      "offlineData": "Données hors ligne",
+      "backlinksHistory": "Historique des backlinks",
+      "topBacklinks": "Meilleurs backlinks",
+      "anchors": "Ancres",
+      "domains": "Domaines",
+      "topical": "Thématique",
+      "content": "Contenu",
+      "urlEntities": "Entités d'URL",
+      "topPages": "Meilleures pages"
+    },
+    "identityCard": "Carte d'identité",
+    "keywords": "Mots-clés"
+  },
+  "domainTopBacklinks": {
+    "title": "Meilleurs backlinks",
+    "description": "Voir les données détaillées des meilleurs backlinks pour un domaine",
+    "columns": {
+      "sourceUrl": "URL source",
+      "anchor": "Ancre",
+      "keywords": "Mots-clés",
+      "googleIndex": "Index Google",
+      "flag": "Drapeau",
+      "lastSeen": "Dernière vue",
+      "tf": "TF"
+    },
+    "noData": "Aucun meilleur backlink trouvé pour ce domaine.",
+    "error": "Erreur lors du chargement des données des meilleurs backlinks. Veuillez réessayer."
+  },
+  "domainTopPages": {
+    "title": "Meilleures pages",
+    "description": "Voir les données détaillées des meilleures pages pour un domaine",
+    "columns": {
+      "titleAndUrl": "Titre et URL",
+      "trustFlow": "TrustFlow",
+      "citationFlow": "CitationFlow",
+      "refDomains": "Domaines de réf",
+      "refIPs": "IPs de réf",
+      "topicalTrustFlow": "Thème",
+      "keywords": "Mots-clés",
+      "lastCrawlResult": "Dernier résultat de crawl",
+      "lastCrawlDate": "Dernière date de crawl"
+    },
+    "noData": "Aucune meilleure page trouvée pour ce domaine.",
+    "error": "Erreur lors du chargement des données des meilleures pages. Veuillez réessayer."
+  },
+  "domainTopics": {
+    "title": "Thèmes pour {domain}",
+    "description": "Voir les thèmes et leurs domaines de référence pour ce domaine",
+    "table": {
+      "topic": "Thème",
+      "referringDomains": "Domaines de référence"
+    },
+    "noData": "Aucun thème trouvé pour {domain}.",
+    "error": "Erreur lors du chargement des données des thèmes : {message}"
+  },
+  "domainAnchors": {
+    "title": "Texte d'ancre pour {domain}",
+    "description": "Voir la distribution et les métriques du texte d'ancre pour ce domaine",
+    "stats": {
+      "totalBacklinks": "Total des backlinks",
+      "totalRefDomains": "Total des domaines de réf",
+      "uniqueAnchors": "Ancres uniques"
+    },
+    "table": {
+      "anchor": "Ancre",
+      "refDomains": "Domaines de réf",
+      "totalLinks": "Total des liens",
+      "nofollow": "Nofollow"
+    },
+    "loading": "Chargement des données d'ancre pour {domain}...",
+    "error": "Erreur lors du chargement des données d'ancre. Veuillez réessayer.",
+    "noData": "Aucune donnée d'ancre trouvée pour \"{domain}\".",
+    "emptyAnchorText": "[Texte d'ancre vide]"
+  },
+  "domainKeywords": {
+    "title": "Mots-clés pour {domain}",
+    "description": "Voir les classements et métriques des mots-clés pour ce domaine",
+    "tabs": {
+      "semrushUrl": "Mots-clés SEMrush par URL",
+      "semrushGross": "Mots-clés SEMrush (brut)",
+      "serpmachine": "Mots-clés SERPmachine",
+      "serpmachineUrl": "Mots-clés SERPmachine par URL",
+      "archives": "Archives"
+    },
+    "controls": {
+      "searchPlaceholder": "Rechercher des mots-clés...",
+      "serpmachineTitle": "Mots-clés SERPmachine"
+    },
+    "table": {
+      "keyword": "Mot-clé",
+      "position": "Position",
+      "traffic": "Trafic",
+      "trafficCost": "Coût du trafic",
+      "volume": "Volume",
+      "cpc": "CPC",
+      "competition": "Concurrence",
+      "rankingUrl": "URL de classement",
+      "url": "URL",
+      "keywords": "Mots-clés",
+      "title": "Titre",
+      "refDomain": "Domaine de réf",
+      "trust": "Confiance"
+    },
+    "actions": {
+      "competitionChecker": "Vérificateur de concurrence",
+      "serpMachine": "SERP Machine"
+    },
+    "pagination": {
+      "showing": "Affichage",
+      "to": "à",
+      "of": "sur",
+      "results": "résultats",
+      "page": "Page {current} sur {total}"
+    },
+    "countries": {
+      "us": "États-Unis",
+      "uk": "Royaume-Uni",
+      "ca": "Canada",
+      "ru": "Russie",
+      "de": "Allemagne",
+      "fr": "France",
+      "es": "Espagne",
+      "it": "Italie",
+      "br": "Brésil",
+      "au": "Australie"
+    },
+    "loading": "Chargement des données de mots-clés...",
+    "error": "Erreur lors du chargement des données : {message}",
+    "noData": "Aucun mot-clé trouvé pour ce domaine.",
+    "noSerpData": "Aucun mot-clé SERPmachine trouvé pour ce domaine.",
+    "comingSoon": {
+      "semrushUrl": "Mots-clés SEMrush par URL - Bientôt disponible",
+      "serpmachineUrl": "Mots-clés SERPmachine par URL - Bientôt disponible",
+      "archives": "Archives - Bientôt disponible"
+    },
+    "serpMachineKeywords": "Mots-clés SERPmachine"
+  },
+  "domainReferringDomains": {
+    "title": "Domaines de référence pour {domain}",
+    "description": "Voir les domaines de référence et leurs métriques pour ce domaine",
+    "filters": {
+      "advancedFilters": "Filtres avancés",
+      "addFilter": "Ajouter un filtre",
+      "clearFilters": "Effacer les filtres",
+      "filter": "Filtrer",
+      "valuePlaceholder": "Valeur"
+    },
+    "fields": {
+      "domain": "Domaine",
+      "matchedLinks": "Liens correspondants",
+      "refDomains": "Domaines de réf",
+      "alexaRank": "Classement Alexa",
+      "ip": "IP",
+      "countryCode": "Pays",
+      "tld": "TLD",
+      "trustFlow": "TrustFlow",
+      "citationFlow": "CitationFlow",
+      "thematic": "Thématique",
+      "lastCrawl": "Dernier crawl"
+    },
+    "operators": {
+      "numberEqualTo": "Égal à",
+      "numberGreaterThan": "Supérieur à",
+      "numberLessThan": "Inférieur à",
+      "stringEqualTo": "Égal à",
+      "stringNotEqualTo": "Différent de"
+    },
+    "table": {
+      "domain": "Domaine",
+      "matchedLinks": "Liens correspondants",
+      "refDomains": "Domaines de réf",
+      "alexaRank": "Classement Alexa",
+      "ip": "IP",
+      "country": "Pays",
+      "tld": "TLD",
+      "tf": "TF",
+      "cf": "CF",
+      "percentage": "%",
+      "theme": "Thème",
+      "lastCrawl": "Dernier crawl"
+    },
+    "pagination": {
+      "showing": "Affichage",
+      "to": "à",
+      "of": "sur",
+      "results": "résultats"
+    },
+    "loading": "Chargement des domaines de référence pour {domain}...",
+    "error": "Erreur lors du chargement des domaines de référence. Veuillez réessayer.",
+    "noData": "Aucun domaine de référence trouvé pour \"{domain}\".",
+    "noDomain": "Aucun domaine spécifié"
+  },
+  "domainBacklinks": {
+    "title": "Backlinks pour {domain}",
+    "description": "Voir les nouveaux backlinks et les backlinks perdus pour ce domaine",
+    "tabs": {
+      "newBacklinks": "Nouveaux backlinks",
+      "lostBacklinks": "Backlinks perdus"
+    },
+    "table": {
+      "url": "URL",
+      "cms": "CMS",
+      "anchor": "Ancre",
+      "flags": "Drapeaux",
+      "targetUrl": "URL cible",
+      "ip": "IP",
+      "tf": "TF",
+      "cf": "CF",
+      "percentage": "Pourcentage",
+      "foundDate": "Date de découverte",
+      "seen": "Vu",
+      "backlinkLeft": "Backlink restant",
+      "lastCrawl": "Dernier crawl"
+    },
+    "refreshNew": "Actualiser nouveaux",
+    "refreshLost": "Actualiser perdus",
+    "error": "Erreur lors du chargement des données de backlinks. Veuillez réessayer.",
+    "noNewBacklinks": "Aucun nouveau backlink trouvé pour ce domaine. Ajoutez à la liste de surveillance pour voir les résultats en temps réel.",
+    "noLostBacklinks": "Aucun backlink perdu trouvé pour ce domaine.",
+    "noDomain": "Aucun domaine spécifié",
+    "refDomainsModal": {
+      "title": "Backlinks restants - {refDomain} → {domain}",
+      "columns": {
+        "url": "URL",
+        "anchor": "Ancre",
+        "type": "Type",
+        "tf": "TF",
+        "cf": "CF",
+        "lastSeen": "Dernière vue",
+        "theme": "Thème"
+      },
+      "noData": "Aucun backlink trouvé pour les paramètres spécifiés.",
+      "error": "Erreur lors du chargement des données de backlinks. Veuillez réessayer."
+    },
+    "pagination": {
+      "showing": "Affichage",
+      "to": "à",
+      "of": "sur",
+      "results": "résultats"
+    },
+    "newBacklinksDescription": "Vous voyez les anciennes données ? Ajoutez à la liste de surveillance pour voir l'historique des backlinks en temps réel de ce site."
+  },
+  "backlinks": {
+    "title": "Tous les backlinks",
+    "description": "Voir toutes les données de backlinks pour vos domaines suivis",
+    "table": {
+      "type": "Type",
+      "domain": "Domaine",
+      "url": "URL",
+      "cms": "CMS",
+      "anchor": "Ancre",
+      "flags": "Drapeaux",
+      "targetUrl": "URL cible",
+      "ip": "IP",
+      "tf": "TF",
+      "cf": "CF",
+      "percentage": "Pourcentage",
+      "foundDate": "Date de découverte"
+    },
+    "error": "Erreur lors du chargement des données de backlinks. Veuillez réessayer.",
+    "noBacklinks": "Aucun backlink trouvé pour vos domaines suivis.",
+    "pagination": {
+      "showing": "Affichage",
+      "to": "à",
+      "of": "sur",
+      "results": "résultats"
+    }
+  },
+  "identityCard": {
+    "title": "Aperçu du domaine pour {domain}",
+    "description": "Analyse complète et métriques du domaine",
+    "cards": {
+      "offsiteData": "Données hors site",
+      "onsiteData": "Données sur site",
+      "historicalMetrics": "Métriques historiques",
+      "keywordRankings": "Classements des mots-clés",
+      "anchorsDetail": "Détail des ancres",
+      "topPages": "Meilleures pages",
+      "topBacklinks": "Meilleurs backlinks",
+      "competitors": "Concurrents",
+      "topicalTrustFlow": "Flux de confiance thématique"
+    },
+    "tabs": {
+      "seobserverKeywords": "Mots-clés SEObserver",
+      "semrushKeywords": "Mots-clés SEMRush"
+    },
+    "loading": "Chargement...",
+    "error": "Erreur lors du chargement des informations du domaine. Veuillez réessayer.",
+    "noData": "Aucune information trouvée pour \"{domain}\".",
+    "noDomain": "Aucun domaine spécifié",
+    "onsiteLoading": "Chargement des données sur site...",
+    "onsiteError": "Erreur lors du chargement des données sur site. Veuillez réessayer.",
+    "onsiteNoData": "Aucune donnée sur site disponible.",
+    "onsitePanel": {
+      "title": "Titre :",
+      "titleChanges": "Changements de titre",
+      "indexedPages": "Pages indexées",
+      "traffic": "Trafic",
+      "technologiesUsed": "Technologies utilisées",
+      "metrics": {
+        "archivesAmount": "Quantité d'archives",
+        "numberOfTitleChanges": "Nombre de changements de titre",
+        "firstTitleDate": "Date du premier titre",
+        "noDataAvailable": "Aucune donnée disponible",
+        "googleGlobalIndex": "Index global Google",
+        "majesticIndexedPages": "Pages indexées Majestic",
+        "alexaRank": "Classement Alexa"
+      },
+      "tooltips": {
+        "googleGlobalIndex": "Nombre de pages dans l'index Google.",
+        "majesticIndexedPages": "Montre le nombre de pages crawlées par le robot Majestic. Ce nombre devrait idéalement être cohérent avec le nombre de pages indexées par Google.",
+        "alexaRank": "Indicateur de trafic. Plus ce nombre est bas, plus le trafic est élevé."
+      },
+      "actions": {
+        "goToOnsiteChanges": "Voir les changements sur site",
+        "whois": "Whois"
+      },
+      "cms": "CMS",
+      "ip": "IP"
+    },
+    "anchorTextPanel": {
+      "title": "Ancre",
+      "tooltip": "Fournit une répartition des 10 principales ancres utilisées dans les backlinks. Trop de mots-clés optimisés peuvent indiquer un risque de pénalité pingouin.",
+      "chart": {
+        "refDomains": "domaines de réf",
+        "refDomainsLabel": "Domaines de réf"
+      },
+      "noData": "Aucune donnée de texte d'ancre disponible"
+    },
+    "anchorsDetailPanel": {
+      "loading": "Chargement des données d'ancre...",
+      "error": "Erreur lors du chargement des données d'ancre.",
+      "noData": "Aucune donnée d'ancre disponible.",
+      "showing": "Affichage de {displayed} sur {total} ancres",
+      "goToAnchorDetails": "Voir les détails des ancres",
+      "columns": {
+        "anchor": "Ancre",
+        "refDomains": "Domaines de réf",
+        "totalPages": "Total des pages",
+        "nofollow": "Nofollow"
+      },
+      "emptyAnchorText": "[Texte d'ancre vide]",
+      "unlockAdvancedView": "Débloquer la vue avancée"
+    },
+    "competitorsPanel": {
+      "loading": "Chargement des données des concurrents...",
+      "error": "Erreur lors du chargement des données des concurrents.",
+      "noData": "Aucune donnée de concurrent disponible.",
+      "columns": {
+        "domain": "Domaine",
+        "commonKeywords": "Mots-clés communs",
+        "totalKeywords": "Total des mots-clés SEMrush",
+        "traffic": "Trafic SEMrush"
+      },
+      "viewSiteDetails": "Voir les détails du site"
+    },
+    "historicalMetricsPanel": {
+      "title": "Métriques historiques",
+      "loading": "Chargement des données historiques...",
+      "error": "Impossible de charger les données historiques. Veuillez réessayer plus tard.",
+      "noData": "Aucune donnée historique disponible.",
+      "chart": {
+        "trustFlow": "TrustFlow",
+        "refDomains": "Domaines de réf"
+      }
+    },
+    "historicalTable": {
+      "title": "Données historiques",
+      "loading": "Chargement des données historiques...",
+      "error": "Erreur lors du chargement des données historiques. Veuillez réessayer.",
+      "noData": "Aucune donnée historique disponible.",
+      "columns": {
+        "date": "Date",
+        "tf": "TF",
+        "cf": "CF",
+        "refPages": "Pages de réf",
+        "refDomains": "Domaines de réf",
+        "refIPs": "IPs de réf"
+      },
+      "detailedView": {
+        "title": "Métriques historiques - {date}",
+        "sections": {
+          "generalInformation": "Informations générales",
+          "flowMetrics": "Métriques de flux",
+          "referenceMetrics": "Métriques de référence",
+          "domainDetails": "Détails du domaine",
+          "topicalTrustFlow": "Flux de confiance thématique"
+        },
+        "fields": {
+          "item": "Élément",
+          "resultCode": "Code résultat",
+          "status": "Statut",
+          "date": "Date",
+          "indexedURLs": "URLs indexées",
+          "trustFlow": "TrustFlow",
+          "citationFlow": "CitationFlow",
+          "tfcfRatio": "Ratio TFCF",
+          "refDomains": "Domaines de réf",
+          "refIPs": "IPs de réf",
+          "refSubNets": "Sous-réseaux de réf",
+          "title": "Titre",
+          "redirectTo": "Redirection vers"
+        },
+        "topicalTrustFlow": {
+          "topic": "Thème_FluxConfiance_{index}",
+          "value": "Valeur_FluxConfiance_{index}",
+          "percent": "Pourcentage_FluxConfiance_{index}"
+        }
+      }
+    },
+    "infoPanel": {
+      "referringDomains": "Domaines de référence",
+      "referringPages": "Pages de référence",
+      "ipSubnets": "IP (Sous-réseaux)",
+      "eduGovLinks": "Liens EDU | Liens GOV",
+      "crawlStatus": "Statut du crawl",
+      "lastCrawlResult": "Dernier résultat de crawl",
+      "lastCrawlDate": "Dernière date de crawl",
+      "tooltips": {
+        "referringDomains": "Un indicateur de notoriété qui montre combien de domaines uniques différents pointent vers le site cible. Cette donnée est essentielle et permet de savoir si le site est mentionné sur de nombreux domaines différents.",
+        "referringPages": "Un indicateur de nature qui indique le nombre de fois qu'un lien a été trouvé sur une page d'un autre site web. Permet de voir s'il y a une forte présence de liens \"sitewide\" : un lien présent sur 100 pages augmentera ce nombre de 100.",
+        "ipSubnets": "Un indicateur de réputation qui indique le nombre d'IPs différentes pointant vers le site. La cohérence entre le nombre de domaines de référence et le nombre d'IPs permet de vérifier que les sites sont différents et n'appartiennent pas à un réseau.",
+        "eduGovLinks": "Liens EDU : Compte le nombre de liens de type \"académique\" dans les backlinks. Liens GOV : Compte le nombre de liens de type \"gouvernemental\" dans les backlinks."
+      }
+    },
+    "keywordRankingsPanel": {
+      "loading": "Chargement des classements de mots-clés...",
+      "error": "Erreur lors du chargement des classements de mots-clés. Veuillez réessayer.",
+      "noData": "Aucun classement de mot-clé trouvé pour ce domaine.",
+      "title": "Top 5 des mots-clés",
+      "goToDetails": "Voir les détails des mots-clés",
+      "showingResults": "Affichage de 5 sur {total} mots-clés",
+      "columns": {
+        "keyword": "Mot-clé",
+        "position": "Position",
+        "searchVolume": "Volume de recherche",
+        "cpc": "CPC",
+        "competition": "Concurrence"
+      },
+      "unlockAdvancedView": "Débloquer la vue avancée"
+    },
+    "offsiteDataPanel": {
+      "trustFlow": "Trust Flow",
+      "citationFlow": "Citation Flow",
+      "topicalTrustFlow": "Flux de confiance thématique",
+      "tooltips": {
+        "trustFlow": "TrustFlow : Indicateur de confiance de Majestic, de 0 à 100, mesurant le \"jus\" envoyé, directement et indirectement, depuis une liste d'1 million de sites de confiance sélectionnés manuellement. La notion de \"confiance\" fait partie intégrante de cet indicateur, qui est hautement qualifié et considéré comme le plus fidèle au Pagerank.",
+        "citationFlow": "CitationFlow : Un indicateur de puissance Majestic allant de 0 à 100 qui mesure le \"jus\" brut envoyé depuis les sites à travers tout le web. Cette métrique ne prend pas en compte le concept de \"confiance\", et sa connaissance est principalement utilisée pour évaluer la puissance brute. Une campagne de netlinking de faible qualité augmentera le Citation Flow mais pas le Trust Flow.",
+        "topicalTrustFlow": "Vérifie la cohérence des liens. Cet index est utilisé pour montrer de quel type de sites proviennent les liens de haute qualité. Cela ajoute des données de \"thème\" au Trust Flow en catégorisant le contenu des sites web qui créent des liens. Vous devriez vous concentrer sur l'obtention de liens de préférence du même thème."
+      }
+    },
+    "seobserverKeywordsPanel": {
+      "loading": "Chargement des données de mots-clés SEObserver...",
+      "error": "Erreur lors du chargement des données de mots-clés SEObserver. Veuillez réessayer.",
+      "noData": "Aucune donnée de mot-clé SEObserver trouvée pour ce domaine.",
+      "title": "Top {count} mots-clés",
+      "goToDetails": "Voir les détails des mots-clés",
+      "showingResults": "Affichage de {showing} sur {total} mots-clés",
+      "columns": {
+        "keyword": "Mot-clé",
+        "position": "Position",
+        "searchVolume": "Volume de recherche",
+        "cpc": "CPC",
+        "competition": "Concurrence"
+      },
+      "unlockAdvancedView": "Débloquer la vue avancée"
+    },
+    "topBacklinksPanel": {
+      "loading": "Chargement des données des meilleurs backlinks...",
+      "error": "Erreur lors du chargement des données des meilleurs backlinks.",
+      "noData": "Aucune donnée de meilleur backlink disponible.",
+      "summary": "Affichage de {showing} sur {total} meilleurs backlinks",
+      "goToDetails": "Voir les détails des meilleurs backlinks",
+      "columns": {
+        "url": "URL",
+        "flag": "Drapeau",
+        "lastSeen": "Dernière vue",
+        "tf": "TF"
+      },
+      "unlockAdvancedView": "Débloquer la vue avancée"
+    },
+    "topPagesPanel": {
+      "loading": "Chargement des données des meilleures pages...",
+      "error": "Erreur lors du chargement des données des meilleures pages.",
+      "noData": "Aucune donnée de meilleure page disponible.",
+      "showing": "Affichage de {displayed} sur {total} meilleures pages",
+      "goToDetails": "Voir les détails des meilleures pages",
+      "columns": {
+        "titleAndUrl": "Titre & URL",
+        "trustFlow": "TF",
+        "refDomains": "RD",
+        "refIPs": "IP",
+        "topicalTrustFlow": "Thème"
+      },
+      "homepage": "Page d'accueil",
+      "unknown": "Inconnu",
+      "unlockAdvancedView": "Débloquer la vue avancée"
+    },
+    "topicalTrustFlowPanel": {
+      "loading": "Chargement des données de flux de confiance thématique...",
+      "error": "Impossible de charger les données de flux de confiance thématique. Veuillez réessayer plus tard.",
+      "noData": "Aucune donnée de flux de confiance thématique disponible pour ce domaine."
+    },
+    "trafficPanel": {
+      "title": "Trafic & Mots-clés Semrush ({domain})",
+      "loading": "Chargement des données de trafic...",
+      "error": "Impossible de charger les données de trafic. Veuillez réessayer plus tard.",
+      "noData": "Aucune donnée de trafic disponible pour ce domaine.",
+      "chart": {
+        "traffic": "Trafic",
+        "keywords": "Mots-clés"
+      }
+    }
+  },
+  "urlLayout": {
+    "tabs": {
+      "info": "Info",
+      "referringDomains": "Domaines de référence",
+      "anchors": "Ancres",
+      "topBacklinks": "Meilleurs backlinks",
+      "keywords": "Mots-clés"
+    },
+    "identityCard": "Carte d'identité"
+  },
+  "urlAnchors": {
+    "title": "Analyse des ancres d'URL",
+    "description": "Analyser la distribution du texte d'ancre pour une URL",
+    "input": {
+      "placeholder": "https://...",
+      "submitButton": "Afficher les ancres",
+      "enterUrlMessage": "Saisissez une URL ci-dessus pour voir l'analyse du texte d'ancre"
+    },
+    "stats": {
+      "totalBacklinks": "Total des backlinks",
+      "totalRefDomains": "Total des domaines de réf",
+      "uniqueAnchors": "Ancres uniques"
+    },
+    "table": {
+      "anchor": "Ancre",
+      "refDomains": "Domaines de réf",
+      "totalLinks": "Total des liens",
+      "nofollow": "Nofollow"
+    },
+    "loading": "Chargement des données d'ancre...",
+    "error": "Erreur lors du chargement des données d'ancre. Veuillez réessayer.",
+    "noData": "Aucune donnée d'ancre trouvée pour \"{url}\".",
+    "emptyAnchorText": "[Texte d'ancre vide]"
+  },
+  "urlBacklinks": {
+    "title": "Analyse des backlinks d'URL",
+    "description": "Analyser les backlinks pour une URL",
+    "input": {
+      "placeholder": "https://...",
+      "submitButton": "Afficher les backlinks",
+      "enterUrlMessage": "Saisissez une URL ci-dessus pour voir l'analyse des backlinks"
+    },
+    "controls": {
+      "maxUrlsLabel": "Nombre maximum d'URLs par domaine de référence",
+      "options": {
+        "1": "1 URL max par domaine de réf",
+        "3": "3 URLs max par domaine de réf",
+        "10": "10 URLs max par domaine de réf",
+        "all": "Toutes les URLs"
+      }
+    },
+    "table": {
+      "sourceUrl": "URL source",
+      "anchor": "Ancre",
+      "type": "Type",
+      "tf": "TF",
+      "cf": "CF",
+      "theme": "Thème",
+      "lastSeenDate": "Date de dernière vue",
+      "discoveredDate": "Date de découverte"
+    },
+    "loading": "Chargement des données de backlinks...",
+    "error": "Erreur lors du chargement des données de backlinks. Veuillez réessayer.",
+    "noData": "Aucun backlink trouvé pour \"{url}\".",
+    "emptyAnchorText": "[Texte d'ancre vide]"
+  },
+  "urlReferringDomains": {
+    "title": "Analyse des domaines de référence d'URL",
+    "description": "Analyser les domaines de référence pour une URL",
+    "input": {
+      "placeholder": "https://...",
+      "submitButton": "Afficher les domaines",
+      "enterUrlMessage": "Saisissez une URL ci-dessus pour voir les domaines de référence"
+    },
+    "filters": {
+      "advancedFilters": "Filtres avancés",
+      "addFilter": "Ajouter un filtre",
+      "clearFilters": "Effacer les filtres",
+      "filter": "Filtre",
+      "valuePlaceholder": "Valeur"
+    },
+    "fields": {
+      "domain": "Domaine",
+      "matchedLinks": "Liens correspondants",
+      "refDomains": "Domaines de réf",
+      "alexaRank": "Classement Alexa",
+      "ip": "IP",
+      "countryCode": "Pays",
+      "tld": "TLD",
+      "trustFlow": "TrustFlow",
+      "citationFlow": "CitationFlow",
+      "thematic": "Thématique",
+      "lastCrawl": "Dernier crawl"
+    },
+    "operators": {
+      "numberEqualTo": "Égal à",
+      "numberGreaterThan": "Supérieur à",
+      "numberLessThan": "Inférieur à",
+      "stringEqualTo": "Égal à",
+      "stringNotEqualTo": "Différent de"
+    },
+    "table": {
+      "domain": "Domaine",
+      "matchedLinks": "Liens correspondants",
+      "refDomains": "Domaines de réf",
+      "alexaRank": "Classement Alexa",
+      "ip": "IP",
+      "country": "Pays",
+      "tld": "TLD",
+      "tf": "TF",
+      "cf": "CF",
+      "percentage": "%",
+      "theme": "Thème",
+      "lastCrawl": "Dernier crawl"
+    },
+    "pagination": {
+      "showing": "Affichage de",
+      "to": "à",
+      "of": "sur",
+      "results": "résultats"
+    },
+    "loading": "Chargement des domaines de référence...",
+    "error": "Erreur lors du chargement des domaines de référence. Veuillez réessayer.",
+    "noData": "Aucun domaine de référence trouvé pour \"{url}\"."
+  },
+  "urlKeywords": {
+    "title": "Mots-clés d'URL",
+    "description": "Voir les mots-clés qui classent cette URL",
+    "search": "Rechercher",
+    "enterUrl": "Saisissez une URL ci-dessus pour analyser ses mots-clés",
+    "columns": {
+      "keyword": "Mot-clé",
+      "position": "Position",
+      "traffic": "Trafic",
+      "searchVolume": "Volume de recherche",
+      "cpc": "CPC",
+      "competition": "Concurrence",
+      "interest": "Intérêt",
+      "properties": "Propriétés",
+      "actions": "Actions"
+    },
+    "noData": "Aucun mot-clé trouvé pour cette URL.",
+    "error": "Erreur lors du chargement des données de mots-clés d'URL. Veuillez réessayer.",
+    "tooltips": {
+      "competitionChecker": "Vérificateur de concurrence",
+      "serpMachine": "Machine SERP"
+    }
+  },
+  "domainExtractor": {
+    "title": "Extracteur de domaines",
+    "description": "Extraire les domaines des résultats SERP",
+    "search": {
+      "lookingFor": "Je recherche des domaines",
+      "whoAreCurrently": "qui se positionnent actuellement",
+      "whoWereInLast6Months": "qui se sont positionnés au cours des 6 derniers mois",
+      "whoAreOnEverything": "qui se positionnent sur tout",
+      "inThe": "dans le",
+      "top10": "top 10",
+      "top50": "top 50",
+      "top100": "top 100",
+      "on": "sur",
+      "forTheseKeywords": "pour ces mots-clés :",
+      "keywordsPlaceholder": "Jusqu'à 100 mots-clés séparés par une virgule ou un saut de ligne",
+      "reset": "Réinitialiser",
+      "showResults": "Afficher les résultats",
+      "loading": "Chargement..."
+    },
+    "filters": {
+      "advancedFilters": "Filtres avancés",
+      "addFilter": "Ajouter un filtre",
+      "clearFilters": "Effacer les filtres",
+      "filter": "Filtre",
+      "fields": {
+        "url": "URL",
+        "trustFlow": "TrustFlow",
+        "citationFlow": "CitationFlow",
+        "refDomains": "Domaines de réf",
+        "ttfValue": "Valeur TTF",
+        "ttfTopic": "Sujet TTF",
+        "percentage": "Pourcentage (TF/CF)",
+        "title": "Titre"
+      },
+      "operators": {
+        "numberEqualTo": "Égal à",
+        "numberGreaterThan": "Supérieur à",
+        "numberLessThan": "Inférieur à",
+        "stringEqualTo": "Égal à",
+        "stringNotEqualTo": "Différent de",
+        "contains": "Contient",
+        "startsWith": "Commence par",
+        "endsWith": "Se termine par"
+      },
+      "valuePlaceholder": "Valeur"
+    },
+    "results": {
+      "title": "Résultats de l'extracteur de domaines",
+      "columns": {
+        "url": "URL",
+        "tf": "TF",
+        "cf": "CF",
+        "ttf": "TTF",
+        "percentage": "Pourcentage (TF/CF)",
+        "refDomains": "Domaines de réf",
+        "title": "Titre"
+      },
+      "noData": "Aucune donnée d'historique SERP trouvée pour les mots-clés spécifiés.",
+      "noDataDescription": "Assurez-vous que les mots-clés existent dans vos campagnes et que les données SERP sont collectées.",
+      "error": "Erreur lors du chargement des données de domaine. Veuillez réessayer."
+    }
+  },
+  "nicheFinder": {
+    "title": "Chercheur de niche",
+    "description": "Parcourez des millions de mots-clés pour choisir les meilleurs",
+    "search": {
+      "placeholder": "Rechercher des mots-clés...",
+      "viewInGoogleSERP": "Voir dans Google SERP"
+    },
+    "filters": {
+      "advancedFilters": "Filtres avancés",
+      "addFilter": "Ajouter un filtre",
+      "clearFilters": "Effacer les filtres",
+      "filter": "Filtre",
+      "fields": {
+        "keyword": "Mot-clé",
+        "searchVolume": "Volume de recherche",
+        "cpc": "CPC",
+        "competition": "Concurrence",
+        "interest": "Intérêt",
+        "trends": "Tendances"
+      },
+      "operators": {
+        "numberEqualTo": "Égal à",
+        "numberGreaterThan": "Supérieur à",
+        "numberLessThan": "Inférieur à",
+        "stringEqualTo": "Égal à",
+        "stringNotEqualTo": "Différent de",
+        "contains": "Contient",
+        "startsWith": "Commence par",
+        "endsWith": "Se termine par"
+      },
+      "valuePlaceholder": "Valeur"
+    },
+    "table": {
+      "columns": {
+        "keyword": "Mot-clé",
+        "searchVolume": "Volume de recherche",
+        "cpc": "CPC",
+        "competition": "Concurrence",
+        "interest": "Intérêt",
+        "trends": "Tendances",
+        "actions": "Actions"
+      },
+      "trending": "Tendance"
+    },
+    "actions": {
+      "competitionChecker": "Vérificateur de concurrence",
+      "serpMachine": "Machine SERP",
+      "relatedSearch": "Recherche associée"
+    },
+    "pagination": {
+      "showing": "Affichage de",
+      "to": "à",
+      "of": "sur",
+      "results": "résultats"
+    },
+    "error": "Erreur lors du chargement des données : {message}",
+    "noData": "Aucune donnée n'est disponible"
+  },
+  "competition": {
+    "title": "Vérificateur de concurrence des mots-clés",
+    "description": "Analyser la difficulté d'un SERP",
+    "search": {
+      "placeholder": "location maison",
+      "options": "Options"
+    },
+    "metrics": {
+      "refDomain": "RefDomain mini",
+      "trustFlow": "TrustFlow mini",
+      "volume": "Volume de recherche",
+      "cpc": "CPC",
+      "competition": "Concurrence",
+      "results": "Nombre de résultats"
+    },
+    "table": {
+      "columns": {
+        "rank": "#",
+        "url": "Url",
+        "tfUrl": "TF (Url)",
+        "rdUrl": "RD (Url)",
+        "tfRoot": "TF (Domaine racine)",
+        "rdRoot": "RD (Domaine racine)",
+        "kws": "Mots-clés",
+        "traffic": "Trafic"
+      }
+    },
+    "compare": {
+      "label": "↳ Comparer votre URL",
+      "placeholder": "http://...",
+      "button": "Comparer l'URL"
+    }
+  },
+  "serpBacklinks": {
+    "title": "Backlinks SERP",
+    "description": "La liste des derniers backlinks créés sur une requête",
+    "form": {
+      "title": "Sélectionner le mot-clé et la base",
+      "keywordPlaceholder": "Tapez un mot-clé",
+      "showLatestBacklinks": "Afficher les derniers backlinks"
+    },
+    "results": {
+      "title": "Résultats SERP : Top 100 des classements pour \"{keyword}\"",
+      "defaultTitle": "Résultats SERP : Top 100 des classements",
+      "instruction": "←Utilisez le champ à gauche pour rechercher votre mot-clé",
+      "noResults": "Aucun résultat SERP trouvé pour \"{keyword}\"."
+    },
+    "filters": {
+      "invalidUrlsFiltered": "{count} URL{plural} invalide{plural} filtré{plural}. Affichage de {validCount} résultat{validPlural} valide{validPlural}.",
+      "bulkActions": "Actions en masse",
+      "checkAllUrls": "Vérifier toutes les URLs",
+      "checkAllDomains": "Vérifier tous les domaines",
+      "ignoreAll": "Tout ignorer",
+      "checkUrl": "Vérifier l'URL",
+      "checkDomain": "Vérifier le domaine",
+      "ignore": "Ignorer"
+    },
+    "table": {
+      "columns": {
+        "actions": "Actions",
+        "ranking": "Classement",
+        "url": "URL"
+      }
+    },
+    "errors": {
+      "loading": "Erreur lors du chargement des données SERP. Veuillez réessayer."
+    },
+    "latestBacklinks": {
+      "title": "Derniers backlinks - Top 300 par date de découverte",
+      "columns": {
+        "sourceUrl": "URL source",
+        "anchor": "Ancre",
+        "targetUrl": "URL cible",
+        "type": "Type",
+        "tf": "TF",
+        "cf": "CF",
+        "theme": "Thème",
+        "discovered": "Découvert"
+      },
+      "noData": "Aucun backlink trouvé pour les URLs sélectionnées.",
+      "error": "Erreur lors du chargement des données de backlinks. Veuillez réessayer."
+    }
+  },
+  "urlInfo": {
+    "title": "Informations URL",
+    "description": "Afficher les informations détaillées pour une URL",
+    "input": {
+      "placeholder": "https://...",
+      "submitButton": "Afficher les informations",
+      "enterUrlMessage": "Saisissez une URL ci-dessus pour voir les informations détaillées"
+    },
+    "loading": "Chargement...",
+    "error": "Erreur lors du chargement des informations URL. Veuillez réessayer.",
+    "noData": "Aucune information trouvée pour \"{url}\".",
+    "offsiteData": "Données hors site"
+  },
+  "serpMachine": {
+    "keywordSummary": {
+      "title": "Résumé du mot-clé : \"{keyword}\"",
+      "metrics": {
+        "searchVolume": "Volume de recherche",
+        "cpc": "CPC",
+        "competition": "Concurrence",
+        "interest": "Intérêt"
+      },
+      "noMetrics": "Aucune métrique disponible",
+      "actions": {
+        "seeSerp": "Voir SERP",
+        "seeBacklinksTimeline": "Voir la chronologie des backlinks",
+        "seeCompetition": "Voir la concurrence",
+        "addToCampaign": "Ajouter à la campagne"
+      }
+    },
+    "compareView": {
+      "title": "{days} jours plus tard",
+      "totalUrls": "{count} URLs au total",
+      "statistics": {
+        "improved": "Amélioré",
+        "declined": "Diminué",
+        "new": "Nouveau",
+        "dropped": "Supprimé"
+      },
+      "detailedChanges": "Changements détaillés",
+      "hoverInstruction": "💡 Survolez n'importe quelle ligne dans les tableaux SERP pour voir les informations détaillées des changements ici",
+      "topChanges": "Principaux changements",
+      "rank": "Classement :",
+      "tooltips": {
+        "improved": "Amélioré",
+        "declined": "Diminué",
+        "new": "Nouveau",
+        "dropped": "Supprimé"
+      }
+    },
+    "searchForm": {
+      "title": "Rechercher un mot-clé",
+      "inputPlaceholder": "Tapez un mot-clé",
+      "searchButton": "Rechercher"
+    },
+    "propertiesTooltip": {
+      "organic": "Résultats organiques",
+      "aiOverview": "Vue d'ensemble IA",
+      "peopleAlsoSearch": "Les gens recherchent aussi",
+      "perspectives": "Perspectives",
+      "peopleAlsoAsk": "Les gens demandent aussi",
+      "productConsiderations": "Considérations sur les produits",
+      "relatedSearches": "Recherches associées",
+      "knowledgeGraph": "Graphique de connaissances",
+      "featuredSnippet": "Extrait en vedette",
+      "images": "Images",
+      "videos": "Vidéos",
+      "localPack": "Pack local",
+      "news": "Actualités",
+      "reviews": "Avis",
+      "shopping": "Shopping",
+      "books": "Livres",
+      "flights": "Vols",
+      "hotels": "Hôtels",
+      "jobs": "Emplois",
+      "finance": "Finance",
+      "recipes": "Recettes",
+      "faq": "FAQ",
+      "sitelinks": "Liens de site",
+      "ads": "Annonces"
+    },
+    "serpTable": {
+      "columns": {
+        "rank": "Classement",
+        "url": "URL",
+        "actions": "Actions",
+        "status": "Statut"
+      },
+      "tooltips": {
+        "viewSiteDetails": "Voir les détails du site",
+        "googleSearch": "Recherche Google pour ce site",
+        "viewUrlKeywords": "Voir les mots-clés de l'URL",
+        "viewUrlBacklinks": "Voir les backlinks de l'URL"
+      },
+      "noData": "Aucun résultat SERP trouvé."
+    }
+  },
+  "positionsCompetition": {
+    "title": "Vérificateur de concurrence des mots-clés",
+    "description": "Analyser la difficulté d'un SERP",
+    "search": {
+      "placeholder": "Saisissez un mot-clé et appuyez sur Entrée...",
+      "enterKeywordMessage": "Saisissez un mot-clé ci-dessus et appuyez sur Entrée pour analyser la concurrence"
+    },
+    "loading": "Chargement...",
+    "error": "Erreur lors de l'analyse de la concurrence. Veuillez réessayer.",
+    "noData": "Aucune donnée de concurrence trouvée pour \"{keyword}\".",
+    "actions": {
+      "findCommonBacklinks": "Trouver les backlinks communs",
+      "findTopBacklinks": "Trouver les meilleurs backlinks",
+      "backlinksTimeline": "Chronologie des backlinks"
+    },
+    "tooltips": {
+      "findCommonBacklinks": "Analyser les backlinks en commun entre tous les {type}s",
+      "findTopBacklinks": "Trouver les meilleurs backlinks pour tous les {type}s",
+      "backlinksTimeline": "Voir la chronologie des backlinks pour {keyword}"
+    },
+    "filters": {
+      "urls": "URLs",
+      "domains": "Domaines",
+      "sites": "Sites"
+    },
+    "for": "pour"
+  },
+  "googleTrends": {
+    "title": "Google Trends",
+    "loading": "Chargement des données Google Trends...",
+    "error": "Impossible de charger les données Google Trends. Veuillez réessayer plus tard.",
+    "noData": "Aucune donnée Google Trends disponible pour \"{keyword}\".",
+    "noTrendData": "Aucune donnée de tendance disponible pour \"{keyword}\".",
+    "chart": {
+      "searchInterest": "Intérêt de recherche"
+    }
+  },
+  "user_orders": {
+    "billing": {
+      "currentPlan": {
+        "title": "Plan actuel",
+        "description": "Les détails de votre abonnement actif et les options de gestion",
+        "planName": "Nom du plan",
+        "planStatus": "Statut du plan",
+        "startDate": "Date de début",
+        "nextBilling": "Prochaine facturation",
+        "updatePlan": "Mettre à jour le plan",
+        "cancelPlan": "Annuler le plan",
+        "planCancelled": "Plan annulé",
+        "subscriptionCancelled": "Abonnement annulé",
+        "subscriptionCancelledDescription": "Votre abonnement a été annulé. Vous perdrez l'accès aux fonctionnalités premium à la fin de votre période de facturation actuelle.",
+        "noActiveSubscription": "Aucun abonnement actif trouvé",
+        "updateSubscriptionPlan": "Mettre à jour le plan d'abonnement",
+        "updateSubscriptionDescription": "Choisissez un nouveau plan pour votre abonnement. Tous les plans disponibles (mensuels et annuels) sont affichés sauf les plans illimités.",
+        "selectNewPlan": "Sélectionner un nouveau plan",
+        "choosePlan": "Choisir un plan",
+        "monthly": "mois",
+        "yearly": "année",
+        "monthsFree": "mois gratuits",
+        "updating": "Mise à jour...",
+        "updatePlanButton": "Mettre à jour le plan",
+        "cancelSubscription": "Annuler l'abonnement",
+        "cancelSubscriptionDescription": "Êtes-vous sûr de vouloir annuler votre abonnement ? Vous perdrez l'accès aux fonctionnalités premium à la fin de votre période de facturation actuelle.",
+        "subscriptionAlreadyCancelled": "Abonnement déjà annulé",
+        "subscriptionAlreadyCancelledDescription": "Votre abonnement a déjà été annulé. Vous perdrez l'accès aux fonctionnalités premium à la fin de votre période de facturation actuelle.",
+        "cancellationReason": "Raison de l'annulation (facultatif)",
+        "cancellationReasonPlaceholder": "Veuillez nous dire pourquoi vous annulez...",
+        "keepSubscription": "Garder l'abonnement",
+        "cancelling": "Annulation...",
+        "cancelPlanButton": "Annuler le plan",
+        "close": "Fermer"
+      },
+      "billingHistory": {
+        "title": "Historique de facturation",
+        "description": "Historique complet de vos paiements et modifications d'abonnement",
+        "createdDate": "Date de création",
+        "subscriptionId": "ID d'abonnement",
+        "plan": "Plan",
+        "planName": "Nom du plan",
+        "status": "Statut",
+        "amount": "Montant",
+        "nextBilling": "Prochaine facturation",
+        "noBillingHistory": "Aucun historique de facturation trouvé",
+        "paidAt": "Payé le",
+        "eventType": "Type d'événement",
+        "transactionId": "ID de transaction"
+      }
+    }
+  },
+  "auth": {
+    "signUp": {
+      "title": "Créer un compte",
+      "emailPlaceholder": "Adresse e-mail*",
+      "usernamePlaceholder": "Nom d'utilisateur*",
+      "passwordPlaceholder": "Mot de passe*",
+      "submitButton": "Continuer",
+      "loadingButton": "Création du compte...",
+      "alreadyHaveAccount": "Vous avez déjà un compte ?",
+      "signInLink": "Se connecter",
+      "or": "OU",
+      "termsOfUse": "Conditions d'utilisation",
+      "privacyPolicy": "Politique de confidentialité",
+      "success": {
+        "title": "Succès",
+        "description": "Compte créé avec succès"
+      },
+      "error": {
+        "title": "Erreur",
+        "description": "Une erreur s'est produite"
+      }
+    },
+    "signIn": {
+      "title": "Bienvenue",
+      "emailPlaceholder": "Adresse e-mail*",
+      "passwordPlaceholder": "Mot de passe*",
+      "submitButton": "Continuer",
+      "loadingButton": "Connexion...",
+      "dontHaveAccount": "Vous n'avez pas de compte ?",
+      "signUpLink": "S'inscrire",
+      "or": "OU",
+      "termsOfUse": "Conditions d'utilisation",
+      "privacyPolicy": "Politique de confidentialité",
+      "error": {
+        "title": "Erreur",
+        "description": "Une erreur s'est produite. Veuillez réessayer."
+      },
+      "continueWithGoogle": "Continuer avec Google"
+    },
+    "signOut": {
+      "signOut": "Se déconnecter"
+    }
+  }
+}

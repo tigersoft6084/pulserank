@@ -1,0 +1,618 @@
+<mxfile host="65bd71144e">
+    <diagram name="Page-1" id="VZvZoSTauchInz9lI3Mn">
+        <mxGraphModel dx="1477" dy="851" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="bkDFoXj9CTxPV3tVn8Fy-7" value="Pages/APIs" style="swimlane;whiteSpace=wrap;html=1;startSize=30;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="30" width="500" height="5930" as="geometry">
+                        <mxRectangle x="30" y="30" width="100" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="bkDFoXj9CTxPV3tVn8Fy-37" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;SERP Machine (free for db, credit for new - 500 limit)&lt;br&gt;https://app.seobserver.com/serpmachine/fr_fr/{keyword}/now&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;keyword, location, language&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;values: volume, CPC, competition, interest&lt;br&gt;2 tables compare data (a week ago): url, rank, TTF&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="48.75" y="50" width="400" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="bkDFoXj9CTxPV3tVn8Fy-39" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Backlinks Timeline: new backlinks discovered&lt;br&gt;(free for db, credit for new - 500 limit)&lt;br&gt;https://app.seobserver.com/positions/serp_backlinks/fr_fr/{id}&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;keyword&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;urls: ranked webpages on serp page by keyword&lt;br&gt;table data: url source, url target, type, TF, CF, thematic, discovered&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="48.75" y="210" width="400" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="YPiaJyC_-saFsRFNWan--1" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Backlinks Watchlist: List of backlinks followed (credit - 50 limit)&lt;br&gt;https://app.seobserver.com/backlinks&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;url&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;table data: URL, Anchor, Flag, Target URL, TF, CF, %, Found Date, CMS(DataforSEO Tech api), IP(npm dns)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="48.75" y="370" width="400" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="YPiaJyC_-saFsRFNWan--2" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Common Backlinks: List common backlinks (free)&lt;br&gt;https://app.seobserver.com/sites/backlinksincommon/{uuid}&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;urls (item0, item1, item2, ... max:10)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;table data: Domain, DomainsRef, TF, CF, AlexaRank, Matches, counts(item0, item1, item2, ...)&lt;br&gt;detailed insights per counts: url, anchor, type, TF, CF, thematic, discovered&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="48.75" y="530" width="400" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="YPiaJyC_-saFsRFNWan--3" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Best Backlinks: List the Best Backlinks (free)&lt;br&gt;https://app.seobserver.com/sites/list_top_backlinks/{uuid}&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;urls (item0, item1, item2, ... max:10)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;table data:&amp;nbsp;URL From, Anchor, Type, Url To, From, TF&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="48.75" y="730" width="400" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="YPiaJyC_-saFsRFNWan--4" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Same IP Checker (free)&lt;br&gt;https://app.seobserver.com/sites/same_ip_checker?domain={domain}&amp;amp;datasource=fresh&amp;amp;search_ips=0&amp;amp;cache=&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;domain or subdomain&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;table data: url, IP(ipinfo.io api), RD, BL, Ref IPs, TF, CF, %, thematic&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="49.25" y="870" width="400" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="YPiaJyC_-saFsRFNWan--19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.002;entryY=0.293;entryDx=0;entryDy=0;entryPerimeter=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" source="YPiaJyC_-saFsRFNWan--5" target="YPiaJyC_-saFsRFNWan--18" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="20" y="1120"/>
+                            <mxPoint x="20" y="1728"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="YPiaJyC_-saFsRFNWan--5" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;URL Information (free)&lt;br&gt;https://app.seobserver.com/urls/info?url={url}&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;url (full - https kinda)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;values: TF, CF, TTF,&amp;nbsp;&lt;br&gt;values:&amp;nbsp;Referring domains (detail:Total refdomains, Live, Dofollow, Nofollow, Homepage, Direct, HTTPS), Referring pages (detail:Total links, Dofollow, Nofollow, Homepages, Indirect, Redirects, TextLinks, Images, Frames, HTTPS), IP(Subnets), Notable redirects, EDU Links/Links GOV, Crawl Status, Last Crawl Result, Last Crawl Date&lt;br&gt;values: Anchors, text, percentage&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="49.25" y="1030" width="400" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="YPiaJyC_-saFsRFNWan--21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.003;entryY=0.865;entryDx=0;entryDy=0;entryPerimeter=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" source="YPiaJyC_-saFsRFNWan--6" target="YPiaJyC_-saFsRFNWan--18" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="10" y="1999.60009765625" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="10" y="1295"/>
+                            <mxPoint x="10" y="2094"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="YPiaJyC_-saFsRFNWan--6" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Anchors : Show anchors for a url (free)&lt;br&gt;https://app.seobserver.com/urls/anchors?url={url}&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;url (full - https kinda)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;table data: anchor data, ref domains, total pages, nofollow&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="49.25" y="1240" width="400" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="YPiaJyC_-saFsRFNWan--7" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Backlinks : Show backlinks for a url (free)&lt;br&gt;https://app.seobserver.com/urls/backlinks?url={url}&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;url (full - https kinda)&lt;br&gt;number of urls max per ref domain&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;table data: source url, target url, type, TF, CF, TTF, From, discovery&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="49.25" y="1380" width="400" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="YPiaJyC_-saFsRFNWan--18" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Identity Card : Site View (free)&lt;br&gt;https://app.seobserver.com/sites/view/{domain}&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;url (domain)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;values: title, redirect url&lt;br&gt;&lt;br&gt;Offsite Data&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- URL Information&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- &lt;u&gt;&lt;b&gt;Historical metrics (bar+line chart - TF, RD)???&lt;/b&gt;&lt;/u&gt;&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- Traffic and keywords SEMrush&amp;nbsp;(Gives an idea of the organic traffic history of the website by measuring its presence in the first ten pages of the results on several million keywords)&lt;br&gt;&lt;br&gt;Onsite Data&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- Title, title changes(Number of archives, Number of Title changes, Date of first title)&amp;nbsp;&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- Indexed Pages (Google global index, Majestic indexed pages)&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- Traffic (Alexa Rank&#39;s)&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- Technologies used (CMS, IP (google search), Whois (https://whois.domaintools.com/))&lt;br&gt;&lt;br&gt;Historical metrics Data&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- table data: date, TF, CF, RefPages, RefDomains, RefIPs&lt;br&gt;&lt;br&gt;Keyword rankings&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- toggle: SEObserver, SEMrush&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- table data: keyword, position, search volume, CPC, competition&lt;br&gt;&lt;br&gt;Anchor Details&lt;br&gt;&lt;br&gt;Top Pages:&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- table data:&amp;nbsp;URL, TF, CF, Ref Domains, Ref IPs&lt;br&gt;&lt;br&gt;Top Backlinks&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- table data: URL, Type, Seen, TF&lt;br&gt;&lt;br&gt;Competitors&lt;br&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;- table data: Domain, Common keywords, Total Semrush keywords, SEMrush Traffic&lt;br&gt;&lt;br&gt;Topical Trust Flow Details (pie chart)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="48.75" y="1540" width="400" height="640" as="geometry"/>
+                </mxCell>
+                <mxCell id="YPiaJyC_-saFsRFNWan--22" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Backlinks History: Last links created (credit - 300 limit for instant data, 50 limit for following - GROUP)&lt;br&gt;https://app.seobserver.com/backlinks/{id}&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;url (domain)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;table data: URL, CMS, Anchor, Flag, Target URL, IP, TF, CF, %, Found Date&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="48.75" y="2210" width="400" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Top Backlinks (credit - 300 limit - GROUP)&lt;br&gt;https://app.seobserver.com/sites/top/{id}&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;url (domain)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;table data: Original URL (Target URL), Anchoring,&amp;nbsp;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;Google Indexed or not,&amp;nbsp;&lt;/span&gt;Type, Seen, TF&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="49.25" y="2370" width="400" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Site Anchors&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;&amp;nbsp;(credit - 300 limit - GROUP)&lt;/span&gt;&lt;br&gt;https://app.seobserver.com/sites/anchors/{id}&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;url (domain)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;table data: Anchor, Ref Domains, Total Pages, Nofollow&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="49.25" y="2530" width="400" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Referring Domains&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;&amp;nbsp;(credit - 300 limit - GROUP)&lt;/span&gt;&lt;br&gt;https://app.seobserver.com/sites/refdomains/{id}&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;url (domain)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;table data: Domain, MatchedLinks, DomainsRef, AlexaRank, IP, Pays(Country), TLD, TF, CF, % (TF/CF), Thematic, Last Crawl&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="48.25" y="2670" width="400" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Thematics (Topics)&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;&amp;nbsp;(credit - 300 limit - GROUP)&lt;/span&gt;&lt;br&gt;https://app.seobserver.com/sites/topics/{id}&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;url (domain)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;table data: Topic, Referring Domains (number)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="48.75" y="2830" width="400" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Content (credit - 300 limit - GROUP)" style="swimlane;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="49.25" y="2970" width="400.75" height="650" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;SEMrush Keywords by URL&lt;br&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;https://app.seobserver.com/fr_fr/sites/keywords_report/{id}&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;table data: URL, Title, RefDom, TF, NbKeywords, volumn, Traffic(%))&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="8" vertex="1">
+                    <mxGeometry x="16.13" y="40" width="369.25" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;&lt;span style=&quot;color: rgb(63, 63, 63); font-weight: 400; text-align: left;&quot;&gt;&lt;span style=&quot;color: rgb(63, 63, 63); font-weight: 700; text-align: -webkit-center;&quot;&gt;SEMrush&amp;nbsp;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;Keywords&amp;nbsp;&lt;/span&gt;(gross)&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;https://app.seobserver.com/fr_fr/sites/keywords/{id}&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;table data: Keyword, position, traffic, traffic cost, volume, cpc, competition, URL Ranking&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="8" vertex="1">
+                    <mxGeometry x="15.75" y="170" width="369.25" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;SERPMachine&amp;nbsp;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;Keywords&lt;/span&gt;&lt;br&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;https://app.seobserver.com/fr_fr/sites/serpmachine_keywords/{id}&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;table data: Keyword, position, traffic, volume, cpc, competition, interest, url ranking, variation (1mo ago), variation traffic (1mo ago)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="8" vertex="1">
+                    <mxGeometry x="16.13" y="300" width="369.25" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;SERPMachine&amp;nbsp;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;Keywords&amp;nbsp;&lt;/span&gt;by URL&lt;br&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;https://app.seobserver.com/fr_fr/sites/keywords_report/{id}/0/1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;table data: URL, Title, RefDom, TF, NbKeywords, volumn, Traffic(%), TrafficVar&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="8" vertex="1">
+                    <mxGeometry x="16.13" y="430" width="369.25" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Archives (archive.org???)&lt;br&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;https://app.seobserver.com/fr_fr/sites/onsite/{id}&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;table data: titles, weight, code, date&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="8" vertex="1">
+                    <mxGeometry x="15.75" y="550" width="369.25" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;URL Entities&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;&amp;nbsp;(credit - 300 limit - GROUP)&lt;/span&gt;&lt;br&gt;https://app.seobserver.com/sites/url_entities/{id}&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;url (domain)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;table data: entity (en, de, index.html, etc), count, %&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="48.75" y="3650" width="400" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Top Pages&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;&amp;nbsp;(credit - 300 limit - GROUP)&lt;/span&gt;&lt;br&gt;https://app.seobserver.com/sites/top_pages/{id}&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;url (domain)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;table data: URL, TF, CF, Ref Domains, Ref IPs, TTF, Keywords(Majestic Score), Last Crawl Result, Last Crawl Date&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="48.75" y="3790" width="400" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Lost Backlinks&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;&amp;nbsp;(credit - 300 limit - GROUP)&lt;/span&gt;&lt;br&gt;https://app.seobserver.com/sites/lost/2762787&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;url (domain)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;table data: Original url, Anchoring, Flag, Seen, TF, Backlink Remainers, Last Crawl&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="49.25" y="3950" width="400" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Niche Finder (free, use stored db)&lt;br&gt;https://app.seobserver.com/nichefinder?keyword={keyword}&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;keyword&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;table data: Keyword, search volume, CPC, competition, Interest, Properties, Trends&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="50" y="4110" width="400" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Keyword Competition Checker (free)&lt;br&gt;https://app.seobserver.com/positions/competition/fr_fr/{keyword}&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;keyword, SERP&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;table data: URL (TF, RD), Root Domain(TF, RD), SEMrush Domain(KWs, Traffic)&lt;br&gt;Similar Keywords Data&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="50" y="4270" width="400" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" style="edgeStyle=none;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.882;entryDx=0;entryDy=0;entryPerimeter=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" source="20" target="19" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="20" y="4520"/>
+                            <mxPoint x="20" y="4402"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="20" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Similar Keywords (free)&lt;br&gt;https://app.seobserver.com/site_keywords/similar_keywords/fr_fr/{kw}&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;keyword&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;table data: keywords, search volume, CPC, competition, Interest, Properties, Similarity&amp;nbsp;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="37.5" y="4450" width="425" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Sites Compare (free)&lt;br&gt;https://app.seobserver.com/sites/compare&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;url (domain)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;table data: PR, Alexa, Ref Domains, ExtBacklinks, Ref IPs, Ref SubNets, CF, TF, TTF&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="48.75" y="4620" width="400" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Domain Profiler (free)&lt;br&gt;https://app.seobserver.com/sites/websiteProfiler/0/{uuid}&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;urls (limit: 1000), category (auto, domain, site, url), datasource (fresh, historic), See (compact, detailed, competition, crawl)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;table data: URL, Referring Domains, Backlinks, IP, SN, TF, CF, Visibility, Keywords&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="50" y="4790" width="400" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Domain Extractor (free)&lt;br&gt;https://app.seobserver.com/sites/DomainExtractorSearches/add/{uuid}&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;I&#39;m looking for areas who are positioning themselves {currently / during the last 6 months / on everything} in the top {10/50/100} on {google.com/google.fr} for these keywords: {keywords - separated by comma} and which corresponds to these criteria:&amp;nbsp; [{TLD/Technologies/TF/CF/%/RD/TTF/Title} {is equivalent to/contains/does not contain} {filter variable}]&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;table data: URL, TF, CF, TTF, RD, %, Titles&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="33.75" y="4980" width="432.5" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Traffic Machine: Who has the highest traffic on these keywords? (free)&lt;br&gt;https://app.seobserver.com/serps/trafficmachine/fr_fr/{uuid}&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;keywords (separated by comma)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;values: Total traffic&lt;/span&gt;&lt;br style=&quot;color: rgb(63, 63, 63);&quot;&gt;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;2 tables compare data (a month ago): url, expert, Traffic, Visits&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="37.5" y="5250" width="419.62" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;SERPs Volatility Explorer: What happens on SERPs? (free)&lt;br&gt;https://app.seobserver.com/serps/volatilityExplorer/fr_fr/{uuid}&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;keywords (separated by comma)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;table data:&amp;nbsp;Keyword, search volume, CPC, competition, Traffic Volatility, Volatility of positions&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="50" y="5420" width="400" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Website Interlink: Search interlink between websites (free)&lt;br&gt;https://app.seobserver.com/sites/websiteInterlink&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;urls (domain, limit: 10), datasource (fresh/historic), options (don&#39;t include ips/check only the first website)&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;table data:&amp;nbsp;LinksFromOther, IP, RD, BL, IPs, TF, CF, %, Thematic&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="48.75" y="5590" width="400" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Visibility Comparator (free)&lt;br&gt;https://app.seobserver.com/organic_keywords/visibility_history&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;[domain, base, filter url, filter keywords]&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;chart data: visibility units by month&lt;br&gt;outcomes table data: for each url and migration: keyword, before, ??, After (Visibility, Best Position, Number of URLs)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" vertex="1">
+                    <mxGeometry x="50" y="5760" width="400" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=-0.003;entryY=0.822;entryDx=0;entryDy=0;entryPerimeter=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" source="2" target="YPiaJyC_-saFsRFNWan--18" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="30" y="2070" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="20" y="2467"/>
+                            <mxPoint x="20" y="2066"/>
+                        </Array>
+                        <mxPoint x="30" y="2340" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="121" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=0.001;entryY=0.631;entryDx=0;entryDy=0;entryPerimeter=0;" parent="bkDFoXj9CTxPV3tVn8Fy-7" target="YPiaJyC_-saFsRFNWan--18" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="47.75" y="2640" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="49" y="3041"/>
+                            <mxPoint x="30" y="3041"/>
+                            <mxPoint x="30" y="1944"/>
+                            <mxPoint x="47" y="1944"/>
+                        </Array>
+                        <mxPoint x="48.75" y="3042" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="bkDFoXj9CTxPV3tVn8Fy-18" value="External APIs" style="swimlane;whiteSpace=wrap;html=1;startSize=30;rounded=0;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="640" y="30" width="780" height="5930" as="geometry">
+                        <mxRectangle x="640" y="30" width="110" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="bkDFoXj9CTxPV3tVn8Fy-19" value="DataForSEO" style="swimlane;whiteSpace=wrap;html=1;startSize=30;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-18" vertex="1">
+                    <mxGeometry x="50" y="50" width="680" height="1320" as="geometry">
+                        <mxRectangle x="50" y="50" width="110" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="35" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Keyword Overview (0.01 + 0.0001 * 700 max)&lt;br&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot;&gt;https://api.dataforseo.com/v3/dataforseo_labs/google/keyword_overview/live&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;keywords, location_code, language_code&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;tasks.result.items.keyword_info. (competition, cpc, search_volume)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-19" vertex="1">
+                    <mxGeometry x="82.5" y="50" width="495" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="Google Organic SERP Task (0.0006)" style="swimlane;whiteSpace=wrap;html=1;startSize=30;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-19" vertex="1">
+                    <mxGeometry x="65" y="210" width="550" height="520" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Setting Google Organic SERP Tasks (Task POST)&lt;br&gt;&lt;b&gt;&lt;code&gt;https://api.dataforseo.com/v3/serp/google/organic/task_post&lt;/code&gt;&lt;/b&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;keywords, location_code, language_code&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;tasks[0].id&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="38" vertex="1">
+                    <mxGeometry x="43.75" y="50" width="432.5" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Get Organic SERP Completed Tasks (Tasks Ready)&lt;br&gt;&lt;b&gt;&lt;code&gt;https://api.dataforseo.com/v3/serp/google/organic/tasks_ready&lt;/code&gt;&lt;/b&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;GET&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;tasks.result.id[0]&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="38" vertex="1">
+                    <mxGeometry x="43.75" y="205" width="432.5" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Get Google Organic SERP Advanced Results by id (Task GET)&lt;br&gt;&lt;b&gt;&lt;code&gt;https://api.dataforseo.com/v3/serp/google/organic/task_get/advanced/{id}&lt;/code&gt;&lt;/b&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;GET&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;tasks.result[0].items&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="38" vertex="1">
+                    <mxGeometry x="38.75" y="360" width="442.5" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="96" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Keyword For Site (0.075)&lt;br&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot;&gt;https://api.dataforseo.com/v3/keywords_data/google_ads/keywords_for_site/live&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;target, location_code, language_code&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;tasks.result[i].keyword, competition, search_volume, cpc&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-19" vertex="1">
+                    <mxGeometry x="92.5" y="760" width="495" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="108" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Related Keywords (0.01 + 0.0001 * 1000)&lt;br&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot;&gt;https://api.dataforseo.com/v3/dataforseo_labs/google/related_keywords/live&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;keyword, location_code, language_code, filters&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;tasks[0].result[0].items[i].keyword_data.keyword_info.competition, cpc, search_volume, serp_info&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-19" vertex="1">
+                    <mxGeometry x="92.5" y="920" width="495" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="118" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Domain Technologies (0.01)&lt;br&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot;&gt;https://api.dataforseo.com/v3/domain_analytics/technologies/domain_technologies/live&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;target&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;tasks[0].result[0].technologies.content.cms&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-19" vertex="1">
+                    <mxGeometry x="92.5" y="1080" width="495" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="Majestic" style="swimlane;whiteSpace=wrap;html=1;startSize=30;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-18" vertex="1">
+                    <mxGeometry x="60" y="1640" width="660" height="1420" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;GetIndexItemInfo&lt;br&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; data-offset-key=&quot;f8ea9-0-0&quot;&gt;&lt;span data-text=&quot;true&quot;&gt;https://api.majestic.com/api/json?app_api_key=&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; spellcheck=&quot;false&quot; class=&quot;resolvedVariable&quot;&gt;&lt;span data-offset-key=&quot;f8ea9-1-0&quot;&gt;{apikey}&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; data-offset-key=&quot;f8ea9-2-0&quot;&gt;&lt;span data-text=&quot;true&quot;&gt;&amp;amp;cmd=GetIndexItemInfo&amp;amp;item0={url}&amp;amp;datasource=fresh&amp;amp;items=1&lt;/span&gt;&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;GET&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;DataTables.Results.Data[0]. (TopicalTrustFlow_Topic_0, TopicalTrustFlow_Value_0)&lt;br&gt;DataTables.Result.Data[0]. (RefDomains, ExtBackLinks, IndexedURLs, TrustFlow, CitationFlow&amp;nbsp;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;TopicalTrustFlow_Topic_0&lt;/span&gt;)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="30" vertex="1">
+                    <mxGeometry x="82.5" y="50" width="495" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;GetBackLinkData&lt;br&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; data-offset-key=&quot;7a3r-0-0&quot;&gt;&lt;span data-text=&quot;true&quot;&gt;https://api.majestic.com/api/json?app_api_key=&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; spellcheck=&quot;false&quot; class=&quot;resolvedVariable&quot;&gt;&lt;span data-offset-key=&quot;7a3r-1-0&quot;&gt;{apikey}&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; data-offset-key=&quot;7a3r-2-0&quot;&gt;&lt;span data-text=&quot;true&quot;&gt;&amp;amp;cmd=GetBackLinkData&amp;amp;item={url}&lt;/span&gt;&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;GET&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;DataTables.Backlinks.Data[i]. (AnchorText, SourceURL, Date, TargetURL, LinkType, SourceCitationFlow, SourceTrustFlow, SourceTopicalTrustFlow_Topic_0, SourceTopicalTrustFlow_Value_0)&lt;br&gt;&lt;br&gt;wilth RefDomain in the Parameter&lt;br&gt;&lt;br&gt;with MaxSourceURLsPerRefDomain in the Parameter&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="30" vertex="1">
+                    <mxGeometry x="82.5" y="210" width="495" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;GetRefDomains&lt;br&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; data-offset-key=&quot;5tcvh-0-0&quot;&gt;&lt;span data-text=&quot;true&quot;&gt;https://api.majestic.com/api/json?app_api_key=&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; spellcheck=&quot;false&quot; class=&quot;resolvedVariable&quot;&gt;&lt;span data-offset-key=&quot;5tcvh-1-0&quot;&gt;{apikey}&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; data-offset-key=&quot;5tcvh-2-0&quot;&gt;&lt;span data-text=&quot;true&quot;&gt;&amp;amp;cmd=GetRefDomains&amp;amp;item0={domain1}&amp;amp;item1={domain2}&lt;/span&gt;&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;GET&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;DataTables.Results.Data[i]. (Position, Domain, RefDomains, AlexaRank, Matches, IP, CitationFlow, TrustFlow)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="30" vertex="1">
+                    <mxGeometry x="82.5" y="470" width="495" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;GetAnchorText&lt;br&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; data-offset-key=&quot;6onj0-0-0&quot;&gt;&lt;span data-text=&quot;true&quot;&gt;https://api.majestic.com/api/json?app_api_key=&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; spellcheck=&quot;false&quot; class=&quot;resolvedVariable&quot;&gt;&lt;span data-offset-key=&quot;6onj0-1-0&quot;&gt;{apikey}&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; data-offset-key=&quot;6onj0-2-0&quot;&gt;&lt;span data-text=&quot;true&quot;&gt;&amp;amp;cmd=GetAnchorText&amp;amp;item={url}&lt;/span&gt;&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;GET&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;DataTables.AnchorText.Data[i]. (AnchorText, TotalLinks)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="30" vertex="1">
+                    <mxGeometry x="82.5" y="630" width="495" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="80" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;GetTopics&lt;br&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; data-offset-key=&quot;8q8p5-0-0&quot;&gt;&lt;span data-text=&quot;true&quot;&gt;https://api.majestic.com/api/json?app_api_key=&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; spellcheck=&quot;false&quot; class=&quot;resolvedVariable&quot;&gt;&lt;span data-offset-key=&quot;8q8p5-1-0&quot;&gt;{apikey}&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; data-offset-key=&quot;8q8p5-2-0&quot;&gt;&lt;span data-text=&quot;true&quot;&gt;&amp;amp;cmd=GetTopics&amp;amp;item={url}&lt;/span&gt;&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;GET&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;DataTables.Topics.Data[i]. (Topic, RefDomains)&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="30" vertex="1">
+                    <mxGeometry x="82.5" y="790" width="495" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="86" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;GetTopPages&lt;br&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; data-offset-key=&quot;6o8ai-0-0&quot;&gt;&lt;span data-text=&quot;true&quot;&gt;https://api.majestic.com/api/json?app_api_key=&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; spellcheck=&quot;false&quot; class=&quot;resolvedVariable&quot;&gt;&lt;span data-offset-key=&quot;6o8ai-1-0&quot;&gt;{apikey}&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; data-offset-key=&quot;6o8ai-2-0&quot;&gt;&lt;span data-text=&quot;true&quot;&gt;&amp;amp;cmd=GetTopPages&amp;amp;Query={url}&amp;amp;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot;&gt;From={from}&amp;amp;Count={count}&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;GET&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;DataTables.Matches.Data[i]. (URL,&amp;nbsp;&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;TrustFlow, CitationFlow, RefDomains, RefIPs, TopicalTrustFlow_Topic_0, Keywords(Majestic Score), LastCrawlResult, Date&lt;/span&gt;)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="30" vertex="1">
+                    <mxGeometry x="82.5" y="930" width="495" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="87" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;GetNewLostBacklinks&lt;br&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; data-offset-key=&quot;d3bjh-0-0&quot;&gt;&lt;span data-text=&quot;true&quot;&gt;https://api.majestic.com/api/json?app_api_key=&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; spellcheck=&quot;false&quot; class=&quot;resolvedVariable&quot;&gt;&lt;span data-offset-key=&quot;d3bjh-1-0&quot;&gt;{apikey}&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; data-offset-key=&quot;d3bjh-2-0&quot;&gt;&lt;span data-text=&quot;true&quot;&gt;&amp;amp;cmd=GetNewLostBackLinks&amp;amp;item={url}&amp;amp;Mode=1&lt;/span&gt;&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;GET&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;DataTables.Backlinks.Data[i]. (&lt;span style=&quot;color: rgb(63, 63, 63);&quot;&gt;SourceURL, AnchorText, LinkType, LastSeenDate, SourceTrustFlow, Backlink Remainers&lt;/span&gt;)&lt;br&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="30" vertex="1">
+                    <mxGeometry x="80" y="1110" width="495" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="70" value="SEMrush" style="swimlane;whiteSpace=wrap;html=1;startSize=30;rounded=0;" parent="bkDFoXj9CTxPV3tVn8Fy-18" vertex="1">
+                    <mxGeometry x="60" y="3330" width="660" height="1070" as="geometry">
+                        <mxRectangle x="50" y="50" width="110" height="30" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="71" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Domain Overview (history)&lt;br&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot;&gt;https://api.semrush.com/?type=domain_rank_history&amp;amp;key={apikey}&amp;amp;domain={domain}&amp;amp;database=us&amp;amp;export_columns=Ot,Or,Dt&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;GET&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;Organic Traffic;Organic Keywords;Date&lt;br&gt;148758797;45080374;20250415&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="70" vertex="1">
+                    <mxGeometry x="82.5" y="50" width="495" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="98" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Domain Organic&lt;br&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; data-offset-key=&quot;8o79c-0-0&quot;&gt;&lt;span data-text=&quot;true&quot;&gt;https://api.semrush.com/?type=domain_organic&amp;amp;key=&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; spellcheck=&quot;false&quot; class=&quot;resolvedVariable&quot;&gt;&lt;span data-offset-key=&quot;8o79c-1-0&quot;&gt;{{semrush.apikey}}&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; data-offset-key=&quot;8o79c-2-0&quot;&gt;&lt;span data-text=&quot;true&quot;&gt;&amp;amp;domain=github.com&amp;amp;database=us&amp;amp;export_columns=Ph,Po,Ot,Nq,Cp,Co,Td,Ur,Tr&lt;/span&gt;&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;GET&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;Keyword;Position;Search Volume;CPC;Competition;Trends;Url;Traffic (%)&lt;br&gt;github;1;823000;2.52;0.01;0.54,0.36,0.36,0.54,0.54,0.54,0.54,0.54,0.54,0.66,0.66,0.66;https://github.com/;3.67&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="70" vertex="1">
+                    <mxGeometry x="29" y="230" width="602" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="106" value="&lt;table border=&quot;1&quot; width=&quot;100%&quot; height=&quot;100%&quot; cellpadding=&quot;4&quot; style=&quot;width:100%;height:100%;border-collapse:collapse;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;th align=&quot;center&quot;&gt;Domain Organic Search Keywords&lt;br&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; data-offset-key=&quot;5fu23-0-0&quot;&gt;&lt;span data-text=&quot;true&quot;&gt;https://api.semrush.com/?type=domain_organic&amp;amp;key=&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; spellcheck=&quot;false&quot; class=&quot;resolvedVariable&quot;&gt;&lt;span data-offset-key=&quot;5fu23-1-0&quot;&gt;{{semrush.apikey}}&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;color: rgb(33, 33, 33); font-family: Inter, OpenSans, Helvetica, Arial, sans-serif; font-weight: 400; text-align: left; white-space-collapse: preserve; background-color: rgb(255, 255, 255);&quot; data-offset-key=&quot;5fu23-2-0&quot;&gt;&lt;span data-text=&quot;true&quot;&gt;&amp;amp;&lt;br&gt;display_filter=%2B%7CPh%7CCo%7Cseo&amp;amp;display_limit=10&amp;amp;&lt;br&gt;export_columns=Ph,Po,Pp,Pd,Nq,Cp,Ur,Tr,Tc,Co,Nr&lt;br&gt;&amp;amp;domain=seobook.com&amp;amp;display_sort=tr_desc&amp;amp;database=us&lt;/span&gt;&lt;/span&gt;&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;GET&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align=&quot;center&quot;&gt;Keyword;Position;Previous Position;Position Difference;Search Volume;CPC;Url;Traffic (%);Traffic Cost (%);Competition;Number of Results&lt;br&gt;seobook;1;1;0;390;1.69;http://www.seobook.com/;18.69;10.84;0.18;56&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;overflow=fill;rounded=0;" parent="70" vertex="1">
+                    <mxGeometry x="59.5" y="410" width="541" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#FFB366;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="480" y="195" as="sourcePoint"/>
+                        <mxPoint x="760" y="760" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="610" y="480"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="46" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;exitX=1;exitY=0.75;exitDx=0;exitDy=0;strokeColor=#FFB366;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="bkDFoXj9CTxPV3tVn8Fy-37" target="35" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="491" y="208" as="sourcePoint"/>
+                        <mxPoint x="780" y="240" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="49" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;entryX=0.004;entryY=0.695;entryDx=0;entryDy=0;fillColor=#0AFFE8;strokeColor=#FFB366;entryPerimeter=0;" parent="1" target="48" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="480" y="184" as="sourcePoint"/>
+                        <mxPoint x="800" y="480" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="580" y="600"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="50" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;exitX=1;exitY=0.75;exitDx=0;exitDy=0;strokeColor=#3333FF;" parent="1" source="bkDFoXj9CTxPV3tVn8Fy-39" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="489" y="188" as="sourcePoint"/>
+                        <mxPoint x="760" y="770" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="52" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;exitX=0.994;exitY=0.874;exitDx=0;exitDy=0;strokeColor=#3333FF;exitPerimeter=0;entryX=-0.003;entryY=0.555;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="53" target="51" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="489" y="348" as="sourcePoint"/>
+                        <mxPoint x="770" y="780" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="550" y="840"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="54" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;exitX=0.994;exitY=0.874;exitDx=0;exitDy=0;strokeColor=#3333FF;exitPerimeter=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="bkDFoXj9CTxPV3tVn8Fy-39" target="53" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="476" y="354" as="sourcePoint"/>
+                        <mxPoint x="773" y="1318" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="53" value="Filter by AnchorText, Sort by Date" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=90;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="820" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;exitX=1;exitY=0.75;exitDx=0;exitDy=0;strokeColor=#1AFF26;entryX=-0.005;entryY=0.595;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="YPiaJyC_-saFsRFNWan--1" target="51" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="489" y="348" as="sourcePoint"/>
+                        <mxPoint x="774" y="1360" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="630" y="1260"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="61" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;exitX=0.998;exitY=0.621;exitDx=0;exitDy=0;strokeColor=#FF3399;entryX=0;entryY=0.75;entryDx=0;entryDy=0;exitPerimeter=0;" parent="1" source="YPiaJyC_-saFsRFNWan--2" target="57" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="489" y="508" as="sourcePoint"/>
+                        <mxPoint x="783" y="1346" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="540" y="1170"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="62" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#FF3399;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" target="51" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="479" y="690" as="sourcePoint"/>
+                        <mxPoint x="783" y="1648" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="570" y="1080"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="63" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;exitX=1.001;exitY=0.861;exitDx=0;exitDy=0;strokeColor=#FF6666;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitPerimeter=0;" parent="1" source="YPiaJyC_-saFsRFNWan--3" target="51" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="488" y="676" as="sourcePoint"/>
+                        <mxPoint x="783" y="1648" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="500" y="1070"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="64" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;exitX=0.998;exitY=0.869;exitDx=0;exitDy=0;strokeColor=#C020FF;entryX=0;entryY=0.75;entryDx=0;entryDy=0;exitPerimeter=0;" parent="1" source="YPiaJyC_-saFsRFNWan--4" target="48" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="489" y="865" as="sourcePoint"/>
+                        <mxPoint x="781" y="1312" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="510" y="1080"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="65" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;exitX=1;exitY=0.5;exitDx=0;exitDy=0;strokeColor=#0EFF9B;entryX=0.004;entryY=0.862;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="YPiaJyC_-saFsRFNWan--5" target="48" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="488" y="1023" as="sourcePoint"/>
+                        <mxPoint x="781" y="1175" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="520" y="1090"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="67" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;exitX=1.001;exitY=0.924;exitDx=0;exitDy=0;strokeColor=#0EFF9B;entryX=-0.003;entryY=0.895;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" parent="1" source="YPiaJyC_-saFsRFNWan--5" target="66" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="489" y="1160" as="sourcePoint"/>
+                        <mxPoint x="784" y="1192" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="620" y="1630"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="68" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;exitX=1;exitY=0.876;exitDx=0;exitDy=0;strokeColor=#5769FF;entryX=-0.005;entryY=0.854;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" parent="1" source="YPiaJyC_-saFsRFNWan--6" target="66" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="490" y="1236" as="sourcePoint"/>
+                        <mxPoint x="781" y="1826" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="600" y="1580"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="69" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;exitX=0.998;exitY=0.874;exitDx=0;exitDy=0;strokeColor=#00FFFF;exitPerimeter=0;entryX=-0.002;entryY=0.856;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="YPiaJyC_-saFsRFNWan--7" target="51" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="489" y="1376" as="sourcePoint"/>
+                        <mxPoint x="840" y="1420" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="680" y="1470"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="76" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#FF0000;entryX=0.001;entryY=0.832;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="71" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="479" y="1740" as="sourcePoint"/>
+                        <mxPoint x="780" y="1430" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="560" y="1910"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="77" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#FF8000;entryX=-0.002;entryY=0.886;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.999;exitY=0.976;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="YPiaJyC_-saFsRFNWan--18" target="51" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="489" y="1750" as="sourcePoint"/>
+                        <mxPoint x="783" y="2115" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="630" y="1810"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="78" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#00FF00;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=-0.002;entryY=0.929;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="2" target="51" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="488" y="2189" as="sourcePoint"/>
+                        <mxPoint x="770" y="1444" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="580" y="2050"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="79" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#3333FF;entryX=0.003;entryY=0.916;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="57" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="480" y="2800" as="sourcePoint"/>
+                        <mxPoint x="780" y="1454" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="510" y="2210"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="81" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#00CCCC;entryX=-0.003;entryY=0.852;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.998;exitY=0.865;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="6" target="80" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="480" y="2950" as="sourcePoint"/>
+                        <mxPoint x="784" y="1609" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="680" y="2620"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="82" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#FFE636;exitX=1.002;exitY=0.839;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.005;entryY=0.924;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="4" target="66" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="489" y="2508" as="sourcePoint"/>
+                        <mxPoint x="780" y="1454" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="660" y="2510"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="85" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#4D9900;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=-0.003;entryY=0.858;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="16" target="86" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="480" y="3922" as="sourcePoint"/>
+                        <mxPoint x="870" y="3190" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="620" y="3020"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="88" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#990000;exitX=1.005;exitY=0.828;exitDx=0;exitDy=0;entryX=-0.001;entryY=0.813;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" parent="1" source="17" target="87" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="489" y="3928" as="sourcePoint"/>
+                        <mxPoint x="781" y="2079" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="660" y="3810"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="89" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#FF4141;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0.003;entryY=0.967;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="YPiaJyC_-saFsRFNWan--22" target="51" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="489" y="2508" as="sourcePoint"/>
+                        <mxPoint x="773" y="1450" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="590" y="2060"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="97" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#660000;entryX=-0.006;entryY=0.825;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.997;exitY=0.691;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="10" target="96" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="465" y="3383" as="sourcePoint"/>
+                        <mxPoint x="791" y="2564" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="650" y="2170"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="99" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#00CCCC;entryX=0;entryY=0.877;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;" parent="1" source="9" target="98" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="473" y="3405" as="sourcePoint"/>
+                        <mxPoint x="790" y="957" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="580" y="3670"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="100" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#009900;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=-0.002;entryY=0.813;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="7" target="98" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="474" y="3263" as="sourcePoint"/>
+                        <mxPoint x="730" y="3732" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="590" y="3680"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="101" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#009900;exitX=0.997;exitY=0.858;exitDx=0;exitDy=0;entryX=-0.006;entryY=0.929;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" parent="1" source="7" target="48" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="475" y="3133" as="sourcePoint"/>
+                        <mxPoint x="738" y="3722" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="610" y="2490"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="102" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#FF9999;entryX=0.001;entryY=0.88;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.75;exitDx=0;exitDy=0;" parent="1" source="11" target="96" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="474" y="3386" as="sourcePoint"/>
+                        <mxPoint x="790" y="957" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="740" y="2230"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="103" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#FF9999;entryX=-0.003;entryY=0.942;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.995;exitY=0.828;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="11" target="48" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="475" y="3515" as="sourcePoint"/>
+                        <mxPoint x="793" y="964" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="750" y="2240"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="104" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#FF00FF;exitX=1.002;exitY=0.858;exitDx=0;exitDy=0;entryX=0.002;entryY=0.675;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" parent="1" source="15" target="51" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="489" y="3928" as="sourcePoint"/>
+                        <mxPoint x="791" y="2739" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="690" y="2910"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="105" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#9933FF;exitX=1;exitY=0.75;exitDx=0;exitDy=0;" parent="1" source="19" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="491" y="4098" as="sourcePoint"/>
+                        <mxPoint x="760" y="780" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="670" y="3820"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="107" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#9933FF;exitX=0.997;exitY=0.8;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.86;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="19" target="106" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="490" y="4423" as="sourcePoint"/>
+                        <mxPoint x="770" y="790" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="680" y="3830"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="109" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#00CCCC;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=-0.004;entryY=0.849;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="20" target="108" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="489" y="4430" as="sourcePoint"/>
+                        <mxPoint x="770" y="3969" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="720" y="2850"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="110" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#FF0000;exitX=0.997;exitY=0.826;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.005;entryY=0.658;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="23" target="48" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="503" y="4595" as="sourcePoint"/>
+                        <mxPoint x="750" y="1850" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="710" y="3290"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="111" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#FF8000;entryX=0.001;entryY=0.831;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="48" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="480" y="4960" as="sourcePoint"/>
+                        <mxPoint x="795" y="1816" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="760" y="3310"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="112" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#33FF33;entryX=-0.006;entryY=0.855;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.998;exitY=0.925;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="25" target="57" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="490" y="4970" as="sourcePoint"/>
+                        <mxPoint x="793" y="1838" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="730" y="3750"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="113" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#0000CC;exitX=1;exitY=0.88;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="26" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="490" y="4970" as="sourcePoint"/>
+                        <mxPoint x="760" y="790" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="490" y="3110"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="114" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#009999;exitX=1.002;exitY=0.874;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;exitPerimeter=0;" parent="1" source="28" target="51" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="490" y="5413" as="sourcePoint"/>
+                        <mxPoint x="770" y="800" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="500" y="3120"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="115" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;strokeColor=#FF0000;entryX=0.005;entryY=0.591;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.999;exitY=0.203;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="YPiaJyC_-saFsRFNWan--18" target="48" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="489" y="1750" as="sourcePoint"/>
+                        <mxPoint x="793" y="3545" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="590" y="1750"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="117" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=1.004;exitY=0.431;exitDx=0;exitDy=0;exitPerimeter=0;strokeColor=#FF0000;" parent="1" source="YPiaJyC_-saFsRFNWan--18" target="48" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="480" y="1840" as="sourcePoint"/>
+                        <mxPoint x="680" y="1960" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="590" y="1850"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="119" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;exitX=0.997;exitY=0.465;exitDx=0;exitDy=0;exitPerimeter=0;strokeColor=#FF0000;entryX=0;entryY=0.859;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="YPiaJyC_-saFsRFNWan--18" target="118" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="490" y="1856" as="sourcePoint"/>
+                        <mxPoint x="790" y="1274" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="730" y="1580"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="120" value="" style="edgeStyle=elbowEdgeStyle;elbow=horizontal;endArrow=classic;html=1;curved=0;rounded=0;endSize=8;startSize=8;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.998;exitY=0.544;exitDx=0;exitDy=0;exitPerimeter=0;strokeColor=#FF0000;" parent="1" source="YPiaJyC_-saFsRFNWan--18" target="48" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="490" y="1856" as="sourcePoint"/>
+                        <mxPoint x="793" y="1860" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="770" y="1850"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

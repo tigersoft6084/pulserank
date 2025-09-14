@@ -1,0 +1,520 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id                        String          @id @default(cuid())
+  userId                    String
+  provider                  String
+  providerAccountId         String
+  type                      String
+  refresh_token             String?         @db.Text
+  access_token              String?         @db.Text
+  expires_at                Int?
+  token_type                String?
+  scope                     String?
+  id_token                  String?         @db.Text
+  session_state             String?
+  user                      User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id                        String          @id @default(cuid())
+  sessionToken              String          @unique
+  userId                    String
+  expires                   DateTime
+  user                      User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model User {
+  id                        String          @id @default(cuid())
+  name                      String
+  email                     String          @unique
+  password                  String?
+  image                     String?
+  emailVerified             DateTime?
+  isVerified                Boolean         @default(false)
+  accounts                  Account[]
+  sessions                  Session[]
+  createdAt                 DateTime        @default(now())
+  updatedAt                 DateTime        @updatedAt
+  lastActiveAt              DateTime        @default(now())
+
+  roles                     Role[]
+  organizations             Organization[]
+  campaigns                 Campaign[]
+  keywords                  Keyword[]
+  trackingSites             TrackingSite[]
+  unlockedDomains           String[]
+  userExports               UserExport[]
+  userHistories             UserHistory[]
+  userOrders                 UserOrder[]
+
+  @@map("users")
+}
+
+model VerificationToken {
+  identifier                String
+  token                     String          @unique
+  expires                   DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+model Subscription {
+  id                        String          @id
+  price_id                  String
+  status                    String
+  period_ends_at            DateTime        @db.Timestamp(6)
+  Organization              Organization[]
+
+  @@map("subscriptions")
+}
+
+model Organization {
+  id                        String          @id @default(cuid())
+  name                      String          @db.VarChar
+  owner_user_id             String?
+  customer_id               String? 
+  subscription_id           String?
+
+  user                      User?           @relation(fields: [owner_user_id], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  subscription              Subscription?   @relation(fields: [subscription_id], references: [id], onDelete: SetNull, onUpdate: Cascade)
+  Role                      Role[]
+  Invite                    Invite[]
+
+  @@unique([id, name])
+  @@map("organizations")
+}
+
+model Role {
+  id                        String          @id @default(cuid())
+  org_id                    String
+  org_name                  String
+  user_id                   String
+  email                     String
+  role                      String          @db.VarChar
+
+  organization              Organization    @relation(fields: [org_id, org_name], references: [id, name], onDelete: Cascade, onUpdate: Cascade)
+  user                      User            @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@map("roles")
+}
+
+model Invite {
+  id                        String          @id @default(cuid())
+  org_id                    String          @db.VarChar
+  email                     String    
+  role                      String          @db.VarChar
+
+  organization              Organization?   @relation(fields: [org_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  @@map("invites")
+}
+
+model Campaign {
+  id                        String          @id @default(cuid())
+  name                      String          @db.VarChar
+  keywords                  Keyword[]
+  sites                     SiteForCampaign[]
+  alerts                    Alert[]
+  createdAt                 DateTime        @default(now())
+  updatedAt                 DateTime        @updatedAt
+  
+  user_id                   String
+  user                      User            @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@map("campaigns")
+}
+
+model Keyword {
+  id                        String          @id @default(cuid())
+  base                      SERPBase
+  keyword                   String          @db.VarChar
+  tags                      String[]
+  frequency                 Int             @default(1)
+  search_volume             Int             @default(0)
+  cpc                       Float           @default(0)
+  competition               Float           @default(0)
+  interest                  Int             @default(0)
+  properties                String[]
+  history                   SERPMachineHistory[]
+  createdAt                 DateTime        @default(now())
+  updatedAt                 DateTime        @updatedAt
+
+  campaign_id               String
+  campaign                  Campaign        @relation(fields: [campaign_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  user_id                   String
+  user                      User            @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@map("keywords")
+}
+
+model SiteForCampaign {
+  id                        String          @id @default(cuid())
+  url                       String          @db.VarChar
+  type                      SiteType
+  tags                      String[]
+  createdAt                 DateTime        @default(now())
+  updatedAt                 DateTime        @updatedAt
+
+  campaign_id               String
+  campaign                  Campaign        @relation(fields: [campaign_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@map("sites")
+}
+
+model Alert {
+  id                        String          @id @default(cuid())
+  email                     String          @db.VarChar
+  frequency                 Int             @default(1) // 1 = daily, 7 = weekly, 30 = monthly
+  createdAt                 DateTime        @default(now())
+  updatedAt                 DateTime        @updatedAt
+
+  campaign_id               String
+  campaign                  Campaign        @relation(fields: [campaign_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@map("alerts")
+}
+
+model SERPMachineHistory {
+  id                        String          @id @default(cuid())
+  date                      DateTime        @default(now())
+  location_code             Int             @default(2840)
+  language_code             String          @default("en")
+  check_url                 String          @db.VarChar
+  item_types                String[]
+  serp_data                 SERPData[]
+  createdAt                 DateTime        @default(now())
+  updatedAt                 DateTime        @updatedAt
+
+  keyword_id                String
+  keyword                   Keyword         @relation(fields: [keyword_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  @@map("keyword_histories")
+}
+
+model SERPData {
+  id                        String          @id @default(cuid())
+  url                       String          @db.VarChar
+  rank                      Int             @default(0)
+  title                     String          @db.VarChar
+  description               String          @db.VarChar
+
+  serp_machine_history_id   String
+  serp_machine_history      SERPMachineHistory @relation(fields: [serp_machine_history_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@map("serp_data")
+}
+
+model TrackingSite {
+  id                        String          @id @default(cuid())
+  url                       String          @db.VarChar
+  type                      SiteType
+  email_alert               Boolean         @default(false)
+  backlink_history          BacklinkHistory[]
+  createdAt                 DateTime        @default(now())
+  updatedAt                 DateTime        @updatedAt
+
+  user_id                   String
+  user                      User            @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@map("tracking_sites")
+}
+
+model BacklinkHistory {
+  id                        String          @id @default(cuid())
+  date                      DateTime        @default(now())
+  domain                    String          @db.VarChar
+  backlink_data             BacklinkData[]
+  createdAt                 DateTime        @default(now())
+  updatedAt                 DateTime        @updatedAt
+
+  tracking_site_id          String?
+  tracking_site             TrackingSite?   @relation(fields: [tracking_site_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@map("backlink_histories")
+}
+
+model BacklinkData {
+  id                        String          @id @default(cuid())
+  source_url                String          @db.VarChar
+  cms                       String          @db.VarChar
+  anchor                    String          @db.VarChar
+  flags                     Json
+  target_url                String          @db.VarChar
+  ip                        String          @db.VarChar
+  trust_flow                Int             @default(0)
+  citation_flow             Int             @default(0)
+  found_date                String          @db.VarChar
+  seen                      String          @db.VarChar
+  last_crawl                String          @db.VarChar
+  type                      Boolean         @default(false)
+  createdAt                 DateTime        @default(now())
+  updatedAt                 DateTime        @updatedAt
+
+  backlink_history_id       String
+  backlink_history          BacklinkHistory @relation(fields: [backlink_history_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@map("backlink_data")
+}
+
+model DomainIndexInfo {
+  id                        String          @id @default(cuid())
+  domain                    String          @db.VarChar
+  ext_backlinks             BigInt          @default(0)
+  ref_domains               BigInt          @default(0)
+  alexa_rank                String          @db.VarChar
+  ip                        String          @db.VarChar
+  subnet                    String          @db.VarChar
+  trust_flow                Int             @default(0)
+  citation_flow             Int             @default(0)
+  percentage                Int             @default(0)
+  topical_trust_flow_topic_0 String          @db.VarChar
+  topical_trust_flow_value_0 Int             @default(0)
+  fetched_at                DateTime        @default(now())
+
+  createdAt                 DateTime        @default(now())
+  updatedAt                 DateTime        @updatedAt
+
+  @@index([domain, fetched_at])
+  @@map("domain_index_info")
+}
+
+model SiteIndexInfo {
+  id                        String          @id @default(cuid())
+  url                       String          @unique @db.VarChar
+  google_indexed            Boolean         @default(false)
+  indexed_rank              Int             @default(0)
+  indexed_url               String?
+
+  createdAt                 DateTime        @default(now())
+  updatedAt                 DateTime        @updatedAt
+
+  @@map("site_index_info")
+}
+
+// User Data Models
+model UserExport {
+  id                        String          @id @default(cuid())
+  userId                    String
+  user                      User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type                      String
+  data                      Json
+  createdAt                 DateTime        @default(now())
+
+  @@map("user_exports")
+}
+
+model UserHistory {
+  id                        String          @id @default(cuid())
+  userId                    String
+  user                      User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  description               String
+  item                      String
+  cost                      Int             @default(0)
+  pinned                    Boolean         @default(false)
+  createdAt                 DateTime        @default(now())
+
+  @@map("user_histories")
+}
+
+model Plan {
+  id          String   @id @default(cuid())
+  name        String   // e.g. "Pro Monthly"
+  price       Float    // for display (PayPal handles actual billing)
+  currency    String   @default("USD")
+  interval    String   // "MONTH" or "YEAR"
+  paypalPlanId      String  @unique
+  active      Boolean  @default(true)
+  constraints Json //{keywords: 150, backlinks:300, tracking:20}
+  createdAt   DateTime @default(now())
+
+  userOrders              UserOrder[]
+  @@map("plans")
+}
+
+model UserOrder {
+   id                    String   @id @default(cuid())
+  userId                String
+  planId                String
+  paypalSubscriptionId  String   @unique
+  status                String   // e.g. APPROVAL_PENDING, ACTIVE, CANCELLED
+  startedAt             DateTime @default(now())
+  currentPeriodEnd      DateTime?
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  tierName          String?     // Reference to SubscriptionTier.name for compatibility
+
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  plan              Plan     @relation(fields: [planId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  logs    BillingHistory[]
+  @@map("user_orders")
+}
+
+model BillingHistory {
+    id              String     @id @default(cuid())
+  subscriptionId  String
+  transactionId   String
+  eventType       String
+  amount            Float?
+  currency          String?
+  data            Json
+  paidAt          DateTime?
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  userOrder               UserOrder       @relation(fields: [subscriptionId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+  @@map("billing_histories")
+}
+
+model Admin {
+  id                        String          @id @default(cuid())
+  email                     String          @unique
+  password                  String
+  createdAt                 DateTime        @default(now())
+  updatedAt                 DateTime        @updatedAt
+}
+
+model ThirdPartyService {
+  id        String   @id @default(cuid())
+  name      String
+  config    Json
+  threshold Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+ 
+}
+
+// Cache Models
+model APICache {
+  id                        String          @id @default(cuid())
+  cacheKey                  String          @unique // Hash of API endpoint + parameters
+  endpoint                  String          // e.g., "majestic.backlinkData", "dataforseo.serpData"
+  parameters                Json            // Request parameters as JSON
+  response                  Json            // API response data
+  expiresAt                 DateTime        // When cache expires
+  createdAt                 DateTime        @default(now())
+  updatedAt                 DateTime        @updatedAt
+  hitCount                  Int             @default(0) // Track cache usage
+  userId                    String?         // Optional user-specific caching
+  lastAccessed              DateTime        @default(now()) // Track last access time
+
+  @@index([endpoint, expiresAt])
+  @@index([cacheKey])
+  @@index([userId])
+  @@map("api_cache")
+}
+
+model CacheConfig {
+  id                        String          @id @default(cuid())
+  endpoint                  String          @unique // API endpoint identifier
+  ttl                       Int             // Time to live in seconds
+  maxHits                   Int?            // Max hits before refresh
+  isActive                  Boolean         @default(true)
+  priority                  Int             @default(0) // Cache priority (0=low, 10=high)
+  createdAt                 DateTime        @default(now())
+  updatedAt                 DateTime        @updatedAt
+
+  @@map("cache_config")
+}
+
+model CacheStats {
+  id                        String          @id @default(cuid())
+  date                      DateTime        @default(now())
+  endpoint                  String
+  totalRequests             Int             @default(0)
+  cacheHits                 Int             @default(0)
+  cacheMisses               Int             @default(0)
+  apiCalls                  Int             @default(0)
+  averageResponseTime       Float           @default(0)
+  createdAt                 DateTime        @default(now())
+
+  @@unique([date, endpoint])
+  @@index([date])
+  @@index([endpoint])
+  @@map("cache_stats")
+}
+
+enum SERPBase {
+  fr_fr
+  com_en
+  co_uk_fr
+  ca_en
+  ca_fr
+  de_de
+  es_es
+  it_it
+  ch_fr
+  ch_de
+  be_fr
+  be_nl
+  com_mx_s
+  com_br_pt
+  com_ar_s
+  com_tr_tr
+  co_ma_fr
+  se_sv
+  com_au_fr
+  co_il_iw
+  pl_pl
+  cl_e
+  nl_nl
+  lu_de
+  lu_fr
+  sn_fr
+  cm_en
+  co_jp_ja
+  ru_ru
+  co_za_fr
+  at_de
+  com_co_es
+  gr_el
+  co_nz_fr
+  co_in_fr
+  com_hk_zh
+  ie_fr
+  com_sg_fr
+  cz_cs
+  sk_sk
+  lt_lt
+  pt_pt
+  com_my_ms
+  dk_da
+  co_kr_ko
+  fi_fi
+  ge_ka
+  co_id_id
+  no_no
+  ro_ro
+  custom
+}
+
+enum SiteType {
+  domain
+  subdomain
+  page
+}
+
+enum PlanType {
+  Freelance
+  Studio
+  Agency
+}
