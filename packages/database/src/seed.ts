@@ -4,14 +4,8 @@ import * as process from "process";
 
 const prisma = new PrismaClient();
 
-// PayPal service mock for seeding
-const paypalService = {
-  isConfigured: () => false,
-  createPlan: async (plan: any) => ({
-    success: true,
-    planId: `plan_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
-  }),
-};
+// Import the real PayPal service
+import { paypalService } from "../../../apps/pulserank-admin/src/services/paypal.service";
 
 // Run on module load (only once per server boot)
 async function init() {
@@ -169,26 +163,43 @@ async function init() {
           throw new Error("Failed to delete existing plans");
         }
         for (const plan of plansData) {
+          // Check if PayPal is configured before creating plans
+          if (!paypalService.isConfigured()) {
+            console.warn(
+              "PayPal is not configured. Skipping plan creation for:",
+              plan.name
+            );
+            continue;
+          }
+
           const planRes = await paypalService.createPlan({
             name: plan.name,
             price: plan.price,
             interval: plan.interval,
             currency: "USD",
           });
-          if (planRes.success) {
-            // upsert plan
+
+          if (planRes.success && planRes.planId) {
+            // Create plan with real PayPal plan ID
             await prisma.plan.create({
               data: {
                 name: plan.name,
                 price: plan.price,
                 interval: plan.interval,
-                paypalPlanId: planRes.planId!,
+                paypalPlanId: planRes.planId,
                 active: true,
                 constraints: plan.constraints,
               },
             });
+            console.log(
+              `Successfully created PayPal plan: ${plan.name} with ID: ${planRes.planId}`
+            );
           } else {
-            console.error("Failed to create plan:", plan.name);
+            console.error(
+              "Failed to create PayPal plan:",
+              plan.name,
+              planRes.message
+            );
           }
         }
       } catch (error) {

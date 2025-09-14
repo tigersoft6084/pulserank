@@ -29,6 +29,14 @@
     },
     "db:studio": {
       "cache": false
+    },
+    "db:reset": {
+      "cache": false,
+      "persistent": true
+    },
+    "db:seed": {
+      "cache": false,
+      "persistent": true
     }
   }
 }
