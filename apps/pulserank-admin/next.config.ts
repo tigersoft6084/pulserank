@@ -39,10 +39,6 @@ const nextConfig: NextConfig = {
       ...config.resolve.fallback,
       buffer: require.resolve("buffer/"),
     };
-    config.module.rules.push({
-      test: /\.css$/i,
-      use: ["style-loader", "css-loader"],
-    });
     return config;
   },
 };
