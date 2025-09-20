@@ -15,12 +15,12 @@ export function WhyChooseSection() {
       image: "/images/carousel/mutuelle-sante.png",
       carouselIndex: 0, // Index in the carousel for this image
       before: {
-        title: "Before SEOObserver",
+        title: "Before SEObserver",
         description:
           "You had to manually check your website's rankings, or you had to pay for a certain number of tracked keywords or a dubious proxy pack. You had to wait 24 hours between readings.",
       },
       after: {
-        title: "With SEOObserver",
+        title: "With SEObserver",
         description:
           "You have a comprehensive view of how the SERPs have changed over time, both for you and your competitors. You pay for full access to a database of millions of keywords. You can refresh our results if you see that the SERP has changed.",
       },
@@ -31,12 +31,12 @@ export function WhyChooseSection() {
       image: "/images/carousel/last_backlinks.jpg",
       carouselIndex: 4, // Index in the carousel for this image
       before: {
-        title: "Before SEOObserver",
+        title: "Before SEObserver",
         description:
           "You would spot a website that passed you by and analyze its backlinks manually every 3/4 days, using csv exports and complicated and boring Excel sorting.",
       },
       after: {
-        title: "With SEOObserver",
+        title: "With SEObserver",
         description:
           "The software automatically identifies sites of interest, tracks them automatically, and highlights their strategies. You can download an export if necessary.",
       },
@@ -47,12 +47,12 @@ export function WhyChooseSection() {
       image: "/images/carousel/extension.jpg",
       carouselIndex: 5, // Index in the carousel for this image
       before: {
-        title: "Before SEOObserver",
+        title: "Before SEObserver",
         description:
           "When performing a link review, you were forced to visually search for the link by doing long, boring scrolls and sometimes without reaching your goal.",
       },
       after: {
-        title: "With SEOObserver",
+        title: "With SEObserver",
         description:
           'You click on the "SEObserver" bookmarklet and your screen scrolls to the link, then circles it in red on a fluorescent yellow background. It\'s impossible to miss.',
       },
@@ -63,12 +63,12 @@ export function WhyChooseSection() {
       image: "/images/carousel/tapez.jpg",
       carouselIndex: 6, // Index in the carousel for this image
       before: {
-        title: "Before SEOObserver",
+        title: "Before SEObserver",
         description:
           "You did your research manually. Or you had to pay for access to various software programs that were supposed to show you the relevance of keywords.",
       },
       after: {
-        title: "With SEOObserver",
+        title: "With SEObserver",
         description:
           "You have an overview of the entire French-speaking AdWords keyword database. Our method for ranking the most important keywords gives you a quick overview of the essential keywords in the French-speaking market.",
       },
@@ -79,12 +79,12 @@ export function WhyChooseSection() {
       image: "/images/carousel/euros.png",
       carouselIndex: 4, // Index in the carousel for this image
       before: {
-        title: "Before SEOObserver",
+        title: "Before SEObserver",
         description:
           "You had to pay for multiple subscriptions to different data providers and juggle between different tools in a boring way.",
       },
       after: {
-        title: "With SEOObserver",
+        title: "With SEObserver",
         description:
           "You have an all-in-one tool that combines the best of every tool currently on the market.",
       },
@@ -103,7 +103,7 @@ export function WhyChooseSection() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl  text-gray-900 mb-6">
-            Discover how SEOobserver will radically transform your habits and{" "}
+            Discover how SEObserver will radically transform your habits and{" "}
             <span className="font-bold">save you several hours per day</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -148,7 +148,7 @@ export function WhyChooseSection() {
                 </h3>
 
                 <div className="space-y-3">
-                  {/* Before SEOObserver */}
+                  {/* Before SEObserver */}
                   <div className="bg-white border border-gray-200 rounded-lg p-3 shadow-sm">
                     <div className="flex items-start space-x-4">
                       <X className="w-6 h-6 text-gray-500 mt-1 flex-shrink-0" />
@@ -163,7 +163,7 @@ export function WhyChooseSection() {
                     </div>
                   </div>
 
-                  {/* With SEOObserver */}
+                  {/* With SEObserver */}
                   <div className="bg-white border border-gray-200 rounded-lg p-3 shadow-sm">
                     <div className="flex items-start space-x-4">
                       <Check className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />

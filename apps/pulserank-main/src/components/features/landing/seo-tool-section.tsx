@@ -17,7 +17,7 @@ export function SeoToolSection() {
               A tool made by SEOs, for SEOs.
             </h2>
             <p className="text-lg text-gray-300 leading-relaxed">
-              SEOObserver was conceived, designed and developed by SEO
+              SEObserver was conceived, designed and developed by SEO
               consultants, based on the needs of the SEO specialists and SEO
               agencies we met.
             </p>

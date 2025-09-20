@@ -28,7 +28,7 @@ export function PublicNavigation() {
         {/* Logo */}
         <div className="flex-shrink-0 flex items-center">
           <Link href="/" className="mx-4 min-w-[128px]">
-            <Image src="/logo.svg" alt="SEOobserver" width={224} height={56} />
+            <Image src="/logo.svg" alt="SEObserver" width={224} height={56} />
           </Link>
         </div>
 

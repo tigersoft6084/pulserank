@@ -11,7 +11,7 @@ export function FooterSection() {
           <div className="flex flex-col items-center md:items-start space-y-4">
             {/* Logo */}
             <div className="flex items-center">
-              <img src="/logo.svg" alt="SEOObserver" className="h-8 w-auto" />
+              <img src="/logo.svg" alt="SEObserver" className="h-8 w-auto" />
             </div>
 
             <div className="flex items-center">
@@ -42,7 +42,7 @@ export function FooterSection() {
           {/* Right Side */}
           <div className="flex items-center ">
             <a
-              href="https://twitter.com/seoobserver"
+              href="https://twitter.com/seobserver"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:border-gray-400 hover:bg-gray-50 transition-colors"

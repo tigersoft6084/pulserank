@@ -3,19 +3,19 @@
 export function FaqSection() {
   const faqs = [
     {
-      question: "Why choose SEOObserver?",
+      question: "Why choose SEObserver?",
       answer:
-        "SEOObserver is a unique solution on the market that allows you to centralize ranking monitoring and backlink analysis in one place for any site that ranks for the most interesting keywords on the French-speaking web. No other tool allows this.",
+        "SEObserver is a unique solution on the market that allows you to centralize ranking monitoring and backlink analysis in one place for any site that ranks for the most interesting keywords on the French-speaking web. No other tool allows this.",
     },
     {
-      question: "How does SEOObserver help improve my rankings?",
+      question: "How does SEObserver help improve my rankings?",
       answer:
-        "SEOObserver provides comprehensive insights into SERP changes, competitor analysis, and backlink strategies. By understanding what works for your competitors and tracking your own performance in real-time, you can make data-driven decisions to improve your search rankings.",
+        "SEObserver provides comprehensive insights into SERP changes, competitor analysis, and backlink strategies. By understanding what works for your competitors and tracking your own performance in real-time, you can make data-driven decisions to improve your search rankings.",
     },
     {
-      question: "What makes SEOObserver different from other SEO tools?",
+      question: "What makes SEObserver different from other SEO tools?",
       answer:
-        "Unlike other tools that focus on limited aspects of SEO, SEOObserver offers a complete solution with access to millions of keywords, real-time SERP monitoring, comprehensive backlink analysis, and competitor intelligence all in one platform. Our unique approach provides insights that no other tool can match.",
+        "Unlike other tools that focus on limited aspects of SEO, SEObserver offers a complete solution with access to millions of keywords, real-time SERP monitoring, comprehensive backlink analysis, and competitor intelligence all in one platform. Our unique approach provides insights that no other tool can match.",
     },
     {
       question: "Can I cancel my subscription anytime?",
