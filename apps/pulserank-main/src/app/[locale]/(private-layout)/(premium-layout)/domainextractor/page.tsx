@@ -28,6 +28,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { TTF_COLOR_DATA } from "@/lib/config";
 import { useDomainExtractor } from "@/hooks/features/sites/use-sites";
 import { useTableSort } from "@/hooks/use-table-sort";
+import { filterValidKeywords } from "@/lib/utils/url-utils";
 import {
   Tooltip,
   TooltipContent,
@@ -72,7 +73,7 @@ export default function DomainExtractorPage() {
 
   // Add sorting functionality
   const { sortedData, sortConfig, handleSort } = useTableSort(
-    (domainData?.data || []) as unknown as Record<string, unknown>[],
+    (domainData?.data || []) as unknown as Record<string, unknown>[]
   );
 
   // Helper function to determine if a field is numeric
@@ -166,14 +167,29 @@ export default function DomainExtractorPage() {
   };
 
   const handleFilter = () => {
-    // Parse keywords from textarea
-    const keywordsList = keywordsInput
-      .split(/[,\n]/)
-      .map((keyword) => keyword.trim())
-      .filter((keyword) => keyword.length > 0);
+    // Create translation functions for the validator
+    const validationTranslations = {
+      empty: "Please enter at least one keyword",
+      invalidFormat: (line: number, keyword: string) =>
+        `Line ${line}: "${keyword}" - Invalid format`,
+    };
 
-    if (keywordsList.length > 0) {
-      setKeywords(keywordsList);
+    // Validate and filter keywords
+    const validationResult = filterValidKeywords(
+      keywordsInput,
+      validationTranslations
+    );
+
+    if (validationResult.isValid) {
+      setKeywords(validationResult.validKeywords);
+
+      // Show warnings for invalid keywords if any
+      if (validationResult.errors.length > 0) {
+        // You could show a toast here if you want to notify about skipped keywords
+        console.log(
+          `Skipped ${validationResult.errors.length} invalid keywords`
+        );
+      }
     }
   };
 
@@ -512,7 +528,7 @@ export default function DomainExtractorPage() {
                                       backgroundColor:
                                         TTF_COLOR_DATA[
                                           typedItem.TopicalTrustFlow_Topic_0.split(
-                                            "/",
+                                            "/"
                                           )[0] as keyof typeof TTF_COLOR_DATA
                                         ],
                                     }}
@@ -537,7 +553,7 @@ export default function DomainExtractorPage() {
                           {typedItem.TrustFlow > 0 && typedItem.CitationFlow > 0
                             ? Math.round(
                                 (typedItem.TrustFlow / typedItem.CitationFlow) *
-                                  100,
+                                  100
                               )
                             : "-"}
                           %

@@ -15,7 +15,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
-  validateMultiFormatList,
+  filterValidMultiFormatList,
   MultiFormatValidationResult,
 } from "@/lib/utils/url-utils";
 import {
@@ -79,10 +79,10 @@ export default function WebsiteProfilerPage() {
     };
 
     // Validate the input
-    const result = validateMultiFormatList(
+    const result = filterValidMultiFormatList(
       urls,
       maxSites,
-      validationTranslations,
+      validationTranslations
     );
     setValidationResult(result);
 
@@ -221,7 +221,7 @@ export default function WebsiteProfilerPage() {
           <Select
             value={view}
             onValueChange={(
-              value: "compact" | "detailed" | "competition" | "crawl",
+              value: "compact" | "detailed" | "competition" | "crawl"
             ) => setView(value)}
           >
             <SelectTrigger>

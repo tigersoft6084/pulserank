@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import {
-  validateMultiFormatList,
+  filterValidMultiFormatList,
   type MultiFormatValidationResult,
 } from "@/lib/utils/url-utils";
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -65,10 +65,10 @@ export default function ListTopBacklinksPage() {
           t("validation.invalidFormat", { line, url }),
       };
 
-      const result = validateMultiFormatList(
+      const result = filterValidMultiFormatList(
         decodedUrls,
         maxSites,
-        validationTranslations,
+        validationTranslations
       );
       setValidationResult(result);
 
@@ -86,14 +86,14 @@ export default function ListTopBacklinksPage() {
 
   // Add sorting functionality
   const { sortedData, sortConfig, handleSort } = useTableSort(
-    (backlinksData || []) as unknown as Record<string, unknown>[],
+    (backlinksData || []) as unknown as Record<string, unknown>[]
   );
 
   // Apply flag filtering to the sorted data
   const filteredData = filterByFlags(
     sortedData as {
       Flags: BacklinkFlags;
-    }[],
+    }[]
   );
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -109,10 +109,10 @@ export default function ListTopBacklinksPage() {
     };
 
     // Validate the input
-    const result = validateMultiFormatList(
+    const result = filterValidMultiFormatList(
       urls,
       maxSites,
-      validationTranslations,
+      validationTranslations
     );
     setValidationResult(result);
 
@@ -297,7 +297,7 @@ export default function ListTopBacklinksPage() {
                               backgroundColor:
                                 TTF_COLOR_DATA[
                                   typedBacklink.SourceTopicalTrustFlow_Topic_0.split(
-                                    "/",
+                                    "/"
                                   )[0] as keyof typeof TTF_COLOR_DATA
                                 ],
                             }}

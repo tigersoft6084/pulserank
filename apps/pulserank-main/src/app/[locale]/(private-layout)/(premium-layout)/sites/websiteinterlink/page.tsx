@@ -12,7 +12,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { validateUrlList, type ValidationResult } from "@/lib/utils/url-utils";
+import { filterValidUrls, type ValidationResult } from "@/lib/utils/url-utils";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useGetWebsiteInterlink } from "@/hooks/features/backlinks/use-backlink";
 import {
@@ -63,7 +63,7 @@ export default function WebsiteInterlinkPage() {
 
   // Add sorting functionality
   const { sortedData, sortConfig, handleSort } = useTableSort(
-    (interlinkData || []) as unknown as Record<string, unknown>[],
+    (interlinkData || []) as unknown as Record<string, unknown>[]
   );
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -79,7 +79,7 @@ export default function WebsiteInterlinkPage() {
     };
 
     // Validate the input
-    const result = validateUrlList(urls, maxSites, validationTranslations);
+    const result = filterValidUrls(urls, maxSites, validationTranslations);
     setValidationResult(result);
 
     if (result.isValid) {
@@ -104,7 +104,7 @@ export default function WebsiteInterlinkPage() {
 
   const handleLinksFromOtherClick = (
     url: string,
-    details: WebsiteInterlinkDetail[],
+    details: WebsiteInterlinkDetail[]
   ) => {
     setSelectedUrl(url);
     setSelectedDetails(details);
@@ -319,7 +319,7 @@ export default function WebsiteInterlinkPage() {
                                   onClick={() =>
                                     window.open(
                                       `/sites/${encodeURIComponent(typedItem.URL)}/view`,
-                                      "_blank",
+                                      "_blank"
                                     )
                                   }
                                 >
@@ -339,7 +339,7 @@ export default function WebsiteInterlinkPage() {
                             onClick={() =>
                               handleLinksFromOtherClick(
                                 typedItem.URL,
-                                typedItem.details,
+                                typedItem.details
                               )
                             }
                           >
@@ -373,7 +373,7 @@ export default function WebsiteInterlinkPage() {
                                     backgroundColor:
                                       TTF_COLOR_DATA[
                                         typedItem.Theme[0].split(
-                                          "/",
+                                          "/"
                                         )[0] as keyof typeof TTF_COLOR_DATA
                                       ],
                                   }}

@@ -4,7 +4,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { validateUrlList, type ValidationResult } from "@/lib/utils/url-utils";
+import { filterValidUrls, type ValidationResult } from "@/lib/utils/url-utils";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { useCompareSites } from "@/hooks/features/sites/use-sites";
 import { SiteCompareTable } from "@/components/features/sites/site-compare-table";
@@ -38,7 +38,7 @@ export default function ComparePage() {
     };
 
     // Validate the input
-    const result = validateUrlList(urls, maxSites, validationTranslations);
+    const result = filterValidUrls(urls, maxSites, validationTranslations);
     setValidationResult(result);
 
     if (result.isValid) {

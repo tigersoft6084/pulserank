@@ -22,6 +22,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useCreateKeywords } from "@/hooks/features/campaign/use-keyword";
 import { BASE_DATA } from "@/lib/config";
 import { useTranslations } from "next-intl";
+import { filterValidKeywords } from "@/lib/utils/url-utils";
 
 export function AddKeywordModal({
   isOpen,
@@ -67,22 +68,39 @@ export function AddKeywordModal({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!keywords.trim()) {
+    // Create translation functions for the validator
+    const validationTranslations = {
+      empty: t("validation.required"),
+      invalidFormat: (line: number, keyword: string) =>
+        `Line ${line}: "${keyword}" - Invalid format`,
+    };
+
+    // Validate and filter keywords
+    const validationResult = filterValidKeywords(
+      keywords,
+      validationTranslations
+    );
+
+    if (!validationResult.isValid) {
       toast({
         title: "Error",
-        description: t("validation.required"),
+        description: validationResult.errors[0] || t("validation.required"),
         variant: "destructive",
       });
       return;
     }
 
-    const keywordList = keywords
-      .split(/[\n,]/)
-      .map((k) => k.trim())
-      .filter((k) => k.length > 0);
+    // Show warnings for invalid keywords if any
+    if (validationResult.errors.length > 0) {
+      toast({
+        title: "Warning",
+        description: `Some keywords were invalid and skipped. Processing ${validationResult.validKeywords.length} valid keywords.`,
+        variant: "default",
+      });
+    }
 
     const requestData = {
-      keywords: keywordList,
+      keywords: validationResult.validKeywords,
       base,
       tags: tags ? tags.split(",").map((t) => t.trim()) : [],
       frequency: parseInt(frequency),

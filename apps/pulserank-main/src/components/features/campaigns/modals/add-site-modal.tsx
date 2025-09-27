@@ -15,28 +15,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useCreateSites } from "@/hooks/features/campaign/use-site";
 import { CreateSiteRequest } from "@/types/campaigns";
 import { useTranslations } from "next-intl";
-
-// Function to determine site type based on URL format
-function determineSiteType(url: string): "page" | "subdomain" | "domain" {
-  const cleanUrl = url.trim().toLowerCase();
-
-  // Remove protocol if present
-  const urlWithoutProtocol = cleanUrl.replace(/^https?:\/\//, "");
-
-  // Check if it's a specific page (contains path)
-  if (urlWithoutProtocol.includes("/") && !urlWithoutProtocol.endsWith("/")) {
-    return "page";
-  }
-
-  // Check if it's a subdomain (contains dots but not a path)
-  const parts = urlWithoutProtocol.split(".");
-  if (parts.length > 2 && !urlWithoutProtocol.includes("/")) {
-    return "subdomain";
-  }
-
-  // Default to domain
-  return "domain";
-}
+import { filterValidSites } from "@/lib/utils/url-utils";
 
 export function AddSiteModal({
   isOpen,
@@ -81,24 +60,39 @@ export function AddSiteModal({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!sites.trim()) {
+    // Create translation functions for the validator
+    const validationTranslations = {
+      empty: t("validation.required"),
+      invalidFormat: (line: number, site: string) =>
+        `Line ${line}: "${site}" - Invalid format`,
+    };
+
+    // Validate and filter sites
+    const validationResult = filterValidSites(sites, validationTranslations);
+
+    if (!validationResult.isValid) {
       toast({
         title: "Error",
-        description: t("validation.required"),
+        description: validationResult.errors[0] || t("validation.required"),
         variant: "destructive",
       });
       return;
     }
 
-    const siteList = sites
-      .split(/[\n,]/)
-      .map((s) => s.trim())
-      .filter((s) => s.length > 0)
-      .map((url) => ({
-        url,
-        type: determineSiteType(url),
-        tags: tags.split(",").map((t) => t.trim()),
-      }));
+    // Show warnings for invalid sites if any
+    if (validationResult.errors.length > 0) {
+      toast({
+        title: "Warning",
+        description: `Some sites were invalid and skipped. Processing ${validationResult.validSites.length} valid sites.`,
+        variant: "default",
+      });
+    }
+
+    const siteList = validationResult.validSites.map((site) => ({
+      url: site.url,
+      type: site.type,
+      tags: tags.split(",").map((t) => t.trim()),
+    }));
 
     const requestData: CreateSiteRequest = {
       sites: siteList,

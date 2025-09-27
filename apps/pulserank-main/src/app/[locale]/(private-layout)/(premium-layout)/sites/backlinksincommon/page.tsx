@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import {
-  validateMultiFormatList,
+  filterValidMultiFormatList,
   type MultiFormatValidationResult,
 } from "@/lib/utils/url-utils";
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -44,7 +44,7 @@ export default function BacklinksInCommonPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [selectedRefdomain, setSelectedRefdomain] = useState<string | null>(
-    null,
+    null
   );
   const maxSites = 10;
 
@@ -64,10 +64,10 @@ export default function BacklinksInCommonPage() {
           t("validation.invalidFormat", { line, url }),
       };
 
-      const result = validateMultiFormatList(
+      const result = filterValidMultiFormatList(
         decodedUrls,
         maxSites,
-        validationTranslations,
+        validationTranslations
       );
       setValidationResult(result);
 
@@ -85,7 +85,7 @@ export default function BacklinksInCommonPage() {
 
   // Add sorting functionality
   const { sortedData, sortConfig, handleSort } = useTableSort(
-    (backlinksData || []) as unknown as Record<string, unknown>[],
+    (backlinksData || []) as unknown as Record<string, unknown>[]
   );
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -101,10 +101,10 @@ export default function BacklinksInCommonPage() {
     };
 
     // Validate the input
-    const result = validateMultiFormatList(
+    const result = filterValidMultiFormatList(
       urls,
       maxSites,
-      validationTranslations,
+      validationTranslations
     );
     setValidationResult(result);
 
@@ -271,7 +271,7 @@ export default function BacklinksInCommonPage() {
                               backgroundColor:
                                 TTF_COLOR_DATA[
                                   typedBacklink.TopicalTrustFlow_Topic_0.split(
-                                    "/",
+                                    "/"
                                   )[0] as keyof typeof TTF_COLOR_DATA
                                 ],
                             }}

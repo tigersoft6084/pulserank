@@ -20,6 +20,7 @@ import type { CreateKeywordRequest, Campaign } from "@/types/campaigns";
 import { useGetCampaigns } from "@/hooks/features/campaign/use-campaign";
 import { useCreateKeywords } from "@/hooks/features/campaign/use-keyword";
 import { BASE_DATA } from "@/lib/config";
+import { filterValidKeywords } from "@/lib/utils/url-utils";
 
 export default function CampaignsKeywordsPage() {
   const t = useTranslations("campaigns.keywords");
@@ -56,15 +57,6 @@ export default function CampaignsKeywordsPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!keywords.trim()) {
-      toast({
-        title: "Error",
-        description: "Keywords are required",
-        variant: "destructive",
-      });
-      return;
-    }
-
     if (!campaignId) {
       toast({
         title: "Error",
@@ -74,10 +66,36 @@ export default function CampaignsKeywordsPage() {
       return;
     }
 
-    const keywordList = keywords
-      .split(/[\n,]/)
-      .map((k) => k.trim())
-      .filter((k) => k.length > 0);
+    // Create translation functions for the validator
+    const validationTranslations = {
+      empty: "Please enter at least one keyword",
+      invalidFormat: (line: number, keyword: string) =>
+        `Line ${line}: "${keyword}" - Invalid format`,
+    };
+
+    // Validate and filter keywords
+    const validationResult = filterValidKeywords(
+      keywords,
+      validationTranslations
+    );
+
+    if (!validationResult.isValid) {
+      toast({
+        title: "Error",
+        description: validationResult.errors[0] || "No valid keywords found",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Show warnings for invalid keywords if any
+    if (validationResult.errors.length > 0) {
+      toast({
+        title: "Warning",
+        description: `Some keywords were invalid and skipped. Processing ${validationResult.validKeywords.length} valid keywords.`,
+        variant: "default",
+      });
+    }
 
     const frequencyMap: { [key: string]: number } = {
       daily: 1,
@@ -88,7 +106,7 @@ export default function CampaignsKeywordsPage() {
     };
 
     const keywordsData: CreateKeywordRequest = {
-      keywords: keywordList,
+      keywords: validationResult.validKeywords,
       base,
       tags: tags ? tags.split(",").map((t) => t.trim()) : [],
       frequency: frequencyMap[frequency],
