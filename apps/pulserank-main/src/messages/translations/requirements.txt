@@ -1,0 +1,9 @@
+# Requirements for translation generation scripts
+# Install with: pip install -r requirements.txt
+
+# For the full translation script (generate_translations.py)
+googletrans==4.0.0rc1
+requests>=2.25.0
+
+# Alternative: LibreTranslate (no API key needed)
+# The script will use LibreTranslate by default if googletrans is not available
