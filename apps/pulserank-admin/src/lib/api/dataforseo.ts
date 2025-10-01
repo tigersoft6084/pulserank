@@ -35,7 +35,7 @@ export class DataForSEOClient {
   async getSERPData(
     keyword: string,
     location: number = 2840,
-    language: string = "en",
+    language: string = "en"
   ): Promise<SERPResponse> {
     try {
       const response = await this.client.post(
@@ -45,8 +45,9 @@ export class DataForSEOClient {
             keyword,
             location_code: location,
             language_code: language,
+            depth: 100,
           },
-        ],
+        ]
       );
       return response.data;
     } catch (error) {
@@ -57,7 +58,7 @@ export class DataForSEOClient {
   async getKeywordMetrics(
     keyword: string,
     locationCode: number = 2840,
-    languageCode: string = "en",
+    languageCode: string = "en"
   ): Promise<KeywordMetrics> {
     try {
       const response = await this.client.post(
@@ -68,7 +69,7 @@ export class DataForSEOClient {
             location_code: locationCode,
             language_code: languageCode,
           },
-        ],
+        ]
       );
 
       const data =
@@ -92,7 +93,7 @@ export class DataForSEOClient {
   async getTrends(
     keyword: string,
     dateFrom: string,
-    dateTo: string,
+    dateTo: string
   ): Promise<KeywordMetrics["trends"]> {
     try {
       const response = await this.client.post(
@@ -101,7 +102,7 @@ export class DataForSEOClient {
           keywords: [keyword],
           date_from: dateFrom,
           date_to: dateTo,
-        },
+        }
       );
 
       const data = response.data.tasks?.[0]?.result?.[0];
@@ -160,7 +161,7 @@ export class DataForSEOClient {
           location_code: 2840, // US
           language_code: "en",
           limit: 1000, // Adjust as needed
-        },
+        }
       );
 
       const data = response.data.tasks?.[0]?.result?.[0]?.items;
@@ -185,7 +186,7 @@ export class DataForSEOClient {
   async getKeywordOverview(
     keywords: string[],
     locationCode: number = 2840,
-    languageCode: string = "en",
+    languageCode: string = "en"
   ): Promise<KeywordOverviewItem[]> {
     try {
       const response = await this.client.post(
@@ -196,7 +197,7 @@ export class DataForSEOClient {
             location_code: locationCode,
             language_code: languageCode,
           },
-        ],
+        ]
       );
 
       const data = response.data.tasks?.[0]?.result?.[0]
@@ -215,7 +216,7 @@ export class DataForSEOClient {
     keyword: string,
     locationCode: number = 2840,
     languageCode: string = "en",
-    filters?: Record<string, unknown>,
+    filters?: Record<string, unknown>
   ): Promise<RelatedKeywordItem[]> {
     try {
       const response = await this.client.post(
@@ -227,7 +228,7 @@ export class DataForSEOClient {
             language_code: languageCode,
             filters,
           },
-        ],
+        ]
       );
 
       const data = response.data.tasks?.[0]?.result?.[0]
@@ -250,7 +251,7 @@ export class DataForSEOClient {
           {
             target,
           },
-        ],
+        ]
       );
 
       const data = response.data.tasks?.[0]
@@ -268,7 +269,7 @@ export class DataForSEOClient {
   async getKeywordsForSite(
     target: string,
     locationCode: number = 2840,
-    languageCode: string = "en",
+    languageCode: string = "en"
   ): Promise<KeywordForSiteItem[]> {
     try {
       const response = await this.client.post(
@@ -279,7 +280,7 @@ export class DataForSEOClient {
             location_code: locationCode,
             language_code: languageCode,
           },
-        ],
+        ]
       );
 
       const data = response.data.tasks?.[0]?.result as KeywordForSiteItem[];
@@ -297,7 +298,7 @@ export class DataForSEOClient {
   async postSERPTask(
     keywords: string[],
     locationCode: number = 2840,
-    languageCode: string = "en",
+    languageCode: string = "en"
   ): Promise<string[]> {
     try {
       const response = await this.client.post(
@@ -306,7 +307,7 @@ export class DataForSEOClient {
           keyword,
           location_code: locationCode,
           language_code: languageCode,
-        })),
+        }))
       );
 
       const taskIds = response.data.tasks?.map((task: SERPTask) => task.id);
@@ -323,7 +324,7 @@ export class DataForSEOClient {
   async getSERPTasksReady(): Promise<string[]> {
     try {
       const response = await this.client.get(
-        "/v3/serp/google/organic/tasks_ready",
+        "/v3/serp/google/organic/tasks_ready"
       );
 
       const taskIds = response.data.tasks?.map((task: SERPTask) => task.id);
@@ -340,7 +341,7 @@ export class DataForSEOClient {
   async getSERPResults(taskId: string): Promise<SERPResult> {
     try {
       const response = await this.client.get(
-        `/v3/serp/google/organic/task_get/advanced/${taskId}`,
+        `/v3/serp/google/organic/task_get/advanced/${taskId}`
       );
 
       const data = response.data.tasks?.[0]?.result?.[0] as SERPResult;
@@ -359,7 +360,7 @@ export class DataForSEOClient {
     locationCode: number = 2840,
     languageCode: string = "en",
     dateFrom?: string,
-    dateTo?: string,
+    dateTo?: string
   ): Promise<{
     keywords: string[];
     location_code: number;
@@ -393,7 +394,7 @@ export class DataForSEOClient {
             date_from: fromDate,
             date_to: toDate,
           },
-        ],
+        ]
       );
 
       const data = response.data.tasks?.[0]?.result?.[0];

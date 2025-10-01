@@ -79,6 +79,7 @@ export class DataForSEOClient {
             keyword,
             location_code: location,
             language_code: language,
+            depth: 100,
           },
         ]
       );
