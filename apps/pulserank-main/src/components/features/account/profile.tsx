@@ -1,6 +1,6 @@
 "use client";
 
-import { CreditCard, History, LogOut } from "lucide-react";
+import { CreditCard, History, LogOut, Settings } from "lucide-react";
 import { signOut, useSession } from "next-auth/react";
 import {
   DropdownMenu,
@@ -44,10 +44,13 @@ export default function Profile() {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          {/* <DropdownMenuItem className="cursor-pointer" onClick={() => {}}>
+          <DropdownMenuItem
+            className="cursor-pointer"
+            onClick={() => router.push("/users/settings")}
+          >
             <Settings className="h-4 w-4" />
             <span>Settings</span>
-          </DropdownMenuItem> */}
+          </DropdownMenuItem>
           <DropdownMenuItem
             className="cursor-pointer"
             onClick={() => router.push("/user_histories")}

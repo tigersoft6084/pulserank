@@ -100,6 +100,33 @@
     },
     "navigationMenu": "Menu de navigation"
   },
+  "settings": {
+    "profile": {
+      "title": "Profil",
+      "name": "Nom",
+      "email": "Email"
+    },
+    "security": {
+      "title": "Sécurité",
+      "currentPassword": "Mot de passe actuel",
+      "password": "Nouveau mot de passe",
+      "updated": "Mot de passe mis à jour"
+    },
+    "preferences": {
+      "title": "Préférences",
+      "theme": "Thème",
+      "light": "Clair",
+      "dark": "Sombre",
+      "system": "Système",
+      "language": "Langue"
+    },
+    "common": {
+      "save": "Enregistrer",
+      "saved": "Enregistré",
+      "update": "Mettre à jour",
+      "error": "Erreur"
+    }
+  },
   "footer": {
     "contact": "Besoin d'aide ? Contactez-nous ici.",
     "scrollToTop": "Retour en haut"
@@ -141,7 +168,9 @@
     "user_histories": "Historiques utilisateur",
     "user_orders": "Commandes utilisateur",
     "billing": "Facturation",
-    "watchlist": "Liste de surveillance"
+    "watchlist": "Liste de surveillance",
+    "users": "Utilisateurs",
+    "settings": "Paramètres"
   },
   "heading": {
     "backlinks": {
@@ -275,6 +304,12 @@
     "watchlist": {
       "title": "Liste de surveillance",
       "description": "Surveiller les nouveaux backlinks des sites que vous suivez"
+    },
+    "users": {
+      "settings": {
+        "title": "Paramètres",
+        "description": "Gérer vos paramètres et préférences"
+      }
     }
   },
   "dashboard": {

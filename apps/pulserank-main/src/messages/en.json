@@ -100,6 +100,33 @@
     },
     "navigationMenu": "Navigation Menu"
   },
+  "settings": {
+    "profile": {
+      "title": "Profile",
+      "name": "Name",
+      "email": "Email"
+    },
+    "security": {
+      "title": "Security",
+      "currentPassword": "Current Password",
+      "password": "New Password",
+      "updated": "Password updated"
+    },
+    "preferences": {
+      "title": "Preferences",
+      "theme": "Theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System",
+      "language": "Language"
+    },
+    "common": {
+      "save": "Save",
+      "saved": "Saved",
+      "update": "Update",
+      "error": "Error"
+    }
+  },
   "footer": {
     "contact": "Need help? Contact us here.",
     "scrollToTop": "Scroll to top"
@@ -142,7 +169,9 @@
     "user_histories": "User Histories",
     "user_orders": "User Orders",
     "billing": "Billing",
-    "watchlist": "Watch List"
+    "watchlist": "Watch List",
+    "users": "Users",
+    "settings": "Settings"
   },
   "heading": {
     "dashboard": {
@@ -280,6 +309,12 @@
     "watchlist": {
       "title": "Watchlist",
       "description": "Monitor new backlinks for sites you follow"
+    },
+    "users": {
+      "settings": {
+        "title": "Settings",
+        "description": "Manage your account settings and preferences"
+      }
     }
   },
   "dashboard": {

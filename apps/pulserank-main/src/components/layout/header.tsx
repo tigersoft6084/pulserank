@@ -40,7 +40,7 @@ import {
 } from "../ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { Separator } from "../ui/separator";
-import { LanguageSwitcher } from "./header/language-switcher";
+import { SerpBaseSwitcher } from "./header/serpbase-switcher";
 import Profile from "../features/account/profile";
 import { Credit } from "./header/credit";
 import { AuthTitle } from "./header/auth-title";
@@ -211,7 +211,7 @@ export function Header() {
   const handleSearch = () => {
     if (searchValue.trim()) {
       router.push(
-        `/serpmachine?keyword=${encodeURIComponent(searchValue.trim())}`,
+        `/serpmachine?keyword=${encodeURIComponent(searchValue.trim())}`
       );
     }
   };
@@ -328,7 +328,7 @@ export function Header() {
                   </Button>
                 </NavigationMenuLink>
               </NavigationMenuItem>
-            ),
+            )
           )}
         </NavigationMenuList>
       </NavigationMenu>
@@ -349,7 +349,7 @@ export function Header() {
           />
         </div>
         <div className="flex items-center gap-2">
-          <LanguageSwitcher />
+          <SerpBaseSwitcher />
           <Credit />
           <Profile />
         </div>
@@ -372,7 +372,7 @@ const ListItem = React.forwardRef<
           href={href as string}
           className={cn(
             "block space-y-1 items-center select-none rounded-md px-4 py-2 no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className,
+            className
           )}
           {...props}
         >

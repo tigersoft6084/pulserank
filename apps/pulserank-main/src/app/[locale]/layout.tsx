@@ -4,6 +4,7 @@ import { NextStepProvider } from "nextstepjs";
 import { TanstackQueryProvider } from "@/providers/tanstack-query-provider";
 import { Toaster } from "@/components/ui/toaster";
 import NextAuthProvider from "@/providers/session-provider";
+// import { ThemeProvider } from "@/providers/theme-provider";
 import { ErrorBoundary } from "@/components/error-boundary";
 import type { Metadata } from "next";
 import "./globals.css";
@@ -81,12 +82,19 @@ export default async function LocaleLayout({
           <NextIntlClientProvider locale={locale} messages={messages}>
             <TanstackQueryProvider>
               <ErrorBoundary>
+                {/* <ThemeProvider
+                  attribute="class"
+                  defaultTheme="system"
+                  enableSystem
+                  disableTransitionOnChange
+                > */}
                 <IntercomProviderWrapper>
                   <NextStepProvider>
                     {children}
                     <Toaster />
                   </NextStepProvider>
                 </IntercomProviderWrapper>
+                {/* </ThemeProvider> */}
               </ErrorBoundary>
             </TanstackQueryProvider>
           </NextIntlClientProvider>
