@@ -190,6 +190,13 @@ on:
 
 - Check if all required environment variables are set in GitHub Secrets
 - Verify `DATABASE_URL` is accessible from GitHub Actions runners (may need to allow GitHub's IP ranges)
+- Ensure Prisma Client is generated (the workflow includes this step automatically)
+
+### "Module not found: Can't resolve '../generated/prisma'"
+
+- This error occurs when Prisma Client hasn't been generated
+- The workflow now includes a "Generate Prisma Client" step before building
+- On VPS, the deployment script also regenerates the client with the production DATABASE_URL
 
 ### "pnpm command not found" on VPS
 
