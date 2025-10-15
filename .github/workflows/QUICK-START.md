@@ -1,5 +1,9 @@
 # Quick Start Guide - CI/CD Setup
 
+## ⚠️ Getting "can't connect without a private SSH key" error?
+
+👉 **See [SETUP-SECRETS.md](./SETUP-SECRETS.md)** for detailed SSH key setup instructions!
+
 ## ✅ What's Fixed
 
 The workflows have been updated to resolve common issues:
@@ -10,37 +14,55 @@ The workflows have been updated to resolve common issues:
 
 ## 🚀 Quick Setup (5 minutes)
 
-### 1. Add GitHub Secrets
+### 1. Generate SSH Key FIRST
+
+**On your local machine:**
+
+```bash
+# Generate a new SSH key
+ssh-keygen -t ed25519 -C "github-actions" -f ~/.ssh/pulserank-deploy -N ""
+
+# Copy PUBLIC key to VPS (this allows GitHub to connect)
+ssh-copy-id -i ~/.ssh/pulserank-deploy.pub root@YOUR_VPS_IP
+
+# Test the connection (should connect without password)
+ssh -i ~/.ssh/pulserank-deploy root@YOUR_VPS_IP
+
+# Get PRIVATE key for GitHub Secret (copy ALL of this output)
+cat ~/.ssh/pulserank-deploy
+```
+
+⚠️ **Important:** You'll use:
+
+- **PUBLIC key** (`.pub` file) → Copy to VPS (done above with `ssh-copy-id`)
+- **PRIVATE key** (no extension) → Copy to GitHub Secret (see step 2)
+
+### 2. Add GitHub Secrets
 
 Go to: **Repository → Settings → Secrets and variables → Actions**
 
-Click **New repository secret** and add:
+Click **New repository secret** and add EXACTLY these names:
 
-```
-VPS_HOST          = Your VPS IP or domain
-VPS_USER          = root (or your SSH user)
-VPS_PRIVATE_KEY   = Your SSH private key
-DATABASE_URL      = postgresql://user:pass@host:5432/db
-```
+| Secret Name       | Value                                     | Example                                        |
+| ----------------- | ----------------------------------------- | ---------------------------------------------- |
+| `VPS_HOST`        | Your VPS IP or domain                     | `123.45.67.89`                                 |
+| `VPS_USER`        | SSH username                              | `root`                                         |
+| `VPS_PRIVATE_KEY` | Output from `cat ~/.ssh/pulserank-deploy` | Must include `-----BEGIN...` and `-----END...` |
+| `DATABASE_URL`    | PostgreSQL connection string              | `postgresql://user:pass@host:5432/db`          |
 
 Optional:
+| Secret Name | Value |
+|-------------|-------|
+| `NEXT_PUBLIC_API_URL` | Your API URL if needed |
 
-```
-NEXT_PUBLIC_API_URL = Your API URL (if needed)
-```
+⚠️ **Common Mistakes:**
 
-### 2. Generate SSH Key (if you don't have one)
+- ❌ Using public key (`.pub`) instead of private key
+- ❌ Missing `-----BEGIN OPENSSH PRIVATE KEY-----` header
+- ❌ Wrong secret name (must be `VPS_PRIVATE_KEY` exactly)
+- ❌ Extra spaces or modifications to the key
 
-```bash
-# Generate key
-ssh-keygen -t ed25519 -C "github-actions" -f ~/.ssh/github-actions
-
-# Copy to VPS
-ssh-copy-id -i ~/.ssh/github-actions.pub root@YOUR_VPS_IP
-
-# Get private key for GitHub (copy this entire output)
-cat ~/.ssh/github-actions
-```
+✅ **Correct:** Copy the ENTIRE private key output as-is
 
 ### 3. Setup VPS Environment Variables
 
