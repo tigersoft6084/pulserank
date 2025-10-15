@@ -45,7 +45,7 @@ import Profile from "../features/account/profile";
 import { Credit } from "./header/credit";
 import { AuthTitle } from "./header/auth-title";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "../ui/sheet";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
 
 type MenuItem = {
   title: string;

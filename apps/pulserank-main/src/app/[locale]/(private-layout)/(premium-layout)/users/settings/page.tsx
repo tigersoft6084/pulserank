@@ -15,9 +15,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 // import { useTheme } from "next-themes";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useLanguageStore } from "@/store/language-store";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter, usePathname } from "@/i18n/navigation";
 import { useToast } from "@/hooks/use-toast";
 import { AxiosInstance } from "@/lib/axios-instance";
 
@@ -25,7 +25,8 @@ export default function SettingsPage() {
   const { data: session, update } = useSession();
   const t = useTranslations("settings");
   // const { theme, setTheme } = useTheme();
-  const { currentLocale, setLocale } = useLanguageStore();
+  const locale = useLocale();
+  const { setLocale } = useLanguageStore();
   const { toast } = useToast();
   const router = useRouter();
   const pathname = usePathname();
@@ -201,15 +202,11 @@ export default function SettingsPage() {
           <div className="grid gap-2">
             <Label>{t("preferences.language", { default: "Language" })}</Label>
             <Select
-              value={currentLocale}
+              value={locale}
               onValueChange={(v) => {
                 setLocale(v);
-                // Update locale in URL prefix
-                const parts = pathname.split("/");
-                if (parts[1]) {
-                  parts[1] = v;
-                  router.push(parts.join("/"));
-                }
+                // Use locale-aware router to switch language
+                router.replace(pathname, { locale: v });
               }}
             >
               <SelectTrigger className="w-[200px]">
