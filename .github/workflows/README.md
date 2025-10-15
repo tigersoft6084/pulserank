@@ -192,6 +192,13 @@ on:
 - Verify `DATABASE_URL` is accessible from GitHub Actions runners (may need to allow GitHub's IP ranges)
 - Ensure Prisma Client is generated (the workflow includes this step automatically)
 
+### "Ignoring not compatible lockfile"
+
+- This warning means the pnpm version in CI doesn't match your local version
+- The workflow automatically uses the pnpm version from your `package.json` (`packageManager` field)
+- If you see this warning, ensure your local pnpm version matches: `pnpm --version`
+- Update your local pnpm if needed: `corepack enable` or `npm install -g pnpm@9.0.0`
+
 ### "Module not found: Can't resolve '../generated/prisma'"
 
 - This error occurs when Prisma Client hasn't been generated
