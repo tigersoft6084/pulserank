@@ -30,14 +30,14 @@ export class CachedMajesticClient extends MajesticClient {
   async getIndexItemInfo(
     urls: string[],
     dataSource: string = "fresh",
-    options: CacheOptions = {},
+    options: CacheOptions = {}
   ): Promise<IndexItemInfo[]> {
     const cacheKey = this.cacheService.generateCacheKey(
       "majestic.indexItemInfo",
       {
         urls,
         dataSource,
-      },
+      }
     );
 
     // Try cache first
@@ -57,13 +57,14 @@ export class CachedMajesticClient extends MajesticClient {
       data,
       "majestic.indexItemInfo",
       { urls, dataSource },
-      options,
+      options
     );
 
     // Record API call
     await this.cacheService.recordAPICall(
       "majestic.indexItemInfo",
       responseTime,
+      options.userId
     );
 
     return data;
@@ -77,7 +78,7 @@ export class CachedMajesticClient extends MajesticClient {
     maxSourceURLsPerRefDomain?: number,
     count: number = 100,
     from: number = 0,
-    options: CacheOptions = {},
+    options: CacheOptions = {}
   ): Promise<BacklinkDataItem[]> {
     const cacheKey = this.cacheService.generateCacheKey(
       "majestic.backlinkData",
@@ -89,7 +90,7 @@ export class CachedMajesticClient extends MajesticClient {
         maxSourceURLsPerRefDomain,
         count,
         from,
-      },
+      }
     );
 
     // Try cache first
@@ -107,7 +108,7 @@ export class CachedMajesticClient extends MajesticClient {
       refDomain,
       maxSourceURLsPerRefDomain,
       count,
-      from,
+      from
     );
     const responseTime = Date.now() - startTime;
 
@@ -125,13 +126,14 @@ export class CachedMajesticClient extends MajesticClient {
         count,
         from,
       },
-      options,
+      options
     );
 
     // Record API call
     await this.cacheService.recordAPICall(
       "majestic.backlinkData",
       responseTime,
+      options.userId
     );
 
     return data;
@@ -140,14 +142,14 @@ export class CachedMajesticClient extends MajesticClient {
   async getBatchBacklinkData(
     urls: string[],
     dataSource: string = "fresh",
-    options: CacheOptions = {},
+    options: CacheOptions = {}
   ): Promise<BacklinkDataItem[]> {
     const cacheKey = this.cacheService.generateCacheKey(
       "majestic.batchBacklinkData",
       {
         urls,
         dataSource,
-      },
+      }
     );
 
     // Try cache first
@@ -167,13 +169,14 @@ export class CachedMajesticClient extends MajesticClient {
       data,
       "majestic.batchBacklinkData",
       { urls, dataSource },
-      options,
+      options
     );
 
     // Record API call
     await this.cacheService.recordAPICall(
       "majestic.batchBacklinkData",
       responseTime,
+      options.userId
     );
 
     return data;
@@ -184,7 +187,7 @@ export class CachedMajesticClient extends MajesticClient {
     dataSource: string = "fresh",
     count: number = 100,
     from: number = 0,
-    options: CacheOptions = {},
+    options: CacheOptions = {}
   ): Promise<RefDomainItem[]> {
     const cacheKey = this.cacheService.generateCacheKey("majestic.refDomains", {
       items,
@@ -210,11 +213,15 @@ export class CachedMajesticClient extends MajesticClient {
       data,
       "majestic.refDomains",
       { items, dataSource, count, from },
-      options,
+      options
     );
 
     // Record API call
-    await this.cacheService.recordAPICall("majestic.refDomains", responseTime);
+    await this.cacheService.recordAPICall(
+      "majestic.refDomains",
+      responseTime,
+      options.userId
+    );
 
     return data;
   }
@@ -223,7 +230,7 @@ export class CachedMajesticClient extends MajesticClient {
     url: string,
     dataSource: string = "fresh",
     count: number = 10,
-    options: CacheOptions = {},
+    options: CacheOptions = {}
   ): Promise<AnchorTextData> {
     const cacheKey = this.cacheService.generateCacheKey("majestic.anchorText", {
       url,
@@ -248,11 +255,15 @@ export class CachedMajesticClient extends MajesticClient {
       data,
       "majestic.anchorText",
       { url, dataSource, count },
-      options,
+      options
     );
 
     // Record API call
-    await this.cacheService.recordAPICall("majestic.anchorText", responseTime);
+    await this.cacheService.recordAPICall(
+      "majestic.anchorText",
+      responseTime,
+      options.userId
+    );
 
     return data;
   }
@@ -261,7 +272,7 @@ export class CachedMajesticClient extends MajesticClient {
     url: string,
     dataSource: string = "fresh",
     count: number = 100,
-    options: CacheOptions = {},
+    options: CacheOptions = {}
   ): Promise<TopicItem[]> {
     const cacheKey = this.cacheService.generateCacheKey("majestic.topics", {
       url,
@@ -286,11 +297,15 @@ export class CachedMajesticClient extends MajesticClient {
       data,
       "majestic.topics",
       { url, dataSource, count },
-      options,
+      options
     );
 
     // Record API call
-    await this.cacheService.recordAPICall("majestic.topics", responseTime);
+    await this.cacheService.recordAPICall(
+      "majestic.topics",
+      responseTime,
+      options.userId
+    );
 
     return data;
   }
@@ -300,7 +315,7 @@ export class CachedMajesticClient extends MajesticClient {
     dataSource: string = "fresh",
     from: number = 0,
     count: number = 100,
-    options: CacheOptions = {},
+    options: CacheOptions = {}
   ): Promise<TopPageItem[]> {
     const cacheKey = this.cacheService.generateCacheKey("majestic.topPages", {
       url,
@@ -326,11 +341,15 @@ export class CachedMajesticClient extends MajesticClient {
       data,
       "majestic.topPages",
       { url, dataSource, from, count },
-      options,
+      options
     );
 
     // Record API call
-    await this.cacheService.recordAPICall("majestic.topPages", responseTime);
+    await this.cacheService.recordAPICall(
+      "majestic.topPages",
+      responseTime,
+      options.userId
+    );
 
     return data;
   }
@@ -339,7 +358,7 @@ export class CachedMajesticClient extends MajesticClient {
     url: string,
     dataSource: string = "fresh",
     mode: number = 1,
-    options: CacheOptions = {},
+    options: CacheOptions = {}
   ): Promise<NewLostBacklinkItem[]> {
     const cacheKey = this.cacheService.generateCacheKey(
       "majestic.newLostBacklinks",
@@ -347,7 +366,7 @@ export class CachedMajesticClient extends MajesticClient {
         url,
         dataSource,
         mode,
-      },
+      }
     );
 
     // Try cache first
@@ -367,13 +386,14 @@ export class CachedMajesticClient extends MajesticClient {
       data,
       "majestic.newLostBacklinks",
       { url, dataSource, mode },
-      options,
+      options
     );
 
     // Record API call
     await this.cacheService.recordAPICall(
       "majestic.newLostBacklinks",
       responseTime,
+      options.userId
     );
 
     return data;
@@ -382,7 +402,7 @@ export class CachedMajesticClient extends MajesticClient {
   async getHostedDomains(
     domain: string,
     dataSource: string = "fresh",
-    options: CacheOptions = {},
+    options: CacheOptions = {}
   ): Promise<{
     domainsOnIP: HostedDomainItem[];
     domainsOnSubnet: HostedDomainItem[];
@@ -394,7 +414,7 @@ export class CachedMajesticClient extends MajesticClient {
       {
         domain,
         dataSource,
-      },
+      }
     );
 
     // Try cache first
@@ -420,13 +440,14 @@ export class CachedMajesticClient extends MajesticClient {
       data,
       "majestic.hostedDomains",
       { domain, dataSource },
-      options,
+      options
     );
 
     // Record API call
     await this.cacheService.recordAPICall(
       "majestic.hostedDomains",
       responseTime,
+      options.userId
     );
 
     return data;

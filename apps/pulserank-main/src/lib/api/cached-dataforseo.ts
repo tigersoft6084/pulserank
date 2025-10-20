@@ -51,7 +51,11 @@ export class CachedDataForSEOClient extends DataForSEOClient {
     );
 
     // Record API call
-    await this.cacheService.recordAPICall("dataforseo.serpData", responseTime);
+    await this.cacheService.recordAPICall(
+      "dataforseo.serpData",
+      responseTime,
+      options.userId
+    );
 
     return data;
   }
@@ -98,7 +102,8 @@ export class CachedDataForSEOClient extends DataForSEOClient {
     // Record API call
     await this.cacheService.recordAPICall(
       "dataforseo.keywordMetrics",
-      responseTime
+      responseTime,
+      options.userId
     );
 
     return data;
@@ -137,7 +142,11 @@ export class CachedDataForSEOClient extends DataForSEOClient {
     );
 
     // Record API call
-    await this.cacheService.recordAPICall("dataforseo.trends", responseTime);
+    await this.cacheService.recordAPICall(
+      "dataforseo.trends",
+      responseTime,
+      options.userId
+    );
 
     return data;
   }
@@ -185,7 +194,8 @@ export class CachedDataForSEOClient extends DataForSEOClient {
     // Record API call
     await this.cacheService.recordAPICall(
       "dataforseo.onPageData",
-      responseTime
+      responseTime,
+      options.userId
     );
 
     return data;
@@ -240,7 +250,8 @@ export class CachedDataForSEOClient extends DataForSEOClient {
     // Record API call
     await this.cacheService.recordAPICall(
       "dataforseo.domainKeywordPositions",
-      responseTime
+      responseTime,
+      options.userId
     );
 
     return data;
@@ -288,7 +299,8 @@ export class CachedDataForSEOClient extends DataForSEOClient {
     // Record API call
     await this.cacheService.recordAPICall(
       "dataforseo.keywordOverview",
-      responseTime
+      responseTime,
+      options.userId
     );
 
     return data;
@@ -339,7 +351,8 @@ export class CachedDataForSEOClient extends DataForSEOClient {
     // Record API call
     await this.cacheService.recordAPICall(
       "dataforseo.relatedKeywords",
-      responseTime
+      responseTime,
+      options.userId
     );
 
     return data;
@@ -379,7 +392,8 @@ export class CachedDataForSEOClient extends DataForSEOClient {
     // Record API call
     await this.cacheService.recordAPICall(
       "dataforseo.domainTechnologies",
-      responseTime
+      responseTime,
+      options.userId
     );
 
     return data;
@@ -427,7 +441,8 @@ export class CachedDataForSEOClient extends DataForSEOClient {
     // Record API call
     await this.cacheService.recordAPICall(
       "dataforseo.keywordsForSite",
-      responseTime
+      responseTime,
+      options.userId
     );
 
     return data;
@@ -436,7 +451,8 @@ export class CachedDataForSEOClient extends DataForSEOClient {
   async postSERPTask(
     keywords: string[],
     locationCode: number = 2840,
-    languageCode: string = "en"
+    languageCode: string = "en",
+    options: CacheOptions = {}
   ): Promise<string[]> {
     // SERP tasks are not cached as they are one-time operations
     const startTime = Date.now();
@@ -446,13 +462,14 @@ export class CachedDataForSEOClient extends DataForSEOClient {
     // Record API call
     await this.cacheService.recordAPICall(
       "dataforseo.postSERPTask",
-      responseTime
+      responseTime,
+      options.userId
     );
 
     return data;
   }
 
-  async getSERPTasksReady(): Promise<string[]> {
+  async getSERPTasksReady(options: CacheOptions = {}): Promise<string[]> {
     // Task status checks are not cached as they change frequently
     const startTime = Date.now();
     const data = await super.getSERPTasksReady();
@@ -461,7 +478,8 @@ export class CachedDataForSEOClient extends DataForSEOClient {
     // Record API call
     await this.cacheService.recordAPICall(
       "dataforseo.getSERPTasksReady",
-      responseTime
+      responseTime,
+      options.userId
     );
 
     return data;

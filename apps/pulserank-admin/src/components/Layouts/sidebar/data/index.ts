@@ -23,6 +23,12 @@ export const NAV_DATA = [
         items: [],
       },
       {
+        title: "API Usage",
+        url: "/api-usage",
+        icon: Icons.PieChart,
+        items: [],
+      },
+      {
         title: "Account Settings",
         url: "/account-settings",
         icon: Icons.SettingsIcon,

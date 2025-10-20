@@ -50,11 +50,11 @@ function ServiceCard({
   };
 
   const getServiceStatus = (service: ThirdPartyServiceData) => {
-    if (!service.data || service.data.length === 0) return "inactive";
+    if (!service.data || service.data.length <= 0) return "inactive";
 
     const mainValue = Object.values(service.data);
     // if any element is zero, return inactive
-    if (mainValue.some((value) => value === 0)) return "inactive";
+    if (mainValue.some((value) => value <= 0)) return "inactive";
     if (mainValue.some((value) => value <= service.threshold)) return "warning";
     return "healthy";
   };

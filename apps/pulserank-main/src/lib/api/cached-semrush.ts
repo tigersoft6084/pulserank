@@ -21,14 +21,14 @@ export class CachedSEMrushClient extends SEMrushClient {
   async getDomainOverview(
     domain: string,
     database: string = "us",
-    options: CacheOptions = {},
+    options: CacheOptions = {}
   ): Promise<DomainOverviewData[]> {
     const cacheKey = this.cacheService.generateCacheKey(
       "semrush.domainOverview",
       {
         domain,
         database,
-      },
+      }
     );
 
     // Try cache first
@@ -48,13 +48,14 @@ export class CachedSEMrushClient extends SEMrushClient {
       data,
       "semrush.domainOverview",
       { domain, database },
-      options,
+      options
     );
 
     // Record API call
     await this.cacheService.recordAPICall(
       "semrush.domainOverview",
       responseTime,
+      options.userId
     );
     return data;
   }
@@ -63,7 +64,7 @@ export class CachedSEMrushClient extends SEMrushClient {
     domain: string,
     database: string = "us",
     displayLimit: number = 10,
-    options: CacheOptions = {},
+    options: CacheOptions = {}
   ): Promise<DomainOrganicData[]> {
     const cacheKey = this.cacheService.generateCacheKey(
       "semrush.domainOrganic",
@@ -71,7 +72,7 @@ export class CachedSEMrushClient extends SEMrushClient {
         domain,
         database,
         displayLimit,
-      },
+      }
     );
 
     // Try cache first
@@ -91,13 +92,14 @@ export class CachedSEMrushClient extends SEMrushClient {
       data,
       "semrush.domainOrganic",
       { domain, database, displayLimit },
-      options,
+      options
     );
 
     // Record API call
     await this.cacheService.recordAPICall(
       "semrush.domainOrganic",
       responseTime,
+      options.userId
     );
 
     return data;
@@ -109,7 +111,7 @@ export class CachedSEMrushClient extends SEMrushClient {
     displayLimit: number = 10,
     displayOffset: number = 0,
     search?: string,
-    options: CacheOptions = {},
+    options: CacheOptions = {}
   ): Promise<DomainOrganicSearchData[]> {
     const cacheKey = this.cacheService.generateCacheKey(
       "semrush.domainOrganicGross",
@@ -119,7 +121,7 @@ export class CachedSEMrushClient extends SEMrushClient {
         displayLimit,
         displayOffset,
         search,
-      },
+      }
     );
 
     // Try cache first
@@ -135,7 +137,7 @@ export class CachedSEMrushClient extends SEMrushClient {
       database,
       displayLimit,
       displayOffset,
-      search,
+      search
     );
     const responseTime = Date.now() - startTime;
 
@@ -145,13 +147,14 @@ export class CachedSEMrushClient extends SEMrushClient {
       data,
       "semrush.domainOrganicGross",
       { domain, database, displayLimit, displayOffset, search },
-      options,
+      options
     );
 
     // Record API call
     await this.cacheService.recordAPICall(
       "semrush.domainOrganicGross",
       responseTime,
+      options.userId
     );
 
     return data;
@@ -161,7 +164,7 @@ export class CachedSEMrushClient extends SEMrushClient {
     domain: string,
     database: string = "us",
     displayLimit: number = 10,
-    options: CacheOptions = {},
+    options: CacheOptions = {}
   ): Promise<DomainOrganicSearchData[]> {
     const cacheKey = this.cacheService.generateCacheKey(
       "semrush.domainOrganicSearch",
@@ -169,7 +172,7 @@ export class CachedSEMrushClient extends SEMrushClient {
         domain,
         database,
         displayLimit,
-      },
+      }
     );
 
     // Try cache first
@@ -183,7 +186,7 @@ export class CachedSEMrushClient extends SEMrushClient {
     const data = await super.getDomainOrganicSearch(
       domain,
       database,
-      displayLimit,
+      displayLimit
     );
     const responseTime = Date.now() - startTime;
 
@@ -193,13 +196,14 @@ export class CachedSEMrushClient extends SEMrushClient {
       data,
       "semrush.domainOrganicSearch",
       { domain, database, displayLimit },
-      options,
+      options
     );
 
     // Record API call
     await this.cacheService.recordAPICall(
       "semrush.domainOrganicSearch",
       responseTime,
+      options.userId
     );
 
     return data;
@@ -208,14 +212,14 @@ export class CachedSEMrushClient extends SEMrushClient {
   async getKeywordAnalytics(
     keyword: string,
     database: string = "us",
-    options: CacheOptions = {},
+    options: CacheOptions = {}
   ): Promise<KeywordAnalyticsData> {
     const cacheKey = this.cacheService.generateCacheKey(
       "semrush.keywordAnalytics",
       {
         keyword,
         database,
-      },
+      }
     );
 
     // Try cache first
@@ -235,13 +239,14 @@ export class CachedSEMrushClient extends SEMrushClient {
       data,
       "semrush.keywordAnalytics",
       { keyword, database },
-      options,
+      options
     );
 
     // Record API call
     await this.cacheService.recordAPICall(
       "semrush.keywordAnalytics",
       responseTime,
+      options.userId
     );
 
     return data;
@@ -250,14 +255,14 @@ export class CachedSEMrushClient extends SEMrushClient {
   async getKeywordSuggestions(
     keyword: string,
     database: string = "us",
-    options: CacheOptions = {},
+    options: CacheOptions = {}
   ): Promise<KeywordAnalyticsData[]> {
     const cacheKey = this.cacheService.generateCacheKey(
       "semrush.keywordSuggestions",
       {
         keyword,
         database,
-      },
+      }
     );
 
     // Try cache first
@@ -277,13 +282,14 @@ export class CachedSEMrushClient extends SEMrushClient {
       data,
       "semrush.keywordSuggestions",
       { keyword, database },
-      options,
+      options
     );
 
     // Record API call
     await this.cacheService.recordAPICall(
       "semrush.keywordSuggestions",
       responseTime,
+      options.userId
     );
 
     return data;
@@ -293,7 +299,7 @@ export class CachedSEMrushClient extends SEMrushClient {
     domain: string,
     database: string = "us",
     displayLimit: number = 5,
-    options: CacheOptions = {},
+    options: CacheOptions = {}
   ): Promise<DomainCompetitorsData[]> {
     const cacheKey = this.cacheService.generateCacheKey(
       "semrush.domainCompetitors",
@@ -301,7 +307,7 @@ export class CachedSEMrushClient extends SEMrushClient {
         domain,
         database,
         displayLimit,
-      },
+      }
     );
 
     // Try cache first
@@ -315,7 +321,7 @@ export class CachedSEMrushClient extends SEMrushClient {
     const data = await super.getDomainCompetitors(
       domain,
       database,
-      displayLimit,
+      displayLimit
     );
     const responseTime = Date.now() - startTime;
 
@@ -325,13 +331,14 @@ export class CachedSEMrushClient extends SEMrushClient {
       data,
       "semrush.domainCompetitors",
       { domain, database, displayLimit },
-      options,
+      options
     );
 
     // Record API call
     await this.cacheService.recordAPICall(
       "semrush.domainCompetitors",
       responseTime,
+      options.userId
     );
 
     return data;
@@ -340,7 +347,7 @@ export class CachedSEMrushClient extends SEMrushClient {
   async getDomainRank(
     domain: string,
     database: string = "us",
-    options: CacheOptions = {},
+    options: CacheOptions = {}
   ): Promise<DomainRankData> {
     const cacheKey = this.cacheService.generateCacheKey("semrush.domainRank", {
       domain,
@@ -364,11 +371,15 @@ export class CachedSEMrushClient extends SEMrushClient {
       data,
       "semrush.domainRank",
       { domain, database },
-      options,
+      options
     );
 
     // Record API call
-    await this.cacheService.recordAPICall("semrush.domainRank", responseTime);
+    await this.cacheService.recordAPICall(
+      "semrush.domainRank",
+      responseTime,
+      options.userId
+    );
 
     return data;
   }
@@ -377,7 +388,7 @@ export class CachedSEMrushClient extends SEMrushClient {
     domain: string,
     database: string = "us",
     displayLimit: number = 10,
-    options: CacheOptions = {},
+    options: CacheOptions = {}
   ): Promise<SubdomainOrganicData[]> {
     const cacheKey = this.cacheService.generateCacheKey(
       "semrush.subdomainOrganicUnique",
@@ -385,7 +396,7 @@ export class CachedSEMrushClient extends SEMrushClient {
         domain,
         database,
         displayLimit,
-      },
+      }
     );
 
     // Try cache first
@@ -399,7 +410,7 @@ export class CachedSEMrushClient extends SEMrushClient {
     const data = await super.getSubdomainOrganicUnique(
       domain,
       database,
-      displayLimit,
+      displayLimit
     );
     const responseTime = Date.now() - startTime;
 
@@ -409,13 +420,14 @@ export class CachedSEMrushClient extends SEMrushClient {
       data,
       "semrush.subdomainOrganicUnique",
       { domain, database, displayLimit },
-      options,
+      options
     );
 
     // Record API call
     await this.cacheService.recordAPICall(
       "semrush.subdomainOrganicUnique",
       responseTime,
+      options.userId
     );
 
     return data;
