@@ -1,4 +1,4 @@
-import { PrismaClient } from "@repo/db";
+import { prisma } from "@repo/db";
 import crypto from "crypto";
 
 export interface CacheOptions {
@@ -26,10 +26,18 @@ export interface CacheConfig {
 }
 
 export class CacheService {
-  private prisma: PrismaClient;
+  private static instance: CacheService;
+  private prisma = prisma;
 
-  constructor() {
-    this.prisma = new PrismaClient();
+  private constructor() {
+    // Private constructor for singleton pattern
+  }
+
+  public static getInstance(): CacheService {
+    if (!CacheService.instance) {
+      CacheService.instance = new CacheService();
+    }
+    return CacheService.instance;
   }
 
   /**

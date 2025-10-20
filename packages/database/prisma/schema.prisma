@@ -66,6 +66,8 @@ model User {
   userExports               UserExport[]
   userHistories             UserHistory[]
   userOrders                 UserOrder[]
+  apiUsageLogs              ApiUsageLog[]
+  apiUsageStats             ApiUsageStats[]
 
   @@map("users")
 }
@@ -451,6 +453,77 @@ model CacheStats {
   @@index([date])
   @@index([endpoint])
   @@map("cache_stats")
+}
+
+model ApiUsageLog {
+  id                        String          @id @default(cuid())
+  userId                    String?
+  serviceName               String          // majestic, dataforseo, semrush
+  endpoint                  String          // majestic.backlinkData, dataforseo.serpData, etc.
+  requestParams             Json?           // Store request parameters
+  responseTime              Int             // Response time in milliseconds
+  success                   Boolean         @default(true)
+  errorMessage              String?
+  cacheHit                  Boolean         @default(false)
+  
+  // Majestic credit fields
+  majesticIndexItemResUnitsUsed Int?            @default(0)  // IndexItemInfoResUnits
+  majesticRetrievalResUnitsUsed Int?            @default(0)  // RetrievalResUnits  
+  majesticAnalysisResUnitsUsed  Int?            @default(0)  // AnalysisResUnits
+  
+  // DataForSEO credit fields
+  dataforseoBalanceUsed     Float?          @default(0)  // Balance consumed
+  
+  // Semrush credit fields
+  semrushApiUnitsUsed       Int?            @default(0)  // API units consumed
+  
+  createdAt                 DateTime        @default(now())
+
+  // Relations
+  user                      User?           @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([serviceName])
+  @@index([endpoint])
+  @@index([createdAt])
+  @@map("api_usage_logs")
+}
+
+model ApiUsageStats {
+  id                        String          @id @default(cuid())
+  userId                    String?
+  serviceName               String
+  endpoint                  String
+  date                      DateTime        @default(now())
+  totalCalls                Int             @default(0)
+  averageResponseTime       Float           @default(0)
+  cacheHits                 Int             @default(0)
+  cacheMisses               Int             @default(0)
+  errors                    Int             @default(0)
+  
+  // Majestic credit totals
+  totalMajesticIndexItemResUnitsUsed Int        @default(0)
+  totalMajesticRetrievalResUnitsUsed Int        @default(0)
+  totalMajesticAnalysisResUnitsUsed  Int        @default(0)
+  
+  // DataForSEO credit totals
+  totalDataforseoBalanceUsed     Float      @default(0)
+  
+  // Semrush credit totals
+  totalSemrushApiUnitsUsed       Int        @default(0)
+  
+  createdAt                 DateTime        @default(now())
+  updatedAt                 DateTime        @updatedAt
+
+  // Relations
+  user                      User?           @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@unique([userId, serviceName, endpoint, date])
+  @@index([userId])
+  @@index([serviceName])
+  @@index([endpoint])
+  @@index([date])
+  @@map("api_usage_stats")
 }
 
 enum SERPBase {

@@ -1,6 +1,5 @@
 import { prisma } from "@repo/db";
 import crypto from "crypto";
-import { CreditTrackingService } from "./credit-tracking.service";
 
 export interface CacheOptions {
   ttl?: number; // Time to live in seconds
@@ -29,11 +28,9 @@ export interface CacheConfig {
 export class CacheService {
   private static instance: CacheService;
   private prisma = prisma;
-  private creditTracker: CreditTrackingService;
 
   private constructor() {
     // Private constructor for singleton pattern
-    this.creditTracker = CreditTrackingService.getInstance();
   }
 
   public static getInstance(): CacheService {
@@ -376,9 +373,12 @@ export class CacheService {
     endpoint: string,
     responseTime: number,
     userId?: string,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     success: boolean = true,
     errorMessage?: string,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     cacheHit: boolean = false,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     requestParams?: Record<string, unknown>
   ): Promise<void> {
     try {
@@ -411,19 +411,8 @@ export class CacheService {
         },
       });
 
-      // Use credit tracking service for accurate credit consumption
-      if (userId) {
-        await this.creditTracker.trackApiCall({
-          userId,
-          serviceName: this.getServiceNameFromEndpoint(endpoint),
-          endpoint,
-          responseTime,
-          success,
-          errorMessage,
-          cacheHit,
-          requestParams,
-        });
-      }
+      // Note: Credit tracking is now handled by EnhancedCacheService
+      // Use recordApiUsage method for accurate credit consumption tracking
     } catch (error) {
       console.error("💥 Error recording API call:", error);
     }
@@ -520,6 +509,5 @@ export class CacheService {
    */
   async disconnect(): Promise<void> {
     await this.prisma.$disconnect();
-    await this.creditTracker.disconnect();
   }
 }
