@@ -60,11 +60,20 @@ export class CachedMajesticClient extends MajesticClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateMajesticCredits(
+      "indexItemInfo",
+      urls.length
+    );
     await this.cacheService.recordAPICall(
       "majestic.indexItemInfo",
       responseTime,
-      options.userId
+      options.userId,
+      true, // success
+      undefined, // errorMessage
+      false, // cacheHit
+      { urls, dataSource }, // requestParams
+      creditData
     );
 
     return data;
@@ -129,11 +138,25 @@ export class CachedMajesticClient extends MajesticClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateMajesticCredits("backlinkData", count);
     await this.cacheService.recordAPICall(
       "majestic.backlinkData",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      {
+        url,
+        dataSource,
+        mode,
+        refDomain,
+        maxSourceURLsPerRefDomain,
+        count,
+        from,
+      },
+      creditData
     );
 
     return data;
@@ -172,11 +195,20 @@ export class CachedMajesticClient extends MajesticClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateMajesticCredits(
+      "batchBacklinkData",
+      urls.length
+    );
     await this.cacheService.recordAPICall(
       "majestic.batchBacklinkData",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { urls, dataSource },
+      creditData
     );
 
     return data;
@@ -216,11 +248,17 @@ export class CachedMajesticClient extends MajesticClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateMajesticCredits("refDomains", count);
     await this.cacheService.recordAPICall(
       "majestic.refDomains",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { items, dataSource, count, from },
+      creditData
     );
 
     return data;
@@ -258,11 +296,17 @@ export class CachedMajesticClient extends MajesticClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateMajesticCredits("anchorText", count);
     await this.cacheService.recordAPICall(
       "majestic.anchorText",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { url, dataSource, count },
+      creditData
     );
 
     return data;
@@ -300,11 +344,17 @@ export class CachedMajesticClient extends MajesticClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateMajesticCredits("topics", count);
     await this.cacheService.recordAPICall(
       "majestic.topics",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { url, dataSource, count },
+      creditData
     );
 
     return data;
@@ -344,11 +394,17 @@ export class CachedMajesticClient extends MajesticClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateMajesticCredits("topPages", count);
     await this.cacheService.recordAPICall(
       "majestic.topPages",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { url, dataSource, from, count },
+      creditData
     );
 
     return data;
@@ -389,11 +445,17 @@ export class CachedMajesticClient extends MajesticClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateMajesticCredits("newLostBacklinks", 1);
     await this.cacheService.recordAPICall(
       "majestic.newLostBacklinks",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { url, dataSource, mode },
+      creditData
     );
 
     return data;
@@ -443,13 +505,104 @@ export class CachedMajesticClient extends MajesticClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateMajesticCredits("hostedDomains", 1);
     await this.cacheService.recordAPICall(
       "majestic.hostedDomains",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { domain, dataSource },
+      creditData
     );
 
     return data;
+  }
+
+  /**
+   * Estimate Majestic credit consumption based on endpoint and parameters
+   * This is an approximation since Majestic doesn't provide real-time credit consumption per call
+   */
+  private estimateMajesticCredits(
+    endpoint: string,
+    itemCount: number = 1
+  ): {
+    majestic: {
+      indexItemResUnits?: number;
+      retrievalResUnits?: number;
+      analysisResUnits?: number;
+    };
+  } {
+    // Based on Majestic API documentation and typical usage patterns
+    const creditEstimates: Record<
+      string,
+      {
+        indexItemResUnits: number;
+        retrievalResUnits: number;
+        analysisResUnits: number;
+      }
+    > = {
+      indexItemInfo: {
+        indexItemResUnits: itemCount,
+        retrievalResUnits: 0,
+        analysisResUnits: 0,
+      },
+      backlinkData: {
+        indexItemResUnits: 0,
+        retrievalResUnits: itemCount,
+        analysisResUnits: 0,
+      },
+      batchBacklinkData: {
+        indexItemResUnits: 0,
+        retrievalResUnits: itemCount,
+        analysisResUnits: 0,
+      },
+      refDomains: {
+        indexItemResUnits: 0,
+        retrievalResUnits: itemCount,
+        analysisResUnits: 0,
+      },
+      anchorText: {
+        indexItemResUnits: 0,
+        retrievalResUnits: itemCount,
+        analysisResUnits: 0,
+      },
+      topics: {
+        indexItemResUnits: 0,
+        retrievalResUnits: 0,
+        analysisResUnits: itemCount,
+      },
+      topPages: {
+        indexItemResUnits: 0,
+        retrievalResUnits: itemCount,
+        analysisResUnits: 0,
+      },
+      newLostBacklinks: {
+        indexItemResUnits: 0,
+        retrievalResUnits: itemCount,
+        analysisResUnits: 0,
+      },
+      hostedDomains: {
+        indexItemResUnits: 0,
+        retrievalResUnits: itemCount,
+        analysisResUnits: 0,
+      },
+    };
+
+    const estimate = creditEstimates[endpoint] || {
+      indexItemResUnits: 0,
+      retrievalResUnits: 0,
+      analysisResUnits: 0,
+    };
+
+    return {
+      majestic: {
+        indexItemResUnits: estimate.indexItemResUnits,
+        retrievalResUnits: estimate.retrievalResUnits,
+        analysisResUnits: estimate.analysisResUnits,
+      },
+    };
   }
 }

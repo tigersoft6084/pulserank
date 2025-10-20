@@ -373,22 +373,70 @@ export class CacheService {
     endpoint: string,
     responseTime: number,
     userId?: string,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     success: boolean = true,
     errorMessage?: string,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     cacheHit: boolean = false,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    requestParams?: Record<string, unknown>
+    requestParams?: Record<string, unknown>,
+    creditData?: {
+      majestic?: {
+        indexItemResUnits?: number;
+        retrievalResUnits?: number;
+        analysisResUnits?: number;
+      };
+      dataforseo?: {
+        balanceUsed?: number;
+      };
+      semrush?: {
+        apiUnitsUsed?: number;
+      };
+    }
   ): Promise<void> {
     try {
       const today = new Date();
       today.setHours(0, 0, 0, 0);
+      const serviceName = this.getServiceNameFromEndpoint(endpoint);
 
       // Calculate the new average response time first
       const newAverage = await this.calculateNewAverage(endpoint, responseTime);
 
-      // Update legacy CacheStats for backward compatibility
+      // 1. Create detailed log entry in ApiUsageLog
+      await this.prisma.apiUsageLog.create({
+        data: {
+          userId,
+          serviceName,
+          endpoint,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          requestParams: requestParams as any,
+          responseTime,
+          success,
+          errorMessage,
+          cacheHit,
+          // Majestic credit fields
+          majesticIndexItemResUnitsUsed:
+            creditData?.majestic?.indexItemResUnits || 0,
+          majesticRetrievalResUnitsUsed:
+            creditData?.majestic?.retrievalResUnits || 0,
+          majesticAnalysisResUnitsUsed:
+            creditData?.majestic?.analysisResUnits || 0,
+          // DataForSEO credit fields
+          dataforseoBalanceUsed: creditData?.dataforseo?.balanceUsed || 0,
+          // Semrush credit fields
+          semrushApiUnitsUsed: creditData?.semrush?.apiUnitsUsed || 0,
+        },
+      });
+
+      // 2. Update daily aggregated stats in ApiUsageStats
+      await this.updateDailyApiUsageStats(
+        serviceName,
+        endpoint,
+        userId,
+        responseTime,
+        success,
+        cacheHit,
+        creditData
+      );
+
+      // 3. Update legacy CacheStats for backward compatibility
       await this.prisma.cacheStats.upsert({
         where: {
           date_endpoint: {
@@ -410,11 +458,116 @@ export class CacheService {
           averageResponseTime: responseTime,
         },
       });
-
-      // Note: Credit tracking is now handled by EnhancedCacheService
-      // Use recordApiUsage method for accurate credit consumption tracking
     } catch (error) {
       console.error("💥 Error recording API call:", error);
+    }
+  }
+
+  /**
+   * Update daily aggregated API usage statistics
+   */
+  private async updateDailyApiUsageStats(
+    serviceName: string,
+    endpoint: string,
+    userId?: string,
+    responseTime: number = 0,
+    success: boolean = true,
+    cacheHit: boolean = false,
+    creditData?: {
+      majestic?: {
+        indexItemResUnits?: number;
+        retrievalResUnits?: number;
+        analysisResUnits?: number;
+      };
+      dataforseo?: {
+        balanceUsed?: number;
+      };
+      semrush?: {
+        apiUnitsUsed?: number;
+      };
+    }
+  ): Promise<void> {
+    try {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      // Calculate new average response time
+      const existingStats = await this.prisma.apiUsageStats.findUnique({
+        where: {
+          userId_serviceName_endpoint_date: {
+            userId: userId || "",
+            serviceName,
+            endpoint,
+            date: today,
+          },
+        },
+      });
+
+      let newAverageResponseTime = responseTime;
+      if (existingStats) {
+        const currentAvg = existingStats.averageResponseTime;
+        const currentCalls = existingStats.totalCalls;
+        const newCalls = currentCalls + 1;
+        newAverageResponseTime =
+          (currentAvg * currentCalls + responseTime) / newCalls;
+      }
+
+      // Upsert daily stats
+      await this.prisma.apiUsageStats.upsert({
+        where: {
+          userId_serviceName_endpoint_date: {
+            userId: userId || "",
+            serviceName,
+            endpoint,
+            date: today,
+          },
+        },
+        update: {
+          totalCalls: { increment: 1 },
+          averageResponseTime: newAverageResponseTime,
+          cacheHits: cacheHit ? { increment: 1 } : undefined,
+          cacheMisses: !cacheHit ? { increment: 1 } : undefined,
+          errors: !success ? { increment: 1 } : undefined,
+          // Update credit totals
+          totalMajesticIndexItemResUnitsUsed: {
+            increment: creditData?.majestic?.indexItemResUnits || 0,
+          },
+          totalMajesticRetrievalResUnitsUsed: {
+            increment: creditData?.majestic?.retrievalResUnits || 0,
+          },
+          totalMajesticAnalysisResUnitsUsed: {
+            increment: creditData?.majestic?.analysisResUnits || 0,
+          },
+          totalDataforseoBalanceUsed: {
+            increment: creditData?.dataforseo?.balanceUsed || 0,
+          },
+          totalSemrushApiUnitsUsed: {
+            increment: creditData?.semrush?.apiUnitsUsed || 0,
+          },
+        },
+        create: {
+          userId: userId || "",
+          serviceName,
+          endpoint,
+          date: today,
+          totalCalls: 1,
+          averageResponseTime: responseTime,
+          cacheHits: cacheHit ? 1 : 0,
+          cacheMisses: !cacheHit ? 1 : 0,
+          errors: !success ? 1 : 0,
+          // Initialize credit totals
+          totalMajesticIndexItemResUnitsUsed:
+            creditData?.majestic?.indexItemResUnits || 0,
+          totalMajesticRetrievalResUnitsUsed:
+            creditData?.majestic?.retrievalResUnits || 0,
+          totalMajesticAnalysisResUnitsUsed:
+            creditData?.majestic?.analysisResUnits || 0,
+          totalDataforseoBalanceUsed: creditData?.dataforseo?.balanceUsed || 0,
+          totalSemrushApiUnitsUsed: creditData?.semrush?.apiUnitsUsed || 0,
+        },
+      });
+    } catch (error) {
+      console.error("Error updating daily API usage stats:", error);
     }
   }
 

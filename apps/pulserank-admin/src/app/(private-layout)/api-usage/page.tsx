@@ -15,12 +15,12 @@ import {
   Users,
 } from "lucide-react";
 import { UserApiUsage } from "./_components/user-api-usage";
+import { DailyCharts } from "./_components/daily-charts";
+import { CreditInsights } from "./_components/credit-insights";
 
 interface ApiUsageData {
   serviceName: string;
   totalCalls: number;
-  totalCreditsUsed: number;
-  totalCost: number;
   averageResponseTime: number;
   cacheHits: number;
   cacheMisses: number;
@@ -29,8 +29,18 @@ interface ApiUsageData {
   endpoints: string[];
   hitRate: number;
   errorRate: number;
-  averageCreditsPerCall: number;
-  averageCostPerCall: number;
+  // Service-specific credit data
+  majesticCredits?: {
+    indexItemResUnits: number;
+    retrievalResUnits: number;
+    analysisResUnits: number;
+  };
+  dataforseoCredits?: {
+    balanceUsed: number;
+  };
+  semrushCredits?: {
+    apiUnitsUsed: number;
+  };
 }
 
 interface ApiUsageResponse {
@@ -38,9 +48,15 @@ interface ApiUsageResponse {
   data: ApiUsageData[];
   timeframe: string;
   groupBy: string;
-  totalCalls: number;
-  totalCreditsUsed: number;
-  totalCost: number;
+  summary: {
+    totalCalls: number;
+    totalUsers: number;
+    activeUsers: number;
+    services: number;
+    averageResponseTime: number;
+    cacheHitRate: number;
+    errorRate: number;
+  };
 }
 
 export default function ApiUsagePage() {
@@ -140,31 +156,35 @@ export default function ApiUsagePage() {
   const statsConfig = [
     {
       label: "Total API Calls",
-      value: data?.totalCalls || 0,
+      value: data?.summary?.totalCalls || 0,
       formatter: formatNumber,
       icon: Zap,
       color: "text-primary",
+      description: "All API requests across services",
     },
     {
-      label: "Credits Used",
-      value: data?.totalCreditsUsed || 0,
+      label: "Active Users",
+      value: data?.summary?.activeUsers || 0,
       formatter: formatNumber,
+      icon: Users,
+      color: "text-green-600 dark:text-green-400",
+      description: "Users with active subscriptions",
+    },
+    {
+      label: "Cache Hit Rate",
+      value: data?.summary?.cacheHitRate || 0,
+      formatter: (value: number) => `${(value * 100).toFixed(1)}%`,
       icon: Activity,
       color: "text-blue-600 dark:text-blue-400",
+      description: "Percentage of cached responses",
     },
     {
-      label: "Total Cost",
-      value: data?.totalCost || 0,
-      formatter: (value: number) => `$${value.toFixed(2)}`,
+      label: "Error Rate",
+      value: data?.summary?.errorRate || 0,
+      formatter: (value: number) => `${(value * 100).toFixed(1)}%`,
       icon: TrendingUp,
-      color: "text-green-600 dark:text-green-400",
-    },
-    {
-      label: "Services",
-      value: data?.data?.length || 0,
-      formatter: formatNumber,
-      icon: Server,
-      color: "text-orange-600 dark:text-orange-400",
+      color: "text-red-600 dark:text-red-400",
+      description: "Percentage of failed requests",
     },
   ];
 
@@ -276,6 +296,11 @@ export default function ApiUsagePage() {
                           stat.formatter(stat.value)
                         )}
                       </div>
+                      {stat.description && (
+                        <p className="text-xs text-dark-6 dark:text-dark-5 mt-1">
+                          {stat.description}
+                        </p>
+                      )}
                     </div>
                     <div className={cn("p-2 rounded-lg", stat.color)}>
                       <IconComponent className="h-6 w-6" />
@@ -294,119 +319,25 @@ export default function ApiUsagePage() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-bold text-dark dark:text-white">
-                    Service Performance
+                    Service Credit Usage
                   </h3>
                   <p className="text-sm text-dark-6 dark:text-dark-5">
-                    Detailed breakdown of API usage by service
+                    API credit consumption by service
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3">
-                  {data.data.map((service) => {
-                    const ServiceIcon = getServiceIcon(service.serviceName);
-                    return (
-                      <div
-                        key={service.serviceName}
-                        className="rounded-[10px] bg-white p-6 shadow-1 dark:bg-gray-dark dark:shadow-card"
-                      >
-                        <div className="flex items-start justify-between mb-4">
-                          <div className="flex items-center gap-3">
-                            <div
-                              className={cn(
-                                "p-2 rounded-lg",
-                                getServiceBgColor(service.serviceName)
-                              )}
-                            >
-                              <ServiceIcon
-                                className={cn(
-                                  "h-6 w-6",
-                                  getServiceColor(service.serviceName)
-                                )}
-                              />
-                            </div>
-                            <div>
-                              <h4 className="text-lg font-bold text-dark dark:text-white">
-                                {service.serviceName}
-                              </h4>
-                              <p className="text-sm text-dark-6 dark:text-dark-5">
-                                {service.endpoints.length} endpoints
-                              </p>
-                            </div>
-                          </div>
-                          <div className="text-right">
-                            <div className="text-2xl font-bold text-primary">
-                              {formatNumber(service.totalCreditsUsed)}
-                            </div>
-                            <div className="text-sm text-dark-6 dark:text-dark-5">
-                              Credits Used
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="space-y-3">
-                          <div className="flex justify-between text-sm">
-                            <span className="text-dark-6 dark:text-dark-5">
-                              Total Calls:
-                            </span>
-                            <span className="font-medium text-dark dark:text-white">
-                              {formatNumber(service.totalCalls)}
-                            </span>
-                          </div>
-                          <div className="flex justify-between text-sm">
-                            <span className="text-dark-6 dark:text-dark-5">
-                              Total Cost:
-                            </span>
-                            <span className="font-medium text-dark dark:text-white">
-                              ${service.totalCost.toFixed(2)}
-                            </span>
-                          </div>
-                          <div className="flex justify-between text-sm">
-                            <span className="text-dark-6 dark:text-dark-5">
-                              Avg Credits/Call:
-                            </span>
-                            <span className="font-medium text-dark dark:text-white">
-                              {service.averageCreditsPerCall.toFixed(2)}
-                            </span>
-                          </div>
-                          <div className="flex justify-between text-sm">
-                            <span className="text-dark-6 dark:text-dark-5">
-                              Cache Hit Rate:
-                            </span>
-                            <span className="font-medium text-dark dark:text-white">
-                              {(service.hitRate * 100).toFixed(1)}%
-                            </span>
-                          </div>
-                          <div className="flex justify-between text-sm">
-                            <span className="text-dark-6 dark:text-dark-5">
-                              Unique Users:
-                            </span>
-                            <span className="font-medium text-dark dark:text-white">
-                              {service.uniqueUsers}
-                            </span>
-                          </div>
-                        </div>
-
-                        <div className="mt-4 pt-4 border-t border-stroke dark:border-dark-3">
-                          <div className="text-sm text-dark-6 dark:text-dark-5 mb-2">
-                            Endpoints:
-                          </div>
-                          <div className="flex flex-wrap gap-1">
-                            {service.endpoints.map((endpoint) => (
-                              <span
-                                key={endpoint}
-                                className="rounded-full bg-gray-100 px-2 py-1 text-xs text-gray-600 dark:bg-gray-800 dark:text-gray-400"
-                              >
-                                {endpoint}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
+                <CreditInsights data={data.data} />
               </div>
             )}
+
+          {/* Daily Charts - Temporarily disabled until daily breakdown data is available */}
+          {/* {data &&
+            data.data &&
+            data.data.length > 0 &&
+            data.data.some(
+              (service) =>
+                service.dailyBreakdown && service.dailyBreakdown.length > 0
+            ) && <DailyCharts data={data.data} />} */}
 
           {/* Loading State */}
           {loading && (

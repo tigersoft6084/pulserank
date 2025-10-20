@@ -50,11 +50,17 @@ export class CachedDataForSEOClient extends DataForSEOClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateDataForSEOCredits("serpData");
     await this.cacheService.recordAPICall(
       "dataforseo.serpData",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { keyword, location, language },
+      creditData
     );
 
     return data;
@@ -99,11 +105,17 @@ export class CachedDataForSEOClient extends DataForSEOClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateDataForSEOCredits("keywordMetrics");
     await this.cacheService.recordAPICall(
       "dataforseo.keywordMetrics",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { keyword, locationCode, languageCode },
+      creditData
     );
 
     return data;
@@ -141,11 +153,17 @@ export class CachedDataForSEOClient extends DataForSEOClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateDataForSEOCredits("trends");
     await this.cacheService.recordAPICall(
       "dataforseo.trends",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { keyword, dateFrom, dateTo },
+      creditData
     );
 
     return data;
@@ -191,11 +209,17 @@ export class CachedDataForSEOClient extends DataForSEOClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateDataForSEOCredits("onPageData");
     await this.cacheService.recordAPICall(
       "dataforseo.onPageData",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { url },
+      creditData
     );
 
     return data;
@@ -247,11 +271,17 @@ export class CachedDataForSEOClient extends DataForSEOClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateDataForSEOCredits("domainKeywordPositions");
     await this.cacheService.recordAPICall(
       "dataforseo.domainKeywordPositions",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { domain },
+      creditData
     );
 
     return data;
@@ -296,11 +326,20 @@ export class CachedDataForSEOClient extends DataForSEOClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateDataForSEOCredits(
+      "keywordOverview",
+      keywords.length
+    );
     await this.cacheService.recordAPICall(
       "dataforseo.keywordOverview",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { keywords, locationCode, languageCode },
+      creditData
     );
 
     return data;
@@ -348,11 +387,17 @@ export class CachedDataForSEOClient extends DataForSEOClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateDataForSEOCredits("relatedKeywords");
     await this.cacheService.recordAPICall(
       "dataforseo.relatedKeywords",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { keyword, locationCode, languageCode, filters },
+      creditData
     );
 
     return data;
@@ -389,11 +434,17 @@ export class CachedDataForSEOClient extends DataForSEOClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateDataForSEOCredits("domainTechnologies");
     await this.cacheService.recordAPICall(
       "dataforseo.domainTechnologies",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { target },
+      creditData
     );
 
     return data;
@@ -438,11 +489,17 @@ export class CachedDataForSEOClient extends DataForSEOClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateDataForSEOCredits("keywordsForSite");
     await this.cacheService.recordAPICall(
       "dataforseo.keywordsForSite",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { target, locationCode, languageCode },
+      creditData
     );
 
     return data;
@@ -459,11 +516,20 @@ export class CachedDataForSEOClient extends DataForSEOClient {
     const data = await super.postSERPTask(keywords, locationCode, languageCode);
     const responseTime = Date.now() - startTime;
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateDataForSEOCredits(
+      "postSERPTask",
+      keywords.length
+    );
     await this.cacheService.recordAPICall(
       "dataforseo.postSERPTask",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { keywords, locationCode, languageCode },
+      creditData
     );
 
     return data;
@@ -475,11 +541,17 @@ export class CachedDataForSEOClient extends DataForSEOClient {
     const data = await super.getSERPTasksReady();
     const responseTime = Date.now() - startTime;
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateDataForSEOCredits("getSERPTasksReady");
     await this.cacheService.recordAPICall(
       "dataforseo.getSERPTasksReady",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      {},
+      creditData
     );
 
     return data;
@@ -516,10 +588,17 @@ export class CachedDataForSEOClient extends DataForSEOClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateDataForSEOCredits("sERPResults");
     await this.cacheService.recordAPICall(
       "dataforseo.sERPResults",
-      responseTime
+      responseTime,
+      options.userId,
+      true,
+      undefined,
+      false,
+      { taskId },
+      creditData
     );
 
     return data;
@@ -597,12 +676,56 @@ export class CachedDataForSEOClient extends DataForSEOClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateDataForSEOCredits(
+      "googleTrends",
+      keywords.length
+    );
     await this.cacheService.recordAPICall(
       "dataforseo.googleTrends",
-      responseTime
+      responseTime,
+      options.userId,
+      true,
+      undefined,
+      false,
+      { keywords, locationCode, languageCode, dateFrom, dateTo },
+      creditData
     );
 
     return data;
+  }
+
+  /**
+   * Estimate DataForSEO credit consumption based on endpoint and parameters
+   * DataForSEO charges based on task complexity and data volume
+   */
+  private estimateDataForSEOCredits(
+    endpoint: string,
+    itemCount: number = 1
+  ): { dataforseo: { balanceUsed?: number } } {
+    // Based on DataForSEO pricing and typical usage patterns
+    const creditEstimates: Record<string, number> = {
+      serpData: 0.01, // $0.01 per SERP request
+      keywordMetrics: 0.005, // $0.005 per keyword metrics request
+      trends: 0.01, // $0.01 per trends request
+      onPageData: 0.02, // $0.02 per on-page analysis
+      domainKeywordPositions: 0.01, // $0.01 per domain analysis
+      keywordOverview: 0.005 * itemCount, // $0.005 per keyword
+      relatedKeywords: 0.01, // $0.01 per related keywords request
+      domainTechnologies: 0.01, // $0.01 per technology analysis
+      keywordsForSite: 0.01, // $0.01 per site keywords analysis
+      postSERPTask: 0.01 * itemCount, // $0.01 per task
+      getSERPTasksReady: 0, // Free status check
+      sERPResults: 0, // Free result retrieval
+      googleTrends: 0.01, // $0.01 per trends request
+    };
+
+    const estimatedCost = creditEstimates[endpoint] || 0.01; // Default $0.01
+
+    return {
+      dataforseo: {
+        balanceUsed: estimatedCost,
+      },
+    };
   }
 }

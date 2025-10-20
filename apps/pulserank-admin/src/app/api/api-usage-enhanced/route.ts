@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@repo/db";
 import { getUser } from "@/lib/auth";
+import { ApiUsageService } from "../../../../../pulserank-main/src/lib/services/api-usage.service";
+
+const apiUsageService = ApiUsageService.getInstance();
 
 export async function GET(request: NextRequest) {
   try {
@@ -14,298 +17,84 @@ export async function GET(request: NextRequest) {
     const groupBy = searchParams.get("groupBy") || "service";
     const userId = searchParams.get("userId");
 
-    // Calculate date range
-    const now = new Date();
-    let startDate: Date;
-
-    switch (timeframe) {
-      case "1d":
-        startDate = new Date(now.getTime() - 24 * 60 * 60 * 1000);
-        break;
-      case "7d":
-        startDate = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-        break;
-      case "30d":
-        startDate = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
-        break;
-      case "90d":
-        startDate = new Date(now.getTime() - 90 * 24 * 60 * 60 * 1000);
-        break;
-      default:
-        startDate = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-    }
+    // Parse timeframe
+    const timeRange = ApiUsageService.parseTimeframe(timeframe);
 
     if (groupBy === "service") {
-      // Get comprehensive service-level statistics
-      const serviceStats = await prisma.apiUsageStats.findMany({
-        where: {
-          date: {
-            gte: startDate,
-            lte: now,
-          },
-        },
-        orderBy: {
-          date: "desc",
-        },
-      });
+      // Get service-level usage statistics with enhanced data
+      const serviceStats =
+        await apiUsageService.getServiceUsageStats(timeRange);
+      const summary = await apiUsageService.getUsageSummary(timeRange);
 
-      // Group by service name
-      const serviceMap = new Map<
-        string,
-        {
-          serviceName: string;
-          totalCalls: number;
-          totalCreditsUsed: number;
-          totalCost: number;
-          averageResponseTime: number;
-          cacheHits: number;
-          cacheMisses: number;
-          errors: number;
-          uniqueUsers: Set<string>;
-          endpoints: string[];
-          dailyBreakdown: Array<{
-            date: string;
-            calls: number;
-            credits: number;
-            cost: number;
-          }>;
-        }
-      >();
-
-      serviceStats.forEach((stat) => {
-        const serviceName = stat.serviceName;
-        const existing = serviceMap.get(serviceName) || {
-          serviceName,
-          totalCalls: 0,
-          totalCreditsUsed: 0,
-          totalCost: 0,
-          averageResponseTime: 0,
-          cacheHits: 0,
-          cacheMisses: 0,
-          errors: 0,
-          uniqueUsers: new Set<string>(),
-          endpoints: [],
-          dailyBreakdown: [],
-        };
-
-        existing.totalCalls += stat.totalCalls;
-        existing.totalCreditsUsed += stat.totalCreditsUsed;
-        existing.totalCost += stat.totalCost;
-        existing.cacheHits += stat.cacheHits;
-        existing.cacheMisses += stat.cacheMisses;
-        existing.errors += stat.errors;
-
-        if (stat.userId) {
-          existing.uniqueUsers.add(stat.userId);
-        }
-
-        if (!existing.endpoints.includes(stat.endpoint)) {
-          existing.endpoints.push(stat.endpoint);
-        }
-
-        // Add to daily breakdown
-        const dateStr = stat.date.toISOString().split("T")[0];
-        let dayData = existing.dailyBreakdown.find((d) => d.date === dateStr);
-        if (!dayData) {
-          dayData = {
-            date: dateStr,
-            calls: 0,
-            credits: 0,
-            cost: 0,
-          };
-          existing.dailyBreakdown.push(dayData);
-        }
-        dayData.calls += stat.totalCalls;
-        dayData.credits += stat.totalCreditsUsed;
-        dayData.cost += stat.totalCost;
-
-        serviceMap.set(serviceName, existing);
-      });
-
-      // Calculate averages and sort
-      const serviceData = Array.from(serviceMap.values())
-        .map((service) => ({
-          ...service,
-          uniqueUsers: service.uniqueUsers.size,
-          hitRate:
-            service.cacheHits + service.cacheMisses > 0
-              ? service.cacheHits / (service.cacheHits + service.cacheMisses)
-              : 0,
-          errorRate:
-            service.totalCalls > 0 ? service.errors / service.totalCalls : 0,
-          averageCreditsPerCall:
-            service.totalCalls > 0
-              ? service.totalCreditsUsed / service.totalCalls
-              : 0,
-          averageCostPerCall:
-            service.totalCalls > 0 ? service.totalCost / service.totalCalls : 0,
-          dailyBreakdown: service.dailyBreakdown.sort(
-            (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
-          ),
-        }))
-        .sort((a, b) => b.totalCreditsUsed - a.totalCreditsUsed);
+      // Transform data to match the expected format for the admin dashboard
+      const transformedData = serviceStats.map((stat) => ({
+        serviceName: stat.serviceName,
+        totalCalls: stat.totalCalls,
+        averageResponseTime: stat.averageResponseTime,
+        cacheHits: stat.cacheHits,
+        cacheMisses: stat.cacheMisses,
+        errors: stat.errors,
+        uniqueUsers: stat.uniqueUsers,
+        endpoints: [stat.endpoint], // Single endpoint per stat
+        hitRate: stat.hitRate,
+        errorRate: stat.errorRate,
+        // Service-specific credit breakdown
+        majesticCredits: stat.majesticCredits,
+        dataforseoCredits: stat.dataforseoCredits,
+        semrushCredits: stat.semrushCredits,
+      }));
 
       return NextResponse.json({
         success: true,
-        data: serviceData,
+        data: transformedData,
         timeframe,
         groupBy,
-        totalCalls: serviceData.reduce(
-          (sum, service) => sum + service.totalCalls,
-          0
-        ),
-        totalCreditsUsed: serviceData.reduce(
-          (sum, service) => sum + service.totalCreditsUsed,
-          0
-        ),
-        totalCost: serviceData.reduce(
-          (sum, service) => sum + service.totalCost,
-          0
-        ),
+        summary: {
+          totalCalls: summary.totalCalls,
+          totalUsers: summary.totalUsers,
+          activeUsers: summary.activeUsers,
+          services: summary.services,
+          averageResponseTime: summary.averageResponseTime,
+          cacheHitRate: summary.cacheHitRate,
+          errorRate: summary.errorRate,
+        },
       });
     } else if (groupBy === "user") {
-      // Get user-level statistics
-      const userStats = await prisma.apiUsageStats.findMany({
-        where: {
-          date: {
-            gte: startDate,
-            lte: now,
-          },
-          userId: userId || undefined,
-        },
-        include: {
-          user: {
-            select: {
-              id: true,
-              name: true,
-              email: true,
-              lastActiveAt: true,
-              userOrders: {
-                where: {
-                  status: "ACTIVE",
-                },
-                include: {
-                  plan: true,
-                },
-              },
-            },
-          },
-        },
-        orderBy: {
-          date: "desc",
-        },
-      });
+      // Get user-level usage statistics
+      const userStats = await apiUsageService.getUserUsageStats(timeRange);
+      const summary = await apiUsageService.getUsageSummary(timeRange);
 
-      // Group by user
-      const userMap = new Map<
-        string,
-        {
-          userId: string;
-          userName: string;
-          userEmail: string;
-          lastActiveAt: Date;
-          planName: string;
-          totalCalls: number;
-          totalCreditsUsed: number;
-          totalCost: number;
-          averageResponseTime: number;
-          cacheHits: number;
-          cacheMisses: number;
-          errors: number;
-          services: string[];
-          dailyBreakdown: Array<{
-            date: string;
-            calls: number;
-            credits: number;
-            cost: number;
-          }>;
-        }
-      >();
-
-      userStats.forEach((stat) => {
-        if (!stat.user) return;
-
-        const userId = stat.userId || "unknown";
-        const existing = userMap.get(userId) || {
-          userId,
-          userName: stat.user.name,
-          userEmail: stat.user.email,
-          lastActiveAt: stat.user.lastActiveAt,
-          planName: stat.user.userOrders[0]?.plan?.name || "No Plan",
-          totalCalls: 0,
-          totalCreditsUsed: 0,
-          totalCost: 0,
-          averageResponseTime: 0,
-          cacheHits: 0,
-          cacheMisses: 0,
-          errors: 0,
-          services: [],
-          dailyBreakdown: [],
-        };
-
-        existing.totalCalls += stat.totalCalls;
-        existing.totalCreditsUsed += stat.totalCreditsUsed;
-        existing.totalCost += stat.totalCost;
-        existing.cacheHits += stat.cacheHits;
-        existing.cacheMisses += stat.cacheMisses;
-        existing.errors += stat.errors;
-
-        if (!existing.services.includes(stat.serviceName)) {
-          existing.services.push(stat.serviceName);
-        }
-
-        // Add to daily breakdown
-        const dateStr = stat.date.toISOString().split("T")[0];
-        let dayData = existing.dailyBreakdown.find((d) => d.date === dateStr);
-        if (!dayData) {
-          dayData = {
-            date: dateStr,
-            calls: 0,
-            credits: 0,
-            cost: 0,
-          };
-          existing.dailyBreakdown.push(dayData);
-        }
-        dayData.calls += stat.totalCalls;
-        dayData.credits += stat.totalCreditsUsed;
-        dayData.cost += stat.totalCost;
-
-        userMap.set(userId, existing);
-      });
-
-      // Calculate averages and sort
-      const userData = Array.from(userMap.values())
-        .map((user) => ({
-          ...user,
-          hitRate:
-            user.cacheHits + user.cacheMisses > 0
-              ? user.cacheHits / (user.cacheHits + user.cacheMisses)
-              : 0,
-          errorRate: user.totalCalls > 0 ? user.errors / user.totalCalls : 0,
-          averageCreditsPerCall:
-            user.totalCalls > 0 ? user.totalCreditsUsed / user.totalCalls : 0,
-          averageCostPerCall:
-            user.totalCalls > 0 ? user.totalCost / user.totalCalls : 0,
-          dailyBreakdown: user.dailyBreakdown.sort(
-            (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
-          ),
-        }))
-        .sort((a, b) => b.totalCreditsUsed - a.totalCreditsUsed);
+      // Transform data to match the expected format for the admin dashboard
+      const transformedData = userStats.map((stat) => ({
+        userId: stat.userId,
+        userName: stat.userName,
+        userEmail: stat.userEmail,
+        estimatedApiCalls: stat.totalCalls, // Map to expected field name
+        keywordCount: 0, // This would need to be calculated from actual data
+        siteCount: 0, // This would need to be calculated from actual data
+        planName: stat.isActive ? "Pro" : "Free", // This would need to be fetched from user orders
+        lastActiveAt: stat.lastActiveAt.toISOString(),
+        isActive: stat.isActive,
+        totalCreditsUsed: stat.totalCreditsUsed,
+        totalCost: stat.totalCost,
+        services: stat.services,
+      }));
 
       return NextResponse.json({
         success: true,
-        data: userData,
+        data: transformedData,
         timeframe,
         groupBy,
-        totalCalls: userData.reduce((sum, user) => sum + user.totalCalls, 0),
-        totalCreditsUsed: userData.reduce(
-          (sum, user) => sum + user.totalCreditsUsed,
-          0
-        ),
-        totalCost: userData.reduce((sum, user) => sum + user.totalCost, 0),
-        totalUsers: userData.length,
-        activeUsers: userData.filter((user) => user.planName !== "No Plan")
-          .length,
+        totalApiCalls: summary.totalCalls,
+        totalUsers: summary.totalUsers,
+        activeUsers: summary.activeUsers,
+        summary: {
+          totalCalls: summary.totalCalls,
+          totalCreditsUsed: summary.totalCreditsUsed,
+          totalCost: summary.totalCost,
+          totalUsers: summary.totalUsers,
+          activeUsers: summary.activeUsers,
+        },
       });
     }
 
@@ -320,6 +109,41 @@ export async function GET(request: NextRequest) {
         success: false,
         error: "Failed to fetch enhanced API usage statistics",
       },
+      { status: 500 }
+    );
+  }
+}
+
+// Additional endpoint for getting detailed logs for a specific user
+export async function POST(request: NextRequest) {
+  try {
+    const session = await getUser();
+    if (!session?.user?.id) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const { userId, timeframe = "7d", limit = 100 } = await request.json();
+
+    if (!userId) {
+      return NextResponse.json(
+        { success: false, error: "userId is required" },
+        { status: 400 }
+      );
+    }
+
+    const timeRange = ApiUsageService.parseTimeframe(timeframe);
+    const logs = await apiUsageService.getUserApiLogs(userId, timeRange, limit);
+
+    return NextResponse.json({
+      success: true,
+      data: logs,
+      timeframe,
+      userId,
+    });
+  } catch (error) {
+    console.error("Error fetching user API logs:", error);
+    return NextResponse.json(
+      { success: false, error: "Failed to fetch user API logs" },
       { status: 500 }
     );
   }

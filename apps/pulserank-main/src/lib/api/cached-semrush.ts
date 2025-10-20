@@ -51,11 +51,17 @@ export class CachedSEMrushClient extends SEMrushClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateSemrushCredits("domainOverview");
     await this.cacheService.recordAPICall(
       "semrush.domainOverview",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { domain, database },
+      creditData
     );
     return data;
   }
@@ -95,11 +101,17 @@ export class CachedSEMrushClient extends SEMrushClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateSemrushCredits("domainOrganic");
     await this.cacheService.recordAPICall(
       "semrush.domainOrganic",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { domain, database, displayLimit },
+      creditData
     );
 
     return data;
@@ -150,11 +162,17 @@ export class CachedSEMrushClient extends SEMrushClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateSemrushCredits("domainOrganicGross");
     await this.cacheService.recordAPICall(
       "semrush.domainOrganicGross",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { domain, database, displayLimit, displayOffset, search },
+      creditData
     );
 
     return data;
@@ -199,11 +217,17 @@ export class CachedSEMrushClient extends SEMrushClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateSemrushCredits("domainOrganicSearch");
     await this.cacheService.recordAPICall(
       "semrush.domainOrganicSearch",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { domain, database, displayLimit },
+      creditData
     );
 
     return data;
@@ -242,11 +266,17 @@ export class CachedSEMrushClient extends SEMrushClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateSemrushCredits("keywordAnalytics");
     await this.cacheService.recordAPICall(
       "semrush.keywordAnalytics",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { keyword, database },
+      creditData
     );
 
     return data;
@@ -285,11 +315,17 @@ export class CachedSEMrushClient extends SEMrushClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateSemrushCredits("keywordSuggestions");
     await this.cacheService.recordAPICall(
       "semrush.keywordSuggestions",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { keyword, database },
+      creditData
     );
 
     return data;
@@ -334,11 +370,17 @@ export class CachedSEMrushClient extends SEMrushClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateSemrushCredits("domainCompetitors");
     await this.cacheService.recordAPICall(
       "semrush.domainCompetitors",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { domain, database, displayLimit },
+      creditData
     );
 
     return data;
@@ -374,11 +416,17 @@ export class CachedSEMrushClient extends SEMrushClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateSemrushCredits("domainRank");
     await this.cacheService.recordAPICall(
       "semrush.domainRank",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { domain, database },
+      creditData
     );
 
     return data;
@@ -423,13 +471,49 @@ export class CachedSEMrushClient extends SEMrushClient {
       options
     );
 
-    // Record API call
+    // Record API call with credit tracking
+    const creditData = this.estimateSemrushCredits("subdomainOrganicUnique");
     await this.cacheService.recordAPICall(
       "semrush.subdomainOrganicUnique",
       responseTime,
-      options.userId
+      options.userId,
+      true,
+      undefined,
+      false,
+      { domain, database, displayLimit },
+      creditData
     );
 
     return data;
+  }
+
+  /**
+   * Estimate Semrush credit consumption based on endpoint and parameters
+   * Semrush charges based on API units consumed per request
+   */
+  private estimateSemrushCredits(
+    endpoint: string,
+    itemCount: number = 1
+  ): { semrush: { apiUnitsUsed?: number } } {
+    // Based on Semrush API pricing and typical usage patterns
+    const creditEstimates: Record<string, number> = {
+      domainOverview: 1, // 1 API unit per domain overview
+      domainOrganic: 1, // 1 API unit per organic data request
+      domainOrganicGross: 1, // 1 API unit per gross organic data
+      domainOrganicSearch: 1, // 1 API unit per organic search data
+      keywordAnalytics: 1, // 1 API unit per keyword analytics
+      keywordSuggestions: 1, // 1 API unit per keyword suggestions
+      domainCompetitors: 1, // 1 API unit per competitors data
+      domainRank: 1, // 1 API unit per domain rank
+      subdomainOrganicUnique: 1, // 1 API unit per subdomain data
+    };
+
+    const estimatedUnits = creditEstimates[endpoint] || 1; // Default 1 unit
+
+    return {
+      semrush: {
+        apiUnitsUsed: estimatedUnits,
+      },
+    };
   }
 }
