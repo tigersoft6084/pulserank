@@ -11,7 +11,7 @@ import {
 } from "@/lib/utils/error-handler";
 import { BASE_DATA } from "@/lib/config";
 
-const cacheService = new CacheService();
+const cacheService = CacheService.getInstance();
 const majestic = new CachedMajesticClient(cacheService);
 const dataForSEO = new CachedDataForSEOClient(cacheService);
 

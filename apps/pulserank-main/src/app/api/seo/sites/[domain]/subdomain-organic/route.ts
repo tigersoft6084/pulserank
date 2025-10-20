@@ -8,7 +8,7 @@ import {
   AuthenticationError,
 } from "@/lib/utils/error-handler";
 
-const cacheService = new CacheService();
+const cacheService = CacheService.getInstance();
 const semrush = new CachedSEMrushClient(cacheService);
 
 export async function GET(

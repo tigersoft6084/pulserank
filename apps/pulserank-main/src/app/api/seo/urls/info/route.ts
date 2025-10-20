@@ -9,7 +9,7 @@ import {
 } from "@/lib/utils/error-handler";
 import { UrlInfo } from "@/types/urls";
 
-const cacheService = new CacheService();
+const cacheService = CacheService.getInstance();
 const majestic = new CachedMajesticClient(cacheService);
 
 export async function POST(req: NextRequest) {

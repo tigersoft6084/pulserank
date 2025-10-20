@@ -9,7 +9,7 @@ import {
 } from "@/lib/utils/error-handler";
 import { BASE_DATA } from "@/lib/config";
 
-const cacheService = new CacheService();
+const cacheService = CacheService.getInstance();
 const dataForSEO = new CachedDataForSEOClient(cacheService);
 
 export async function POST(req: NextRequest) {

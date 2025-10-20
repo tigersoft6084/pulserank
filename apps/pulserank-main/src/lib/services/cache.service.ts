@@ -1,5 +1,6 @@
-import { PrismaClient } from "@repo/db";
+import { prisma } from "@repo/db";
 import crypto from "crypto";
+import { CreditTrackingService } from "./credit-tracking.service";
 
 export interface CacheOptions {
   ttl?: number; // Time to live in seconds
@@ -26,10 +27,20 @@ export interface CacheConfig {
 }
 
 export class CacheService {
-  private prisma: PrismaClient;
+  private static instance: CacheService;
+  private prisma = prisma;
+  private creditTracker: CreditTrackingService;
 
-  constructor() {
-    this.prisma = new PrismaClient();
+  private constructor() {
+    // Private constructor for singleton pattern
+    this.creditTracker = CreditTrackingService.getInstance();
+  }
+
+  public static getInstance(): CacheService {
+    if (!CacheService.instance) {
+      CacheService.instance = new CacheService();
+    }
+    return CacheService.instance;
   }
 
   /**
@@ -359,9 +370,17 @@ export class CacheService {
   }
 
   /**
-   * Record API call for statistics
+   * Record API call for statistics with actual credit tracking
    */
-  async recordAPICall(endpoint: string, responseTime: number): Promise<void> {
+  async recordAPICall(
+    endpoint: string,
+    responseTime: number,
+    userId?: string,
+    success: boolean = true,
+    errorMessage?: string,
+    cacheHit: boolean = false,
+    requestParams?: Record<string, unknown>
+  ): Promise<void> {
     try {
       const today = new Date();
       today.setHours(0, 0, 0, 0);
@@ -369,6 +388,7 @@ export class CacheService {
       // Calculate the new average response time first
       const newAverage = await this.calculateNewAverage(endpoint, responseTime);
 
+      // Update legacy CacheStats for backward compatibility
       await this.prisma.cacheStats.upsert({
         where: {
           date_endpoint: {
@@ -390,9 +410,33 @@ export class CacheService {
           averageResponseTime: responseTime,
         },
       });
+
+      // Use credit tracking service for accurate credit consumption
+      if (userId) {
+        await this.creditTracker.trackApiCall({
+          userId,
+          serviceName: this.getServiceNameFromEndpoint(endpoint),
+          endpoint,
+          responseTime,
+          success,
+          errorMessage,
+          cacheHit,
+          requestParams,
+        });
+      }
     } catch (error) {
       console.error("💥 Error recording API call:", error);
     }
+  }
+
+  /**
+   * Get service name from endpoint
+   */
+  private getServiceNameFromEndpoint(endpoint: string): string {
+    if (endpoint.startsWith("majestic.")) return "Majestic";
+    if (endpoint.startsWith("dataforseo.")) return "DataForSeo";
+    if (endpoint.startsWith("semrush.")) return "SEMRush";
+    return "unknown";
   }
 
   /**
@@ -476,5 +520,6 @@ export class CacheService {
    */
   async disconnect(): Promise<void> {
     await this.prisma.$disconnect();
+    await this.creditTracker.disconnect();
   }
 }

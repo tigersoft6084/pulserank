@@ -22,7 +22,7 @@ export class BacklinksCollectionService {
   private cacheService: CacheService;
 
   constructor() {
-    this.cacheService = new CacheService();
+    this.cacheService = CacheService.getInstance();
     this.majestic = new CachedMajesticClient(this.cacheService);
     this.dataForSEO = new CachedDataForSEOClient(this.cacheService);
   }

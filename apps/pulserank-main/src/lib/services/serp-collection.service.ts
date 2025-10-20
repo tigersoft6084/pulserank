@@ -11,7 +11,7 @@ export class SERPCollectionService {
   private cacheService: CacheService;
 
   constructor() {
-    this.cacheService = new CacheService();
+    this.cacheService = CacheService.getInstance();
     this.dataForSEO = new CachedDataForSEOClient(this.cacheService);
   }
 

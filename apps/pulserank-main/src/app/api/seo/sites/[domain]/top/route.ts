@@ -10,7 +10,7 @@ import {
 import { prisma } from "@repo/db";
 import { DomainTopBacklink } from "@/types/backlinks";
 
-const cacheService = new CacheService();
+const cacheService = CacheService.getInstance();
 const majestic = new CachedMajesticClient(cacheService);
 
 export async function GET(

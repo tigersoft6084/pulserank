@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
   }
   try {
-    const cacheService = new CacheService();
+    const cacheService = CacheService.getInstance();
 
     // Clean up expired cache entries
     await cacheService.cleanupExpiredCache();
@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
     console.error("Error in cache cleanup:", error);
     return NextResponse.json(
       { error: "Cache cleanup failed" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

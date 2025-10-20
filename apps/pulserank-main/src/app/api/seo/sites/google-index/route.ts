@@ -11,7 +11,7 @@ import { BASE_DATA } from "@/lib/config";
 import { prisma } from "@repo/db";
 import { SERPItem } from "@/types/api/dataforseo";
 
-const cacheService = new CacheService();
+const cacheService = CacheService.getInstance();
 const dataForSEO = new CachedDataForSEOClient(cacheService);
 
 export async function POST(req: NextRequest) {

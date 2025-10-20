@@ -7,7 +7,7 @@ import {
 } from "@/lib/utils/error-handler";
 import { getUser } from "@/lib/auth";
 
-const cacheService = new CacheService();
+const cacheService = CacheService.getInstance();
 
 export async function GET(request: Request) {
   try {

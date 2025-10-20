@@ -12,7 +12,7 @@ import { BASE_DATA } from "@/lib/config";
 import { prisma } from "@repo/db";
 import type { SERPData } from "@repo/db";
 
-const cacheService = new CacheService();
+const cacheService = CacheService.getInstance();
 const majestic = new CachedMajesticClient(cacheService);
 
 export async function POST(req: NextRequest) {

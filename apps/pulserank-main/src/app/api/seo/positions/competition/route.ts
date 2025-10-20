@@ -12,7 +12,7 @@ import {
 import { BASE_DATA } from "@/lib/config";
 import { CompetitionViewItem } from "@/hooks/features/sites/use-website-profiler";
 
-const cacheService = new CacheService();
+const cacheService = CacheService.getInstance();
 const dataForSEO = new CachedDataForSEOClient(cacheService);
 const majestic = new CachedMajesticClient(cacheService);
 const semrush = new CachedSEMrushClient(cacheService);
