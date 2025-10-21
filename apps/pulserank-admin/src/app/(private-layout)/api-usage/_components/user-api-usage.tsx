@@ -36,6 +36,7 @@ interface UserApiUsage {
   userId: string;
   userName: string;
   userEmail: string;
+  userImage?: string | null;
   estimatedApiCalls: number;
   lastActiveAt: Date;
   isActive: boolean;
@@ -436,7 +437,15 @@ export function UserApiUsage({ data, loading }: UserApiUsageProps) {
                     <TableCell className="min-w-[200px] xl:pl-7.5">
                       <div className="flex items-center gap-3">
                         <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                          <UserIcon className="h-5 w-5 text-primary" />
+                          {user.userImage ? (
+                            <img
+                              src={user.userImage}
+                              alt={user.userName}
+                              className="h-10 w-10 rounded-full object-cover"
+                            />
+                          ) : (
+                            <UserIcon className="h-5 w-5 text-primary" />
+                          )}
                         </div>
                         <div>
                           <h5 className="font-medium text-dark dark:text-white">

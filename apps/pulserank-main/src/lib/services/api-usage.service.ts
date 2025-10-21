@@ -33,6 +33,7 @@ export interface UserApiUsageStats {
   userId: string;
   userName: string;
   userEmail: string;
+  userImage?: string | null;
   totalCalls: number;
   totalCreditsUsed: number;
   totalCost: number;
@@ -201,6 +202,7 @@ export class ApiUsageService {
               id: true,
               name: true,
               email: true,
+              image: true,
               lastActiveAt: true,
               userOrders: {
                 where: {
@@ -357,6 +359,7 @@ export class ApiUsageService {
             userId: stat.userId,
             userName: stat.user.name || stat.user.email,
             userEmail: stat.user.email,
+            userImage: stat.user.image,
             totalCalls: stat.totalCalls,
             totalCreditsUsed: this.calculateTotalCredits(stat),
             totalCost: this.calculateTotalCost(stat),

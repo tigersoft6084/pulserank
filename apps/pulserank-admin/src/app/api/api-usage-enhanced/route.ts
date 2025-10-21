@@ -69,6 +69,7 @@ export async function GET(request: NextRequest) {
         userId: stat.userId,
         userName: stat.userName,
         userEmail: stat.userEmail,
+        userImage: stat.userImage,
         estimatedApiCalls: stat.totalCalls, // Map to expected field name
         keywordCount: 0, // This would need to be calculated from actual data
         siteCount: 0, // This would need to be calculated from actual data
