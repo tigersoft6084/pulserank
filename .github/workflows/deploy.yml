@@ -85,7 +85,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_PRIVATE_KEY }}
           source: "deploy-package/*"
-          target: "/root/vnycorn/seobserver"
+          target: "/root/vnycorn/pulserank-turborepo"
           strip_components: 1
           rm: true
 
@@ -120,7 +120,7 @@ jobs:
             fi
 
             # Navigate to deployment directory
-            cd /root/vnycorn/seobserver
+            cd /root/vnycorn/pulserank-turborepo
 
             # Install dependencies (including devDependencies for Prisma CLI)
             pnpm install --frozen-lockfile
@@ -134,7 +134,7 @@ jobs:
               apps: [
                 {
                   name: 'pulserank-main',
-                  cwd: '/root/vnycorn/seobserver/apps/pulserank-main',
+                  cwd: '/root/vnycorn/pulserank-turborepo/apps/pulserank-main',
                   script: 'pnpm',
                   args: 'start',
                   env: {
@@ -144,7 +144,7 @@ jobs:
                 },
                 {
                   name: 'pulserank-admin',
-                  cwd: '/root/vnycorn/seobserver/apps/pulserank-admin',
+                  cwd: '/root/vnycorn/pulserank-turborepo/apps/pulserank-admin',
                   script: 'pnpm',
                   args: 'start',
                   env: {
