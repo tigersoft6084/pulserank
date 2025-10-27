@@ -20,6 +20,8 @@ export async function POST(req: NextRequest) {
     }
 
     const { keyword, base = "com_en" } = await req.json();
+    console.log("😊keyword", keyword);
+    console.log("😊base", base);
     if (!keyword) {
       throw new ValidationError("Keyword is required");
     }

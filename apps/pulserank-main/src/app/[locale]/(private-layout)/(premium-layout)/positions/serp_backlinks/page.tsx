@@ -37,6 +37,7 @@ import { flagMap } from "@/lib/utils/flag-static-map";
 import { LatestBacklinksModal } from "@/components/features/backlinks/latest-backlinks-modal";
 import { useSearchParams } from "next/navigation";
 import { useTableSort } from "@/hooks/use-table-sort";
+import { useLanguageStore } from "@/store/language-store";
 
 export default function SERPBacklinksPage() {
   const t = useTranslations("serpBacklinks");
@@ -44,9 +45,17 @@ export default function SERPBacklinksPage() {
   const keywordFromUrl = searchParams.get("keyword") || "";
   const baseFromUrl = searchParams.get("base") || "com_en";
 
+  const { currentBase, setBase } = useLanguageStore();
   const [keyword, setKeyword] = useState(keywordFromUrl);
   const [submittedKeyword, setSubmittedKeyword] = useState(keywordFromUrl);
   const [selectedBase, setSelectedBase] = useState(baseFromUrl);
+
+  // Sync selectedBase with store
+  useEffect(() => {
+    if (selectedBase !== currentBase) {
+      setBase(selectedBase);
+    }
+  }, [selectedBase, currentBase, setBase]);
   const [selections, setSelections] = useState<
     Record<number, "URL" | "Domain" | "Off">
   >({});
@@ -69,7 +78,7 @@ export default function SERPBacklinksPage() {
     data: serpResults,
     isLoading: fetchingSERPData,
     error,
-  } = useGetSERPResults(submittedKeyword, selectedBase);
+  } = useGetSERPResults(submittedKeyword);
 
   // Filter valid results for sorting
   const validResults =
@@ -77,7 +86,7 @@ export default function SERPBacklinksPage() {
 
   // Add sorting functionality
   const { sortedData, sortConfig, handleSort } = useTableSort(
-    validResults as unknown as Record<string, unknown>[],
+    validResults as unknown as Record<string, unknown>[]
   );
 
   // Set default selections when SERP results are loaded
@@ -110,7 +119,7 @@ export default function SERPBacklinksPage() {
 
   const handleSelectionChange = (
     rank: number,
-    value: "URL" | "Domain" | "Off",
+    value: "URL" | "Domain" | "Off"
   ) => {
     setSelections((prev) => ({
       ...prev,
@@ -264,7 +273,7 @@ export default function SERPBacklinksPage() {
                 {/* Show info about filtered results */}
                 {(() => {
                   const validResults = serpResults.filter(
-                    (result) => result.url && isValidUrl(result.url),
+                    (result) => result.url && isValidUrl(result.url)
                   );
                   const invalidCount = serpResults.length - validResults.length;
 
@@ -347,7 +356,7 @@ export default function SERPBacklinksPage() {
                             <Select
                               value={selection}
                               onValueChange={(
-                                value: "URL" | "Domain" | "Off",
+                                value: "URL" | "Domain" | "Off"
                               ) =>
                                 handleSelectionChange(typedResult.rank, value)
                               }

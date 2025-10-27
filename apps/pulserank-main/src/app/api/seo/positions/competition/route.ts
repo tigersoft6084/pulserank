@@ -25,6 +25,9 @@ export async function POST(req: NextRequest) {
     }
 
     const { keyword, base = "com_en", singleUrl } = await req.json();
+    console.log("😊keyword", keyword);
+    console.log("😊base", base);
+    console.log("😊singleUrl", singleUrl);
     if (!keyword && !singleUrl) {
       throw new ValidationError("Either keyword or singleUrl is required");
     }
@@ -43,6 +46,7 @@ export async function POST(req: NextRequest) {
     } else {
       // Keyword-based analysis mode
       // Step 1: Get SERP results (top 10 organic results)
+      console.log("😊dataforseo request started");
       const serpResponse = await dataForSEO.getSERPData(
         keyword,
         baseConfig.location_code,
@@ -51,7 +55,7 @@ export async function POST(req: NextRequest) {
           userId: session.user.id,
         }
       );
-
+      console.log("😊dataforseo request completed");
       if (!serpResponse.tasks?.[0]?.result?.[0]?.items) {
         throw new ValidationError("No SERP data returned for the keyword");
       }
@@ -85,7 +89,7 @@ export async function POST(req: NextRequest) {
 
     // Step 3: Get competition data for each URL
     const results: CompetitionViewItem[] = [];
-
+    console.log("😊majestic request started");
     for (const url of urls) {
       try {
         // Convert domain to full URL for URL metrics
@@ -100,7 +104,6 @@ export async function POST(req: NextRequest) {
             userId: session.user.id,
           }
         );
-
         // Get domain metrics (domain only)
         const [domainIndexInfo] = await majestic.getIndexItemInfo(
           [domain],
@@ -109,13 +112,16 @@ export async function POST(req: NextRequest) {
             userId: session.user.id,
           }
         );
+        console.log("😊majestic request completed");
 
         // Get SEMrush data
         let semrushData = { keywords: 0, traffic: 0 };
         try {
+          console.log("😊semrush request started");
           const domainRankData = await semrush.getDomainRank(domain, "us", {
             userId: session.user.id,
           });
+          console.log("😊semrush request completed");
           semrushData = {
             keywords: domainRankData.organicKeywords,
             traffic: domainRankData.organicTraffic,

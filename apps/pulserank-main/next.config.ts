@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
     DATABASE_URL: process.env.DATABASE_URL,
   },
   /** Enables hot reloading for local packages without a build step */
-  transpilePackages: ["@acme/api", "@acme/auth", "@acme/db"],
+  transpilePackages: ["@repo/db"],
   /** We already do linting and typechecking as separate tasks in CI */
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },

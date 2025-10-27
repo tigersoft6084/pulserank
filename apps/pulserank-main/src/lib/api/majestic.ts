@@ -11,7 +11,6 @@ import type {
   AnchorTextData,
   HostedDomainItem,
   MajesticSubscriptionData,
-  MajesticCreditUsage,
 } from "@/types/api/majestic";
 import { prisma } from "@repo/db";
 import { getDomainIP } from "../utils/dns-utils";
@@ -82,9 +81,6 @@ export class MajesticClient {
 
     const majesticData = await this.request("GetIndexItemInfo", params);
 
-    // Track credit usage after API call
-    await this.trackCreditUsage();
-
     const results = majesticData.DataTables.Results.Data.map(
       (item: IndexItemInfo, index: number) => ({
         URL: urls[index], // Add the original URL
@@ -145,9 +141,6 @@ export class MajesticClient {
     }
 
     const majesticData = await this.request("GetBackLinkData", params);
-
-    // Track credit usage after API call
-    await this.trackCreditUsage();
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return majesticData.DataTables.BackLinks.Data.map((item: any) => ({
@@ -234,9 +227,6 @@ export class MajesticClient {
 
     const majesticData = await this.request("GetRefDomains", params);
 
-    // Track credit usage after API call
-    await this.trackCreditUsage();
-
     const results = majesticData.DataTables.Results.Data;
 
     // Store domain information to database (historical data)
@@ -255,9 +245,6 @@ export class MajesticClient {
       datasource: dataSource,
       Count: count,
     });
-
-    // Track credit usage after API call
-    await this.trackCreditUsage();
 
     return {
       TotalBacklinks: majesticData.DataTables.AnchorText.Headers.TotalBackLinks,
@@ -285,9 +272,6 @@ export class MajesticClient {
       Count: count,
     });
 
-    // Track credit usage after API call
-    await this.trackCreditUsage();
-
     return majesticData.DataTables.Topics.Data.map((item: TopicItem) => ({
       Topic: item.Topic,
       RefDomains: item.RefDomains,
@@ -306,9 +290,6 @@ export class MajesticClient {
       From: from,
       Count: count,
     });
-
-    // Track credit usage after API call
-    await this.trackCreditUsage();
 
     return majesticData.DataTables.Matches.Data.map((item: TopPageItem) => ({
       URL: item.URL,
@@ -333,9 +314,6 @@ export class MajesticClient {
       Mode: mode,
     });
 
-    // Track credit usage after API call
-    await this.trackCreditUsage();
-
     return majesticData.DataTables.BackLinks.Data;
   }
 
@@ -353,9 +331,6 @@ export class MajesticClient {
       datasource: dataSource,
       MaxDomains: 100,
     });
-
-    // Track credit usage after API call
-    await this.trackCreditUsage();
 
     return {
       domainsOnIP: majesticData.DataTables.DomainsOnIP.Data,
@@ -628,77 +603,6 @@ export class MajesticClient {
 
     const response = await this.request("GetSubscriptionInfo", params);
     return response;
-  }
-
-  /**
-   * Track credit usage changes and log them
-   */
-  private async trackCreditUsage(): Promise<void> {
-    try {
-      const subscriptionInfo = await this.getSubscriptionInfo();
-
-      if (subscriptionInfo.Code !== "OK") {
-        console.error(
-          "Failed to get subscription info:",
-          subscriptionInfo.ErrorMessage
-        );
-        return;
-      }
-
-      const currentSubscriptionData =
-        subscriptionInfo.DataTables.Subscriptions.Data[0];
-
-      if (!currentSubscriptionData) {
-        console.error("No subscription data found");
-        return;
-      }
-
-      if (this.lastSubscriptionData) {
-        const changes: MajesticCreditUsage["changes"] = {};
-        let hasChanges = false;
-
-        // Compare current data with last known data
-        const fieldsToTrack = [
-          "IndexItemInfoResUnits",
-          "RetrievalResUnits",
-          "AnalysisResUnits",
-          "AdvancedReportsRemaining",
-          "StandardReportsRemaining",
-          "DetailedReportsPerPeriodRemaining",
-        ] as const;
-
-        fieldsToTrack.forEach((field) => {
-          const currentValue = currentSubscriptionData[field];
-          const lastValue = this.lastSubscriptionData![field];
-
-          if (currentValue !== lastValue) {
-            (changes as Record<string, number>)[field] =
-              currentValue - lastValue;
-            hasChanges = true;
-          }
-        });
-
-        if (hasChanges) {
-          const creditUsage: MajesticCreditUsage = {
-            timestamp: new Date().toISOString(),
-            subscriptionData: currentSubscriptionData,
-            changes,
-          };
-
-          console.log(
-            "🔍 Majestic API Credit Usage Changes:",
-            JSON.stringify(creditUsage, null, 2)
-          );
-        }
-      }
-
-      // Update last known subscription data
-      this.lastSubscriptionData = currentSubscriptionData;
-    } catch (error) {
-      const errorMessage =
-        error instanceof Error ? error.message : String(error);
-      console.error(`Error tracking credit usage: ${errorMessage}`);
-    }
   }
 
   /**

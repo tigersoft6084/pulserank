@@ -90,7 +90,7 @@ export default function PositionsCompetitionPage() {
         }
       }
     },
-    [keyword],
+    [keyword]
   );
 
   const processUrls = (data: CompetitionViewItem[], type: string) => {
@@ -154,7 +154,7 @@ export default function PositionsCompetitionPage() {
     const encodedKeyword = encodeURIComponent(submittedKeyword);
     const encodedBase = encodeURIComponent(currentBase);
     router.push(
-      `/positions/serp_backlinks?keyword=${encodedKeyword}&base=${encodedBase}`,
+      `/positions/serp_backlinks?keyword=${encodedKeyword}&base=${encodedBase}`
     );
   };
 
@@ -363,7 +363,7 @@ export default function PositionsCompetitionPage() {
                   type: "site",
                   extracted: extractedDomain,
                 };
-              },
+              }
             )}
           />
           <GoogleTrendsChart

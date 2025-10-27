@@ -10,7 +10,6 @@ import {
 import { SERPResult } from "@/types/serp";
 import { BASE_DATA } from "@/lib/config";
 import { prisma } from "@repo/db";
-import type { SERPData } from "@repo/db";
 
 const cacheService = CacheService.getInstance();
 const dataForSEO = new CachedDataForSEOClient(cacheService);
@@ -45,7 +44,6 @@ export async function POST(req: NextRequest) {
           },
         },
       });
-
       if (!keywordRecord) {
         throw new ValidationError("Keyword not found in database");
       }
@@ -87,26 +85,24 @@ export async function POST(req: NextRequest) {
       const historicalSERP = historicalData[0];
 
       // Filter out items with invalid URLs
-      const validHistoricalResults = historicalSERP.serp_data.filter(
-        (item: SERPData) => {
-          if (!item.url) return false;
+      const validHistoricalResults = historicalSERP.serp_data.filter((item) => {
+        if (!item.url) return false;
 
-          try {
-            // Check if URL is valid
-            const url = new URL(
-              item.url.startsWith("http") ? item.url : `https://${item.url}`
-            );
-            return url.hostname && url.hostname.length > 0;
-          } catch {
-            return false;
-          }
+        try {
+          // Check if URL is valid
+          const url = new URL(
+            item.url.startsWith("http") ? item.url : `https://${item.url}`
+          );
+          return url.hostname && url.hostname.length > 0;
+        } catch {
+          return false;
         }
-      );
+      });
 
       // Transform to SERPResult format (top 100 results)
       const serpResults: SERPResult[] = validHistoricalResults
         .slice(0, 100)
-        .map((item: SERPData) => ({
+        .map((item) => ({
           rank: item.rank,
           url: item.url,
           title: item.title,

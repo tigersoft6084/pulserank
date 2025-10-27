@@ -135,6 +135,10 @@ export class DataForSEOClient {
   ): Promise<KeywordMetrics["trends"]> {
     // Ensure credentials are initialized before making request
 
+    console.log("😊keyword", keyword);
+    console.log("😊dateFrom", dateFrom);
+    console.log("😊dateTo", dateTo);
+
     try {
       const client = await this.initializeCredentials();
 
@@ -146,6 +150,7 @@ export class DataForSEOClient {
           date_to: dateTo,
         }
       );
+      console.log("😊response", response.data);
 
       const data = response.data.tasks?.[0]?.result?.[0];
       if (!data) {
@@ -465,12 +470,30 @@ export class DataForSEOClient {
       const client = await this.initializeCredentials();
 
       // Calculate date range for last 4 years if not provided
-      const toDate = dateTo || new Date().toISOString().split("T")[0];
+      const toDate =
+        dateTo ||
+        new Date(Date.now() - 1 * 24 * 60 * 60 * 1000)
+          .toISOString()
+          .split("T")[0];
       const fromDate =
         dateFrom ||
         new Date(Date.now() - 4 * 365 * 24 * 60 * 60 * 1000)
           .toISOString()
           .split("T")[0];
+
+      console.log("😊😊keywords", keywords);
+      console.log("😊😊locationCode", locationCode);
+      console.log("😊😊languageCode", languageCode);
+      console.log("😊😊fromDate", fromDate);
+      console.log("😊😊toDate", toDate);
+
+      console.log("😊😊request", {
+        keywords,
+        location_code: locationCode,
+        language_code: languageCode,
+        date_from: fromDate,
+        date_to: toDate,
+      });
 
       const response = await client.post(
         "/v3/keywords_data/google_trends/explore/live",
@@ -484,6 +507,8 @@ export class DataForSEOClient {
           },
         ]
       );
+
+      console.log("😊😊response", response.data);
 
       const data = response.data.tasks?.[0]?.result?.[0];
       if (!data) {
