@@ -17,12 +17,14 @@ import {
 } from "@/components/ui/confirmation-dialog-new";
 import { DataTableInputs } from "@/components/FormElements/DataTableInputs";
 import dayjs from "dayjs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { UserManagementTableSkeleton } from "./skeleton";
 export function UserManagementTable() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedRole, setSelectedRole] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize] = useState(1);
   const [isConfirmationDialogOpen, setIsConfirmationDialogOpen] =
     useState(false);
   const [confirmationConfig, setConfirmationConfig] =
@@ -39,11 +41,16 @@ export function UserManagementTable() {
   } | null>(null);
 
   const { data, isLoading, error } = useUsers({
+    page: currentPage,
+    limit: pageSize,
     search: searchTerm,
     role: selectedRole,
     status: selectedStatus,
-    limit: 10,
   });
+
+  useEffect(() => {
+    console.log("😊data", data);
+  }, [data]);
 
   const deleteUserMutation = useDeleteUser();
 
@@ -74,6 +81,11 @@ export function UserManagementTable() {
   const handleCancelDelete = () => {
     setUserToDelete(null);
   };
+
+  // Reset to first page when filters/search change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm, selectedRole, selectedStatus]);
 
   if (isLoading) {
     return <UserManagementTableSkeleton />;
@@ -113,7 +125,15 @@ export function UserManagementTable() {
 
         {data?.pagination && (
           <div className="text-sm text-neutral-500 dark:text-neutral-400">
-            Showing {users.length} of {data.pagination.total} users
+            Showing{" "}
+            {(data.pagination.page - 1) * data.pagination.limit +
+              (users.length > 0 ? 1 : 0)}{" "}
+            to{" "}
+            {Math.min(
+              data.pagination.page * data.pagination.limit,
+              data.pagination.total
+            )}{" "}
+            of {data.pagination.total} users
           </div>
         )}
       </div>
@@ -257,6 +277,76 @@ export function UserManagementTable() {
           )}
         </TableBody>
       </Table>
+
+      {/* Pagination Controls */}
+      {data?.pagination && data.pagination.totalPages > 1 && (
+        <div className="mt-6 flex items-center justify-between">
+          <div className="text-sm text-neutral-500 dark:text-neutral-400">
+            Page {data.pagination.page} of {data.pagination.totalPages}
+          </div>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setCurrentPage(currentPage - 1)}
+              disabled={currentPage === 1}
+              className={cn(
+                "rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                currentPage === 1
+                  ? "cursor-not-allowed bg-gray-50 text-gray-400 dark:bg-gray-800 dark:text-gray-600"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
+              )}
+            >
+              Previous
+            </button>
+
+            <div className="flex items-center gap-1">
+              {Array.from(
+                { length: Math.min(5, data.pagination.totalPages) },
+                (_, i) => {
+                  let pageNum;
+                  if (data.pagination.totalPages <= 5) {
+                    pageNum = i + 1;
+                  } else if (currentPage <= 3) {
+                    pageNum = i + 1;
+                  } else if (currentPage >= data.pagination.totalPages - 2) {
+                    pageNum = data.pagination.totalPages - 4 + i;
+                  } else {
+                    pageNum = currentPage - 2 + i;
+                  }
+
+                  return (
+                    <button
+                      key={pageNum}
+                      onClick={() => setCurrentPage(pageNum)}
+                      className={cn(
+                        "rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                        pageNum === currentPage
+                          ? "bg-primary text-white"
+                          : "bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
+                      )}
+                    >
+                      {pageNum}
+                    </button>
+                  );
+                }
+              )}
+            </div>
+
+            <button
+              onClick={() => setCurrentPage(currentPage + 1)}
+              disabled={currentPage === data.pagination.totalPages}
+              className={cn(
+                "rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                currentPage === data.pagination.totalPages
+                  ? "cursor-not-allowed bg-gray-50 text-gray-400 dark:bg-gray-800 dark:text-gray-600"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
+              )}
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Confirmation Dialog */}
       <ConfirmationDialog
