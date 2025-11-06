@@ -23,7 +23,7 @@ export function UserManagementTable() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedRole, setSelectedRole] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(10);
   const [pageSize] = useState(1);
   const [isConfirmationDialogOpen, setIsConfirmationDialogOpen] =
     useState(false);
@@ -47,10 +47,6 @@ export function UserManagementTable() {
     role: selectedRole,
     status: selectedStatus,
   });
-
-  useEffect(() => {
-    console.log("😊data", data);
-  }, [data]);
 
   const deleteUserMutation = useDeleteUser();
 
