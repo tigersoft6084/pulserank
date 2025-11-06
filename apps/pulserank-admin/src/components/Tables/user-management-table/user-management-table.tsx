@@ -19,12 +19,13 @@ import { DataTableInputs } from "@/components/FormElements/DataTableInputs";
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 import { UserManagementTableSkeleton } from "./skeleton";
+
 export function UserManagementTable() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedRole, setSelectedRole] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("");
-  const [currentPage, setCurrentPage] = useState(10);
-  const [pageSize] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize] = useState(10);
   const [isConfirmationDialogOpen, setIsConfirmationDialogOpen] =
     useState(false);
   const [confirmationConfig, setConfirmationConfig] =
