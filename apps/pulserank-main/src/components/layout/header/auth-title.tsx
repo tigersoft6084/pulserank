@@ -1,12 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Button } from "@/components/ui/button";
 
 export function AuthTitle() {
   const t = useTranslations("header");
   return (
-    <Link href="/dashboard" className="mx-4 min-w-[128px]">
-      <Image src="/logo.svg" alt={t("logo")} width={128} height={48} />
-    </Link>
+    <div className="w-full flex items-center justify-between px-4">
+      <Link href="/" className="min-w-[128px]">
+        <Image src="/logo.svg" alt={t("logo")} width={128} height={48} />
+      </Link>
+      <Button variant="ghost">
+        Log out
+      </Button>
+    </div>
   );
 }

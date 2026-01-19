@@ -1,15 +1,10 @@
 import { PropsWithChildren } from "react";
-import { redirect } from "next/navigation";
 import { getUser } from "@/lib/auth";
 import { DashboardTourProvider } from "@/providers/tour/dashboard-tour-provider";
 // import { BreadcrumbNavWithHeading } from "@/components/layout/breadcrumb-nav";
 
 export default async function PrivateLayout({ children }: PropsWithChildren) {
   const session = await getUser();
-
-  if (session?.user.isActive) {
-    return redirect("/dashboard");
-  }
 
   return (
     <DashboardTourProvider>

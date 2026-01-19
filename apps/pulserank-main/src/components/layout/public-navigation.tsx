@@ -1,11 +1,8 @@
-"use client";
-
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { getUser } from "@/lib/auth";
+import { MobileNavigation } from "./mobile-navigation";
 
 const menuItems = [
   { label: "Welcome", href: "#welcome", isActive: true },
@@ -13,11 +10,21 @@ const menuItems = [
   { label: "Features", href: "#features", isActive: false },
   { label: "Benefits", href: "#benefits", isActive: false },
   { label: "Price", href: "#price", isActive: false },
-  { label: "Login", href: "/sign-in", isActive: false },
+  { label: "Login", href: "/sign-in", isActive: false, isLoggedIn: false },
+  { label: "Logout", href: "/sign-out", isActive: false, isLoggedIn: true },
 ];
 
-export function PublicNavigation() {
-  const [isOpen, setIsOpen] = React.useState(false);
+export async function PublicNavigation() {
+  const session = await getUser();
+  const isLoggedIn = !!session?.user;
+
+  const filteredItems = menuItems.filter((item) => {
+    if (isLoggedIn) {
+      return item.isLoggedIn !== false;
+    } else {
+      return item.isLoggedIn !== true;
+    }
+  });
 
   return (
     <nav
@@ -34,7 +41,7 @@ export function PublicNavigation() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-6">
-          {menuItems.map((item) => (
+          {filteredItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
@@ -49,35 +56,8 @@ export function PublicNavigation() {
           ))}
         </div>
 
-        {/* Mobile Menu Button */}
-        <div className="md:hidden">
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="h-9 w-9">
-                <Menu className="h-5 w-5" />
-                <span className="sr-only">Open menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <div className="flex flex-col space-y-6 mt-8">
-                {menuItems.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className={`text-lg font-medium transition-colors duration-200 py-3 px-4 rounded-md ${
-                      item.isActive
-                        ? "text-primary bg-primary/10 border-l-4 border-primary font-semibold"
-                        : "text-muted-foreground hover:text-foreground hover:bg-accent"
-                    }`}
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            </SheetContent>
-          </Sheet>
-        </div>
+        {/* Mobile Menu */}
+        <MobileNavigation items={filteredItems} />
       </div>
     </nav>
   );

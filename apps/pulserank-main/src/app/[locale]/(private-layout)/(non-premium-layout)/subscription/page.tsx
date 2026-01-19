@@ -5,10 +5,8 @@ import { PlanSection } from "@/components/features/subscription/plan-section";
 
 export default function SubscriptionPage() {
   return (
-    <div className="flex h-screen justify-center items-center relative">
-      <div className="absolute top-4 left-4">
-        <AuthTitle />
-      </div>
+    <div className="h-screen relative">
+      <AuthTitle />
       <PlanSection />
     </div>
   );

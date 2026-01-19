@@ -10,7 +10,7 @@ export default function SignOutButton() {
     <button
       className="w-24"
       onClick={() => {
-        signOut();
+        signOut({ callbackUrl: "/" });
       }}
     >
       {t("signOut")}
