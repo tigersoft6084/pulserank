@@ -10,8 +10,8 @@ export function AuthTitle() {
       <Link href="/" className="min-w-[128px]">
         <Image src="/logo.svg" alt={t("logo")} width={128} height={48} />
       </Link>
-      <Button variant="ghost">
-        Log out
+      <Button variant="ghost" asChild>
+        <Link href="/sign-out">{t("signOut")}</Link>
       </Button>
     </div>
   );
