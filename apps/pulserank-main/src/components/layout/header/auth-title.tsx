@@ -11,7 +11,7 @@ export function AuthTitle() {
         <Image src="/logo.svg" alt={t("logo")} width={128} height={48} />
       </Link>
       <Button variant="ghost" asChild>
-        <Link href="/sign-out">{t("signOut")}</Link>
+        <Link href="/sign-out">Log out</Link>
       </Button>
     </div>
   );
