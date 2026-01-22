@@ -398,7 +398,11 @@ export class MajesticClient {
                 citation_flow: result.CitationFlow,
                 percentage: percentage,
                 topical_trust_flow_topic_0: result.TopicalTrustFlow_Topic_0,
-                topical_trust_flow_value_0: result.TopicalTrustFlow_Value_0,
+                topical_trust_flow_value_0: result.TopicalTrustFlow_Value_0
+                  ? typeof result.TopicalTrustFlow_Value_0 === "string"
+                    ? parseInt(result.TopicalTrustFlow_Value_0) || 0
+                    : result.TopicalTrustFlow_Value_0
+                  : 0,
               },
             });
           }
