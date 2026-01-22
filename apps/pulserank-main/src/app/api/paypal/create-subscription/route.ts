@@ -109,15 +109,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Plan not found" }, { status: 404 });
     }
 
-    console.log("😊plan", plan);
-
     // Create PayPal subscription
     const paypalSubscription = await paypalService.createSubscription({
       planId: plan.id,
       paypalPlanId: plan.paypalPlanId,
     });
-
-    console.log("😊paypalSubscription", paypalSubscription);
 
     // Handle user order creation/update
     const existingOrder = await prisma.userOrder.findFirst({

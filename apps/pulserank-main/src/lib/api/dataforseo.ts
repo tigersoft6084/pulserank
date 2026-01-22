@@ -54,7 +54,14 @@ export class DataForSEOClient {
     }
   }
 
-  private handleError(error: unknown): never {
+  private handleError(error: any): never {
+    if (error.response.data) {
+      if (error.response.data.tasks && error.response.data.tasks[0]) {
+        console.error("[ERROR]", error.response.data.tasks[0].status_message);
+      } else {
+        console.error("[ERROR]", error.response.data);
+      }
+    }
     if (axios.isAxiosError(error)) {
       const axiosError = error as AxiosError;
       throw new ExternalAPIError(`DataForSEO API error: ${axiosError.message}`);
@@ -134,11 +141,6 @@ export class DataForSEOClient {
     dateTo: string
   ): Promise<KeywordMetrics["trends"]> {
     // Ensure credentials are initialized before making request
-
-    console.log("😊keyword", keyword);
-    console.log("😊dateFrom", dateFrom);
-    console.log("😊dateTo", dateTo);
-
     try {
       const client = await this.initializeCredentials();
 
@@ -150,7 +152,6 @@ export class DataForSEOClient {
           date_to: dateTo,
         }
       );
-      console.log("😊response", response.data);
 
       const data = response.data.tasks?.[0]?.result?.[0];
       if (!data) {
@@ -481,20 +482,6 @@ export class DataForSEOClient {
           .toISOString()
           .split("T")[0];
 
-      console.log("😊😊keywords", keywords);
-      console.log("😊😊locationCode", locationCode);
-      console.log("😊😊languageCode", languageCode);
-      console.log("😊😊fromDate", fromDate);
-      console.log("😊😊toDate", toDate);
-
-      console.log("😊😊request", {
-        keywords,
-        location_code: locationCode,
-        language_code: languageCode,
-        date_from: fromDate,
-        date_to: toDate,
-      });
-
       const response = await client.post(
         "/v3/keywords_data/google_trends/explore/live",
         [
@@ -507,8 +494,6 @@ export class DataForSEOClient {
           },
         ]
       );
-
-      console.log("😊😊response", response.data);
 
       const data = response.data.tasks?.[0]?.result?.[0];
       if (!data) {
